@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -41,6 +42,14 @@ public class Movement : MonoBehaviour
         var playerSpeed = Input.GetAxis("Horizontal") * acceleration;
         _playerRigidBody.velocity = new Vector2(playerSpeed, _playerRigidBody.velocity.y);
         // _playerRigidBody.velocity = _desiredVelocity;
+    }
+
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Triangle"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     public void Move(InputAction.CallbackContext context)

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorfulObject : MonoBehaviour
+public abstract class ColorfulObject : MonoBehaviour
 {
     public Rigidbody2D _rigidbody2D;
 
