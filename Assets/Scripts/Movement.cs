@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-
     [SerializeField] private float maxSpeed;
     [SerializeField] private float acceleration;
     [SerializeField] private LayerMask groundLayer;

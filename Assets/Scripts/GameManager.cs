@@ -2,53 +2,37 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-
-    public static GameManager gameManager;
-    
-    [SerializeField] private Button redButton;
-    [SerializeField] private Button yellowButton;
-
-    private Color _color; 
-
-
-    private void Awake()
+    public static GameManager Manager;
+    public enum Colors
     {
-        if (gameManager == null)
-        {
-            gameManager = this;
-            DontDestroyOnLoad(this);
-        }
-        
-    }
+        Red,
+        Blue,
+        Green
+    };
 
-    // Start is called before the first frame update
+    public static Dictionary<Colors, List<ColorfulObject>> colorfulObjectsMap =
+        new Dictionary<Colors, List<ColorfulObject>>();
+
+    public static Dictionary<Colors, Ability> colorsAbilityMap = new Dictionary<Colors, Ability>();
     void Start()
     {
-        redButton.onClick.AddListener(ChangeSceneRed);
-        yellowButton.onClick.AddListener(ChangeSceneYellow);
+        Manager = this;
+        foreach (Colors color in Enum.GetValues(typeof(Colors)))
+        {
+            colorfulObjectsMap[color] = new List<ColorfulObject>();
+            colorsAbilityMap[color] = new EmptyAbility();
+        }
     }
 
-    private void ChangeSceneRed()
+    public void ChangeAbility()
     {
-        _color = Color.red;
-        SceneManager.LoadScene("ChangedColors");
+        colorsAbilityMap[Colors.Green] = new FloatingAbility();
+        foreach (var obj in colorfulObjectsMap[Colors.Green])
+        {
+            colorsAbilityMap[Colors.Green].RunAbility(obj);
+        }
     }
-    
-    private void ChangeSceneYellow()
-    {
-        _color = Color.yellow;
-        SceneManager.LoadScene("ChangedColors");
-    }
-
-    public Color getColor()
-    {
-        return _color;
-    }
-    
-    
 }
