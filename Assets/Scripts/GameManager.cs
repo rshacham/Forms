@@ -14,16 +14,16 @@ public class GameManager : MonoBehaviour
     };
 
     public static Dictionary<Colors, List<ColorfulObject>> colorfulObjectsMap =
-        new Dictionary<Colors, List<ColorfulObject>>();
+        new();
 
-    public static Dictionary<Colors, Ability> colorsAbilityMap = new Dictionary<Colors, Ability>();
-    void Start()
+    public static Dictionary<Colors, Ability> colorsAbilityMap = new();
+    void Awake()
     {
         Manager = this;
         foreach (Colors color in Enum.GetValues(typeof(Colors)))
         {
             colorfulObjectsMap[color] = new List<ColorfulObject>();
-            colorsAbilityMap[color] = new EmptyAbility();
+            colorsAbilityMap[color] = gameObject.AddComponent<EmptyAbility>();
         }
     }
 

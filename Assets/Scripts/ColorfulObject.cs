@@ -6,8 +6,9 @@ using UnityEngine;
 public abstract class ColorfulObject : MonoBehaviour
 {
     public Rigidbody2D _rigidbody2D;
-
     private Collider2D _collider;
+    
+    private float defaultGravity;
 
     [SerializeField] private GameManager.Colors color;
 
@@ -17,6 +18,12 @@ public abstract class ColorfulObject : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
+        defaultGravity = _rigidbody2D.gravityScale;
         GameManager.colorfulObjectsMap[color].Add(this);
+    }
+
+    public void ResetAbility()
+    {
+        _rigidbody2D.gravityScale = defaultGravity;
     }
 }

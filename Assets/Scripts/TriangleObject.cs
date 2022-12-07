@@ -13,9 +13,4 @@ public class TriangleObject : ColorfulObject
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
-    
-    void Update()
-    {
-        
-    }
 }
