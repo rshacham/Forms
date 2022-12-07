@@ -27,12 +27,5 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ChangeAbility()
-    {
-        colorsAbilityMap[Colors.Green] = new FloatingAbility();
-        foreach (var obj in colorfulObjectsMap[Colors.Green])
-        {
-            colorsAbilityMap[Colors.Green].RunAbility(obj);
-        }
-    }
+    
 }

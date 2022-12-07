@@ -11,6 +11,8 @@ public abstract class ColorfulObject : MonoBehaviour
 
     [SerializeField] private GameManager.Colors color;
 
+    private GameManager GameManager;
+
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
