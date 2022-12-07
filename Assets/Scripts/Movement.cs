@@ -44,13 +44,7 @@ public class Movement : MonoBehaviour
         // _playerRigidBody.velocity = _desiredVelocity;
     }
 
-    public void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Triangle"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }
+
 
     public void Move(InputAction.CallbackContext context)
     {
