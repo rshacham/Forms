@@ -14,7 +14,6 @@ public class TriangleObject : ColorfulObject
         }
     }
     
-    // Update is called once per frame
     void Update()
     {
         

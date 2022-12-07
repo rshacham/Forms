@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
     
     
     private bool _canMove = true;
-    private BoxCollider2D _boxCollider2D;
+    private Collider2D collider;
     private float _speed_t = 0;
     private Rigidbody2D _playerRigidBody;
     private Vector2 _desiredVelocity;
@@ -28,7 +28,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         _playerRigidBody = GetComponent<Rigidbody2D>();
-        _boxCollider2D = GetComponent<BoxCollider2D>();
+        collider = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -73,7 +73,7 @@ public class Movement : MonoBehaviour
 
     private bool CheckIfGrounded()
     {
-        var colliderBounds = _boxCollider2D.bounds;
+        var colliderBounds = collider.bounds;
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(colliderBounds.center,
             colliderBounds.size, 0,
             Vector2.down, 0.1f, groundLayer);
