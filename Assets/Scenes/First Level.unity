@@ -1272,7 +1272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd82d68059ab6704f8c3a44e559d6b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 4.89
+  maxSpeed: 5.68
   acceleration: 8.85
   groundLayer:
     serializedVersion: 2
@@ -1282,11 +1282,11 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 128
-  wallSlidingSpeed: 2
+  wallSlidingSpeed: 3
   wallCheck: {fileID: 915282734}
   wallJumpingTime: 0.2
-  wallJumpingDuration: 0.4
-  wallJumpingPower: {x: 8, y: 16}
+  wallJumpingDuration: 0.2
+  wallJumpingPower: {x: 6, y: 12}
 --- !u!1 &1428755373
 GameObject:
   m_ObjectHideFlags: 0

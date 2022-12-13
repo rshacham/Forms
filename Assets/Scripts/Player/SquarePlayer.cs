@@ -79,6 +79,14 @@ public class SquarePlayer : Player
 
         else
         {
+            // if (_isWallJumping && !isWallSliding)
+            // {
+                // if (Input.GetAxis("Horizontal") < 0 == _isFacingRight)
+                // {
+                //     var playerSpeed = Input.GetAxis("Horizontal") * acceleration;
+                //     _playerRigidBody.velocity = new Vector2(playerSpeed, _playerRigidBody.velocity.y);
+                // }
+            // }
             _wallJumpingCounter -= Time.deltaTime;
         }
     }

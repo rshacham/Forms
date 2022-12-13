@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float maxSpeed;
-    [SerializeField] private float acceleration;
+    [SerializeField] protected float acceleration;
     [SerializeField] private LayerMask groundLayer;
 
     [SerializeField] private float afterJumpFallSpeed;
