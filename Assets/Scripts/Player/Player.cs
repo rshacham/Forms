@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     [SerializeField] private float afterJumpFallSpeed;
-    [SerializeField] private float jumpingPower;
+    [SerializeField] protected float jumpingPower;
     protected bool _isGrounded = false;
     private bool _isJumping = false;
     

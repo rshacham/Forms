@@ -187,8 +187,8 @@ MonoBehaviour:
     y: 0
     width: 172
     height: 555
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -225,23 +225,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b2620000
-      m_LastClickedID: 25266
-      m_ExpandedIDs: 24fbffffba620000
+      m_SelectedIDs: ba620000
+      m_LastClickedID: 25274
+      m_ExpandedIDs: c2c7ffff24fbffffba620000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: PlayerManager
+        m_OriginalName: PlayerManager
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 25274
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -557,9 +557,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -11.671538, y: -5.7560883, z: 0}
+    m_Target: {x: -17.153238, y: 3.9922116, z: -0.12414869}
     speed: 2
-    m_Value: {x: -11.671538, y: -5.7560883, z: 0}
+    m_Value: {x: -17.153238, y: 3.9922116, z: -0.12414869}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -610,9 +610,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1.5735421
+    m_Target: 10
     speed: 2
-    m_Value: 1.5735421
+    m_Value: 10
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -656,8 +656,8 @@ MonoBehaviour:
     y: 0
     width: 437
     height: 555
-  m_MinSize: {x: 102, y: 121}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 2}
@@ -731,21 +731,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Player
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Player
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\mikia\Desktop\CS\Year 3 Semester A\Digital Game\2022-colors-proto-
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e86f0000
-    m_LastClickedID: 28648
+    m_SelectedIDs: 7c630000
+    m_LastClickedID: 25468
     m_ExpandedIDs: 000000007c6300007e6300008063000082630000846300008663000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -799,9 +799,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: b2620000
-    m_LastClickedInstanceID: 25266
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: ba620000
+    m_LastClickedInstanceID: 25274
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300002682000010820000dc6f00008c63000072630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -919,7 +919,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 1026
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

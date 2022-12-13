@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "ColorChange",
+                    "name": "PlayerChange",
                     "type": "Button",
                     "id": "abf39ebc-1c92-428a-9e20-ffe7fa159a14",
                     "expectedControlType": "Button",
@@ -145,11 +145,33 @@
                 {
                     "name": "",
                     "id": "24a6df1f-de89-44bf-983a-3f609ed609a6",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ColorChange",
+                    "action": "PlayerChange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "88b7d6e9-613d-459d-a644-c713d6812351",
+                    "path": "<Keyboard>/alt",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerChange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c934a2a2-4f87-4ffb-86fa-c57607993738",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerChange",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
