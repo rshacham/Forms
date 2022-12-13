@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class Movement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] private float maxSpeed;
     [SerializeField] private float acceleration;
@@ -14,34 +14,48 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private float afterJumpFallSpeed;
     [SerializeField] private float jumpingPower;
-    private bool _isGrounded = false;
+    protected bool _isGrounded = false;
     private bool _isJumping = false;
     
     
     private bool _canMove = true;
+    
+    public bool CanMove {
+        get { return _canMove; }
+        set { _canMove = value; }
+    }
+    
     private Collider2D collider;
     private float _speed_t = 0;
-    private Rigidbody2D _playerRigidBody;
+    protected Rigidbody2D _playerRigidBody;
     private Vector2 _desiredVelocity;
     
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         _playerRigidBody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         _isGrounded = CheckIfGrounded();
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
-        var playerSpeed = Input.GetAxis("Horizontal") * acceleration;
-        _playerRigidBody.velocity = new Vector2(playerSpeed, _playerRigidBody.velocity.y);
-        // _playerRigidBody.velocity = _desiredVelocity;
+        if (!_canMove)
+        {
+            _playerRigidBody.velocity = Vector2.zero;
+        }
+        
+        if (_canMove)
+        {
+            var playerSpeed = Input.GetAxis("Horizontal") * acceleration;
+            _playerRigidBody.velocity = new Vector2(playerSpeed, _playerRigidBody.velocity.y);
+            // _playerRigidBody.velocity = _desiredVelocity;
+        }
     }
 
 
@@ -79,5 +93,10 @@ public class Movement : MonoBehaviour
             Vector2.down, 0.1f, groundLayer);
         // if not touching the ground, return false
         return raycastHit2D.collider != null;
+    }
+
+    public void ResetMovement()
+    {
+        _playerRigidBody.velocity = Vector2.zero;
     }
 }

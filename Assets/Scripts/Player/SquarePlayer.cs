@@ -1,0 +1,131 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class SquarePlayer : Player
+{
+    [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private float wallSlidingSpeed;
+    [SerializeField] private Transform wallCheck;
+    private bool _isFacingRight = true;
+    private bool isWallSliding;
+    
+    # region WallJumping Variables
+
+    private bool _isWallJumping;
+    private float _wallJumpingDirection;
+    [SerializeField] private float wallJumpingTime;
+    private float _wallJumpingCounter;
+    [SerializeField] private float wallJumpingDuration;
+    [SerializeField] private Vector2 wallJumpingPower;
+    # endregion
+
+    private new void Start()
+    {
+        base.Start();
+    }
+
+    private new void Update()
+    {
+        base.Update();
+        WallSlide();
+        WallJump();
+
+        if (!_isWallJumping)
+        {
+            CheckFlip();
+        }
+    }
+
+    private new void FixedUpdate()
+    {
+        if (!isWallSliding && !_isWallJumping)
+        {
+            base.FixedUpdate();
+        }
+    }
+    private bool IsWalled()
+    {
+        return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
+    }
+
+    private void WallSlide()
+    {
+        if (IsWalled() && !_isGrounded)
+        {
+            isWallSliding = true;
+            _playerRigidBody.velocity = new Vector2(_playerRigidBody.velocity.x,
+                Mathf.Clamp(_playerRigidBody.velocity.y, -wallSlidingSpeed, float.MaxValue));
+        }
+
+        else
+        {
+            isWallSliding = false;
+        }
+    }
+
+    private void WallJump()
+    {
+        if (isWallSliding)
+        {
+            _isWallJumping = false;
+            _wallJumpingDirection = -transform.localScale.x;
+            _wallJumpingCounter = wallJumpingTime;
+            
+            CancelInvoke(nameof(StopWallJumping));
+        }
+
+        else
+        {
+            _wallJumpingCounter -= Time.deltaTime;
+        }
+    }
+
+    public new void Jump(InputAction.CallbackContext context)
+    {
+        if (!isWallSliding)
+        {
+            base.Jump(context);
+            return;
+        }
+        
+        else if (context.started)
+        {
+            _isWallJumping = true;
+            Debug.Log(_wallJumpingDirection*wallJumpingPower.x);
+            _playerRigidBody.velocity = new Vector2(_wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+            _wallJumpingCounter = 0;
+
+            if (Math.Abs(transform.localScale.x - _wallJumpingDirection) > 0.1f) // If player facing direction is not matching the wall jumping direction 
+            {
+                FlipPlayer();
+            }
+        
+            Invoke(nameof(StopWallJumping), wallJumpingDuration);
+        }
+    }
+
+    private void StopWallJumping()
+    {
+        _isWallJumping = false;
+    }
+
+    private void CheckFlip()
+    {
+        if (_isFacingRight && _playerRigidBody.velocity.x < 0 ||
+            !_isFacingRight && _playerRigidBody.velocity.x > 0)
+        {
+            FlipPlayer();
+        }
+    }
+
+    private void FlipPlayer()
+    {
+        _isFacingRight = !_isFacingRight;
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
+    }
+}

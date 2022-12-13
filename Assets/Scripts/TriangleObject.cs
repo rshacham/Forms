@@ -8,7 +8,7 @@ public class TriangleObject : ColorfulObject
 
     public void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.GetComponent<Movement>())
+        if (other.gameObject.GetComponent<Player>())
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
