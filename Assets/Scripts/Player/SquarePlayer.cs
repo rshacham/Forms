@@ -91,7 +91,7 @@ public class SquarePlayer : Player
         }
     }
 
-    public new void Jump(InputAction.CallbackContext context)
+    public override void Jump(InputAction.CallbackContext context)
     {
         if (!isWallSliding)
         {

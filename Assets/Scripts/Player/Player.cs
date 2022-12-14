@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
         // }
     }
 
-    public void Jump(InputAction.CallbackContext context)
+    public virtual void Jump(InputAction.CallbackContext context)
     {
         var currentVelocity = _playerRigidBody.velocity;
         if (context.performed && _isGrounded)

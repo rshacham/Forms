@@ -16,7 +16,7 @@ public class TrianglePlayer : Player
         }
     }
     
-    public new void Jump(InputAction.CallbackContext context)
+    public override void Jump(InputAction.CallbackContext context)
     {
         base.Jump(context);
         if (context.performed && !_isGrounded && _canDoubleJump)
