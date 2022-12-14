@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.InputSystem;
 
 public class PlayersManager : MonoBehaviour
@@ -9,8 +10,24 @@ public class PlayersManager : MonoBehaviour
     private GameObject _activePlayer;
     private Player _activePlayerScript;
     private Transform _activePlayerTransform;
-
+    
+    
     private int _currentPlayer = 0;
+
+    private bool changedShape = false;
+
+    public bool HasChangedShape
+    {
+        get { return changedShape; }
+        set { changedShape = value; }
+    }
+    
+    private bool jumped = false;
+    
+    public bool HasJumped {
+        get { return jumped; }
+        set { jumped = value; }
+    }
     
     void Start()
     {
@@ -28,6 +45,7 @@ public class PlayersManager : MonoBehaviour
     {
         if (context.performed)
         {
+            HasChangedShape = true;
             _activePlayer.SetActive(false);
             _activePlayer = players[++_currentPlayer % 3];
             _activePlayer.transform.position = _activePlayerTransform.position;
@@ -56,6 +74,7 @@ public class PlayersManager : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
+        HasJumped = true;
         _activePlayerScript.Jump(context);
     }
 }

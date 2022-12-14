@@ -1,20 +1,32 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Win : MonoBehaviour
 {
+
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private TextMeshProUGUI winning;
+    
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D other)
     {
-        EndGame();
+        if (other.gameObject.CompareTag("players"))
+        {
+            winning.gameObject.SetActive(true);
+            var player = FindObjectOfType<Player>();
+            player.CanMove = false;
+        }
     }
 
-    private void EndGame()
+    public void EndGame()
     {
-        var player = FindObjectOfType<Player>();
-        player.CanMove = false;
+        gameManager.Reset();
+        
+        // var player = FindObjectOfType<Player>();
+        // player.CanMove = false;
     }
 }
