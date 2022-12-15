@@ -2471,6 +2471,14 @@ PrefabInstance:
       propertyPath: groundLayer.m_Bits
       value: 320
       objectReference: {fileID: 0}
+    - target: {fileID: 2067614441604695118, guid: 08865f453f0e2304592fc444e20d05a3, type: 3}
+      propertyPath: wallJumpingPower.x
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067614441604695118, guid: 08865f453f0e2304592fc444e20d05a3, type: 3}
+      propertyPath: wallJumpingPower.y
+      value: 15.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08865f453f0e2304592fc444e20d05a3, type: 3}
 --- !u!20 &2492933269755197960
@@ -2500,7 +2508,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.723188
+  orthographic size: 16.42627
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2546,6 +2554,7 @@ MonoBehaviour:
   playerTransform: {fileID: 1428755374}
   bottomFollowPlayerHeight: 0
   upperFollowPlayerHeight: 0
+  cameraOffsets: {x: 19.5, y: 8}
 --- !u!1 &2492933269755197974
 GameObject:
   m_ObjectHideFlags: 0
@@ -2686,6 +2695,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: players
       objectReference: {fileID: 0}
+    - target: {fileID: 465748564106391137, guid: 2de6b36b6f2e4cc49ba192c99d0ce392, type: 3}
+      propertyPath: m_GravityScale
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 465748564106391139, guid: 2de6b36b6f2e4cc49ba192c99d0ce392, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2752,7 +2765,7 @@ PrefabInstance:
       objectReference: {fileID: 128318958}
     - target: {fileID: 465748564106391150, guid: 2de6b36b6f2e4cc49ba192c99d0ce392, type: 3}
       propertyPath: jumpingPower
-      value: 15
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 465748564106391150, guid: 2de6b36b6f2e4cc49ba192c99d0ce392, type: 3}
       propertyPath: groundLayer.m_Bits

@@ -133,8 +133,19 @@
                 },
                 {
                     "name": "",
-                    "id": "a1819f31-efc7-46dc-9285-8654e2b330b1",
-                    "path": "<Keyboard>/space",
+                    "id": "95dcb408-865b-408b-b7f0-ee40cfee8af5",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9df7878b-e9a5-4337-8aca-c2c8c0b45ead",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -167,7 +178,7 @@
                 {
                     "name": "",
                     "id": "c934a2a2-4f87-4ffb-86fa-c57607993738",
-                    "path": "<Keyboard>/z",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

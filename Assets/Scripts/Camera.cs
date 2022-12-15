@@ -7,6 +7,8 @@ public class Camera : MonoBehaviour
     [SerializeField] private Transform playerTransform;
     [SerializeField] private float bottomFollowPlayerHeight;
     [SerializeField] private float upperFollowPlayerHeight;
+    
+    [SerializeField] private Vector2 cameraOffsets;
 
     public bool FollowPlayerVertical { get; set; } = false;
 
@@ -30,8 +32,8 @@ public class Camera : MonoBehaviour
         }
         if (playerTransform) 
             _cameraTransform.position = new Vector3(
-            playerTransform.position.x,
-            cameraPosition.y,
+            playerTransform.position.x + cameraOffsets.x,
+            cameraPosition.y + cameraOffsets.y,
             cameraPosition.z);
     }
 }
