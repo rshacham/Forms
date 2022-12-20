@@ -8,23 +8,28 @@ using UnityEngine.SceneManagement;
 
 public abstract class Player : MonoBehaviour
 {
+    protected LayerMask groundLayer;
+    protected LayerMask wallLayer;
+    
+    #region Basic Movement
     [SerializeField] private float maxSpeed;
     [SerializeField] protected float acceleration;
-    [SerializeField] private LayerMask groundLayer;
-
+    #endregion
+    
+    #region Jumping
     [SerializeField] private float afterJumpFallSpeed;
     [SerializeField] protected float jumpingPower;
-    protected bool _isGrounded = false;
-    private bool _isJumping = false;
+    protected bool IsGrounded = false;
+    #endregion
     
+    #region Default Player Settings
     [SerializeField] protected DefaultPlayerSettings defaultSettings;
     [SerializeField] protected bool useDefaultGravity;
     [SerializeField] protected bool useDefaultJumpingPower;
     [SerializeField] protected bool useDefaultAcceleration;
-    
+    #endregion
     
     private bool _canMove = true;
-    
     public bool CanMove {
         get { return _canMove; }
         set { _canMove = value; }
@@ -35,11 +40,17 @@ public abstract class Player : MonoBehaviour
     protected Rigidbody2D _playerRigidBody;
     private Vector2 _desiredVelocity;
     
+    #region Wall Sliding
+    protected bool IsWallSliding = false;
+    #endregion
+    
     // Start is called before the first frame update
     protected void Start()
     {
         _playerRigidBody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
+        groundLayer = GameManager.Manager.GroundLayer;
+        wallLayer = GameManager.Manager.WallLayer;
         InitializeDefaultSettings();
     }
 
@@ -64,7 +75,7 @@ public abstract class Player : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
-        _isGrounded = CheckIfGrounded();
+        IsGrounded = CheckIfGrounded();
     }
 
     protected void FixedUpdate()
@@ -82,8 +93,6 @@ public abstract class Player : MonoBehaviour
         }
     }
 
-
-
     public void Move(InputAction.CallbackContext context)
     {
         // float movementDirection = context.ReadValue<Vector2>().x;
@@ -98,7 +107,7 @@ public abstract class Player : MonoBehaviour
     public virtual void Jump(InputAction.CallbackContext context)
     {
         var currentVelocity = _playerRigidBody.velocity;
-        if (context.performed && _isGrounded)
+        if (context.performed && IsGrounded)
         {
             _playerRigidBody.velocity = new Vector2(currentVelocity.x, jumpingPower);
         }
@@ -106,6 +115,26 @@ public abstract class Player : MonoBehaviour
         if (context.canceled && currentVelocity.y > 0)
         {
             _playerRigidBody.velocity = new Vector2(currentVelocity.x, currentVelocity.y / afterJumpFallSpeed);
+        }
+    }
+    
+    private bool IsWalled(Transform wallCheck)
+    {
+        return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
+    }
+    
+    protected void WallSlide(Transform wallCheck, float wallSlidingSpeed)
+    {
+        if (IsWalled(wallCheck) && !IsGrounded)
+        {
+            _playerRigidBody.velocity = new Vector2(_playerRigidBody.velocity.x,
+                Mathf.Clamp(_playerRigidBody.velocity.y, -wallSlidingSpeed, float.MaxValue));
+            IsWallSliding = true;
+        }
+
+        else
+        {
+            IsWallSliding = false;
         }
     }
 

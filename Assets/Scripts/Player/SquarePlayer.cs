@@ -6,12 +6,6 @@ using UnityEngine.InputSystem;
 
 public class SquarePlayer : Player
 {
-    [SerializeField] private LayerMask wallLayer;
-    [SerializeField] private float wallSlidingSpeed;
-    [SerializeField] private Transform wallCheck;
-    private bool _isFacingRight = true;
-    private bool isWallSliding;
-    
     # region WallJumping Variables
 
     private bool _isWallJumping;
@@ -21,6 +15,12 @@ public class SquarePlayer : Player
     [SerializeField] private float wallJumpingDuration;
     [SerializeField] private Vector2 wallJumpingPower;
     # endregion
+    
+    #region Wall Sliding
+    [SerializeField] private float wallSlidingSpeed;
+    [SerializeField] private Transform wallCheck;
+    private bool _isFacingRight = true;
+    #endregion
 
     private new void Start()
     {
@@ -30,7 +30,7 @@ public class SquarePlayer : Player
     private new void Update()
     {
         base.Update();
-        WallSlide();
+        WallSlide(wallCheck, wallSlidingSpeed);
         WallJump();
 
         if (!_isWallJumping)
@@ -41,34 +41,15 @@ public class SquarePlayer : Player
 
     private new void FixedUpdate()
     {
-        if (!isWallSliding && !_isWallJumping)
+        if (!IsWallSliding && !_isWallJumping)
         {
             base.FixedUpdate();
-        }
-    }
-    private bool IsWalled()
-    {
-        return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
-    }
-
-    private void WallSlide()
-    {
-        if (IsWalled() && !_isGrounded)
-        {
-            isWallSliding = true;
-            _playerRigidBody.velocity = new Vector2(_playerRigidBody.velocity.x,
-                Mathf.Clamp(_playerRigidBody.velocity.y, -wallSlidingSpeed, float.MaxValue));
-        }
-
-        else
-        {
-            isWallSliding = false;
         }
     }
 
     private void WallJump()
     {
-        if (isWallSliding)
+        if (IsWallSliding)
         {
             _isWallJumping = false;
             _wallJumpingDirection = -transform.localScale.x;
@@ -93,7 +74,7 @@ public class SquarePlayer : Player
 
     public override void Jump(InputAction.CallbackContext context)
     {
-        if (!isWallSliding)
+        if (!IsWallSliding)
         {
             base.Jump(context);
             return;

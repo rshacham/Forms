@@ -10,7 +10,7 @@ public class TrianglePlayer : Player
     public new void Update()
     {
         base.Update();
-        if (_isGrounded)
+        if (IsGrounded)
         {
             _canDoubleJump = true;
         }
@@ -19,7 +19,7 @@ public class TrianglePlayer : Player
     public override void Jump(InputAction.CallbackContext context)
     {
         base.Jump(context);
-        if (context.performed && !_isGrounded && _canDoubleJump)
+        if (context.performed && !IsGrounded && _canDoubleJump)
         {
             _playerRigidBody.velocity = new Vector2(_playerRigidBody.velocity.x, jumpingPower);
             _canDoubleJump = false;

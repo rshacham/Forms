@@ -7,25 +7,18 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Manager;
-    public enum Colors
-    {
-        Red,
-        Blue,
-        Green
-    };
+    
+    #region Layers
+    [SerializeField] private LayerMask wallLayer;
+    public LayerMask WallLayer => wallLayer;
+    
+    [SerializeField] private LayerMask groundLayer;
+    public LayerMask GroundLayer => groundLayer;
+    #endregion
 
-    public static Dictionary<Colors, List<ColorfulObject>> colorfulObjectsMap =
-        new();
-
-    public static Dictionary<Colors, Ability> colorsAbilityMap = new();
     void Awake()
     {
         Manager = this;
-        foreach (Colors color in Enum.GetValues(typeof(Colors)))
-        {
-            colorfulObjectsMap[color] = new List<ColorfulObject>();
-            colorsAbilityMap[color] = gameObject.AddComponent<EmptyAbility>();
-        }
     }
 
     public void Reset()
