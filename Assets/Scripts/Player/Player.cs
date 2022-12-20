@@ -11,6 +11,9 @@ public abstract class Player : MonoBehaviour
     protected LayerMask groundLayer;
     protected LayerMask wallLayer;
 
+    private float _timeRememberToJump = 0.2f;
+    private float _timeRememberToJumpTime = 0;
+    
     private int counter = 0;
     
     #region Basic Movement
@@ -108,6 +111,23 @@ public abstract class Player : MonoBehaviour
 
     public virtual void Jump(InputAction.CallbackContext context)
     {
+        // _timeRememberToJump -= Time.deltaTime;
+        // var currentVelocity = _playerRigidBody.velocity;
+        //
+        // if (context.performed)
+        // {
+        //     _timeRememberToJump = _timeRememberToJumpTime;
+        // }
+        //
+        // if (_timeRememberToJump > 0 && IsGrounded)
+        // {
+        //     print("h");
+        //     _timeRememberToJump = 0;
+        //     
+        //     _playerRigidBody.velocity = new Vector2(currentVelocity.x, jumpingPower);
+        // }
+        
+        
         var currentVelocity = _playerRigidBody.velocity;
         if (context.performed && IsGrounded)
         {
@@ -153,7 +173,7 @@ public abstract class Player : MonoBehaviour
         var colliderBounds = collider.bounds;
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(colliderBounds.center,
             colliderBounds.size, 0,
-            Vector2.down, 0.1f, groundLayer);
+            Vector2.down, 1f, groundLayer);
         // if not touching the ground, return false
         return raycastHit2D.collider != null;
     }
