@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+public abstract class Player : MonoBehaviour
 {
     [SerializeField] private float maxSpeed;
     [SerializeField] protected float acceleration;
@@ -16,6 +16,11 @@ public class Player : MonoBehaviour
     [SerializeField] protected float jumpingPower;
     protected bool _isGrounded = false;
     private bool _isJumping = false;
+    
+    [SerializeField] protected DefaultPlayerSettings defaultSettings;
+    [SerializeField] protected bool useDefaultGravity;
+    [SerializeField] protected bool useDefaultJumpingPower;
+    [SerializeField] protected bool useDefaultAcceleration;
     
     
     private bool _canMove = true;
@@ -35,6 +40,25 @@ public class Player : MonoBehaviour
     {
         _playerRigidBody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
+        InitializeDefaultSettings();
+    }
+
+    private void InitializeDefaultSettings()
+    {
+        if (useDefaultGravity)
+        {
+            _playerRigidBody.gravityScale = defaultSettings.gravity;
+        }
+
+        if (useDefaultAcceleration)
+        {
+            acceleration = defaultSettings.acceleration;
+        }
+
+        if (useDefaultJumpingPower)
+        {
+            jumpingPower = defaultSettings.jumpingPower;
+        }
     }
 
     // Update is called once per frame

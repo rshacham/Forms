@@ -2464,8 +2464,16 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2067614441604695118, guid: 08865f453f0e2304592fc444e20d05a3, type: 3}
+      propertyPath: defaultSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 4d987d534ff81fc4a92432139fc54e33, type: 2}
+    - target: {fileID: 2067614441604695118, guid: 08865f453f0e2304592fc444e20d05a3, type: 3}
       propertyPath: wallLayer.m_Bits
       value: 384
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067614441604695118, guid: 08865f453f0e2304592fc444e20d05a3, type: 3}
+      propertyPath: useDefaultGravity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2067614441604695118, guid: 08865f453f0e2304592fc444e20d05a3, type: 3}
       propertyPath: groundLayer.m_Bits
@@ -2478,6 +2486,14 @@ PrefabInstance:
     - target: {fileID: 2067614441604695118, guid: 08865f453f0e2304592fc444e20d05a3, type: 3}
       propertyPath: wallJumpingPower.y
       value: 15.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067614441604695118, guid: 08865f453f0e2304592fc444e20d05a3, type: 3}
+      propertyPath: useDefaultAcceleration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067614441604695118, guid: 08865f453f0e2304592fc444e20d05a3, type: 3}
+      propertyPath: useDefaultJumpingPower
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08865f453f0e2304592fc444e20d05a3, type: 3}
@@ -2669,6 +2685,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: players
       objectReference: {fileID: 0}
+    - target: {fileID: 4178341214362649833, guid: 8c41afa663a27594fa2c68a8e91c52cf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 3537f0692fd0c5140b324128b8d39e03, type: 2}
+    - target: {fileID: 4178341214362649833, guid: 8c41afa663a27594fa2c68a8e91c52cf, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4178341214362649835, guid: 8c41afa663a27594fa2c68a8e91c52cf, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2697,7 +2721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 465748564106391137, guid: 2de6b36b6f2e4cc49ba192c99d0ce392, type: 3}
       propertyPath: m_GravityScale
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 465748564106391139, guid: 2de6b36b6f2e4cc49ba192c99d0ce392, type: 3}
       propertyPath: m_Sprite
@@ -2783,13 +2807,37 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.0013050352
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 465748564106391150, guid: 2de6b36b6f2e4cc49ba192c99d0ce392, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2de6b36b6f2e4cc49ba192c99d0ce392, type: 3}
 --- !u!4 &6895252956939666271 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 465748564106391148, guid: 2de6b36b6f2e4cc49ba192c99d0ce392, type: 3}
   m_PrefabInstance: {fileID: 6468989658203974963}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6895252956939666273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398017351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e582df3bb4edbf64a8b5d8fa5a259934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 5.68
+  acceleration: 14
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  afterJumpFallSpeed: 15.4
+  jumpingPower: 40
+  defaultSettings: {fileID: 11400000, guid: 4d987d534ff81fc4a92432139fc54e33, type: 2}
+  useDefaultGravity: 1
+  useDefaultJumpingPower: 1
+  useDefaultAcceleration: 1
 --- !u!212 &7436498468983598024
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2972,6 +3020,10 @@ MonoBehaviour:
     m_Bits: 320
   afterJumpFallSpeed: 15.5
   jumpingPower: 15
+  defaultSettings: {fileID: 11400000, guid: 4d987d534ff81fc4a92432139fc54e33, type: 2}
+  useDefaultGravity: 1
+  useDefaultJumpingPower: 1
+  useDefaultAcceleration: 1
 --- !u!1001 &8472814510647662639
 PrefabInstance:
   m_ObjectHideFlags: 0
