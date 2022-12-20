@@ -79,6 +79,11 @@ public class PlayersManager : MonoBehaviour
         }
     }
 
+    public void Move(InputAction.CallbackContext context)
+    {
+        _activePlayerScript.Move(context);
+    }
+
     public void Jump(InputAction.CallbackContext context)
     {
         HasJumped = true;

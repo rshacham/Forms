@@ -82,10 +82,10 @@ public abstract class Player : MonoBehaviour
 
     protected void FixedUpdate()
     {
-        if (!_canMove)
-        {
-            _playerRigidBody.velocity = Vector2.zero;
-        }
+        // if (!_canMove)
+        // {
+        //     _playerRigidBody.velocity = Vector2.zero;
+        // }
         
         if (_canMove)
         {
@@ -95,7 +95,7 @@ public abstract class Player : MonoBehaviour
         }
     }
 
-    public void Move(InputAction.CallbackContext context)
+    public virtual void Move(InputAction.CallbackContext context)
     {
         // float movementDirection = context.ReadValue<Vector2>().x;
         // Vector2 currentVelocity = _playerRigidBody.velocity;
