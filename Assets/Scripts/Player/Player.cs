@@ -152,4 +152,5 @@ public abstract class Player : MonoBehaviour
     {
         _playerRigidBody.velocity = Vector2.zero;
     }
+    
 }

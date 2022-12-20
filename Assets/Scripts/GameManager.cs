@@ -16,11 +16,25 @@ public class GameManager : MonoBehaviour
     public LayerMask GroundLayer => groundLayer;
     #endregion
 
+    private Vector2 _returnPoint;
+
+    public Vector2 ReturnPoint
+    {
+        get => _returnPoint;
+        set => _returnPoint = value;
+    }
+
     void Awake()
     {
         Manager = this;
     }
 
+
+    public void Losing()
+    {
+        // get the player to the returnPoint coordinates from the Player script
+    }
+    
     public void Reset()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

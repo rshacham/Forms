@@ -77,4 +77,8 @@ public class PlayersManager : MonoBehaviour
         HasJumped = true;
         _activePlayerScript.Jump(context);
     }
+    
+    
+    // method to change position of the player (according to the coordinates in gameManger
+    // calls the resetMovement (method in Player script)
 }
