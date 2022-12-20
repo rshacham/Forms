@@ -34,7 +34,7 @@ public class TrianglePlayer : Player
     public override void Jump(InputAction.CallbackContext context)
     {
         base.Jump(context);
-        if (context.performed && !IsGrounded && _canDoubleJump)
+        if (context.performed && !IsGrounded && _canDoubleJump && !IsWallSliding)
         {
             _playerRigidBody.velocity = new Vector2(_playerRigidBody.velocity.x, jumpingPower);
             _canDoubleJump = false;

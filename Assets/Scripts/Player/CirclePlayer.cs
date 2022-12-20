@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,15 +7,15 @@ using UnityEngine.InputSystem;
 
 public class CirclePlayer : Player
 {
-
+    #region Dashing
     private bool _canDash = true;
     private bool _isDashing = false;
-    
-    #region Dashing
+
     [SerializeField] private float dashingPower;
     [SerializeField] private float dashingCoolDown;
     [SerializeField] private float dashingTime;
     [SerializeField] private float oneDashFactor;
+    private int _dashingDirection = 1;
     private bool oneDash = false;
     #endregion
     
@@ -26,7 +27,13 @@ public class CirclePlayer : Player
     private new void Update()
     {
         base.Update();
-        
+        ChangeDashingDirection();
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(ResetDashCoolDown());
+        oneDash = false;
     }
 
     public new void FixedUpdate()
@@ -37,19 +44,17 @@ public class CirclePlayer : Player
             return;
         }
         
-        var playerSpeed = dashingPower * acceleration;
-        _playerRigidBody.velocity = new Vector2(playerSpeed, _playerRigidBody.velocity.y);
+        // var playerSpeed = dashingPower * acceleration;
+        // _playerRigidBody.velocity = new Vector2(playerSpeed, _playerRigidBody.velocity.y);
     }
 
     public override void Move(InputAction.CallbackContext context)
     {
         base.Move(context);
-        Debug.Log("Can Dash = " + _canDash);
         if (!oneDash && context.performed)
         {
-            StopCoroutine(ResetOneDash());
-            Debug.Log("First Dash");
             oneDash = true;
+            StopCoroutine(ResetOneDash());
             StartCoroutine(ResetOneDash());
             return;
         }
@@ -64,13 +69,12 @@ public class CirclePlayer : Player
 
     private IEnumerator Dash()
     {
-        Debug.Log("Dash");
         _isDashing = true;
         CanMove = false;
         _canDash = false;
         var originalGravity = _playerRigidBody.gravityScale;
         _playerRigidBody.gravityScale = 0;
-        _playerRigidBody.velocity = new Vector2(transform.localScale.x * dashingPower, 0);
+        _playerRigidBody.velocity = new Vector2(transform.localScale.x * dashingPower * _dashingDirection, 0);
         yield return new WaitForSeconds(dashingTime);
 
         StartCoroutine(ResetDashCoolDown());
@@ -80,10 +84,24 @@ public class CirclePlayer : Player
         CanMove = true;
     }
 
+    private void ChangeDashingDirection()
+    {
+        if (_playerRigidBody.velocity.x > 0)
+        {
+            _dashingDirection = 1;
+        }
+
+        if (_playerRigidBody.velocity.x < 0)
+        {
+            _dashingDirection = -1;
+        }
+    }
+
     private IEnumerator ResetDashCoolDown()
     {
         yield return new WaitForSeconds(dashingCoolDown);
         _canDash = true;
+        Debug.Log("Can Move Again");
     }
 
     private IEnumerator ResetOneDash()

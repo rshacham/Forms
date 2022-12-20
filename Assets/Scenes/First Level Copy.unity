@@ -1805,7 +1805,19 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1428755376}
+        m_TargetAssemblyTypeName: PlayersManager, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 93f91626-5d49-4461-8284-e9be38bd0d8a
     m_ActionName: Player/Move[/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
@@ -3223,7 +3235,7 @@ MonoBehaviour:
   useDefaultGravity: 1
   useDefaultJumpingPower: 1
   useDefaultAcceleration: 1
-  dashingPower: 2
+  dashingPower: 7.2
   dashingCoolDown: 1
   dashingTime: 0.2
   oneDashFactor: 0.25
