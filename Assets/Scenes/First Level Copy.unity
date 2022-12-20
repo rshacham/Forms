@@ -241,6 +241,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f6cb8c7b4c4a944b828a181025523e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &128318959
 Transform:
   m_ObjectHideFlags: 0
@@ -2582,11 +2588,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067614441604695118, guid: 08865f453f0e2304592fc444e20d05a3, type: 3}
       propertyPath: wallJumpingPower.x
-      value: 3.5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2067614441604695118, guid: 08865f453f0e2304592fc444e20d05a3, type: 3}
       propertyPath: wallJumpingPower.y
-      value: 15.01
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2067614441604695118, guid: 08865f453f0e2304592fc444e20d05a3, type: 3}
       propertyPath: useDefaultAcceleration
@@ -2930,9 +2936,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 5.68
   acceleration: 14
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
   afterJumpFallSpeed: 15.4
   jumpingPower: 40
   defaultSettings: {fileID: 11400000, guid: 4d987d534ff81fc4a92432139fc54e33, type: 2}
@@ -3116,9 +3119,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 6
   acceleration: 9
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 320
   afterJumpFallSpeed: 15.5
   jumpingPower: 15
   defaultSettings: {fileID: 11400000, guid: 4d987d534ff81fc4a92432139fc54e33, type: 2}
