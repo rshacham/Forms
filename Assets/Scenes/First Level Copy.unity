@@ -2841,7 +2841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067614441604695118, guid: 08865f453f0e2304592fc444e20d05a3, type: 3}
       propertyPath: wallJumpingPower.y
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2067614441604695118, guid: 08865f453f0e2304592fc444e20d05a3, type: 3}
       propertyPath: useDefaultAcceleration
@@ -3223,9 +3223,10 @@ MonoBehaviour:
   useDefaultGravity: 1
   useDefaultJumpingPower: 1
   useDefaultAcceleration: 1
-  dashingPower: 0
-  dashingCoolDown: 0
-  dashingTime: 0
+  dashingPower: 2
+  dashingCoolDown: 1
+  dashingTime: 0.2
+  oneDashFactor: 0.25
 --- !u!212 &7436498468983598024
 SpriteRenderer:
   m_ObjectHideFlags: 0

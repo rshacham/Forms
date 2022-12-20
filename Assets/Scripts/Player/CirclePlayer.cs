@@ -10,10 +10,13 @@ public class CirclePlayer : Player
     private bool _canDash = true;
     private bool _isDashing = false;
     
+    #region Dashing
     [SerializeField] private float dashingPower;
     [SerializeField] private float dashingCoolDown;
     [SerializeField] private float dashingTime;
-    private bool oneDash;
+    [SerializeField] private float oneDashFactor;
+    private bool oneDash = false;
+    #endregion
     
     private new void Start()
     {
@@ -41,23 +44,25 @@ public class CirclePlayer : Player
     public override void Move(InputAction.CallbackContext context)
     {
         base.Move(context);
+        Debug.Log("Can Dash = " + _canDash);
         if (!oneDash && context.performed)
         {
-            Debug.Log("First");
+            StopCoroutine(ResetOneDash());
+            Debug.Log("First Dash");
             oneDash = true;
+            StartCoroutine(ResetOneDash());
             return;
         }
 
         if (oneDash && _canDash && context.performed)
         {
-            Debug.Log("Second");
             oneDash = false;
             StartCoroutine(Dash());
         }
     }
 
 
-    IEnumerator Dash()
+    private IEnumerator Dash()
     {
         Debug.Log("Dash");
         _isDashing = true;
@@ -68,10 +73,22 @@ public class CirclePlayer : Player
         _playerRigidBody.velocity = new Vector2(transform.localScale.x * dashingPower, 0);
         yield return new WaitForSeconds(dashingTime);
 
+        StartCoroutine(ResetDashCoolDown());
         _isDashing = false;
         oneDash = false;
-        _canDash = true;
         _playerRigidBody.gravityScale = originalGravity;
         CanMove = true;
+    }
+
+    private IEnumerator ResetDashCoolDown()
+    {
+        yield return new WaitForSeconds(dashingCoolDown);
+        _canDash = true;
+    }
+
+    private IEnumerator ResetOneDash()
+    {
+        yield return new WaitForSeconds(oneDashFactor);
+        oneDash = false;
     }
 }

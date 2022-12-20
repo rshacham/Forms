@@ -90,7 +90,6 @@ public class PlayersManager : MonoBehaviour
         _activePlayerScript.Jump(context);
     }
     
-    
     // method to change position of the player (according to the coordinates in gameManger) when lose
     // calls the resetMovement (method in Player script)
     public void HandleLose()
@@ -98,4 +97,7 @@ public class PlayersManager : MonoBehaviour
         _activePlayer.transform.position = GameManager.Manager.ReturnPoint;
         _activePlayerScript.ResetMovement();
     }
+    
+    
+
 }
