@@ -59,8 +59,42 @@ public class PlayersManager : MonoBehaviour
             _activePlayerTransform = _activePlayer.transform;
             UpdatePlayerScript();
             _activePlayer.SetActive(true);
-
         }
+    }
+
+    private void BeforeChoosingActivePlayer()
+    {
+        HasChangedShape = true;
+        _activePlayer.SetActive(false);
+    }
+    
+    private void AfterChoosingActivePlayer()
+    {
+        _activePlayer.transform.position = _activePlayerTransform.position;
+        _activePlayerTransform = _activePlayer.transform;
+        UpdatePlayerScript();
+        _activePlayer.SetActive(true);
+    }
+
+    public void ChangeToCircle(InputAction.CallbackContext context)
+    {
+        BeforeChoosingActivePlayer();
+        _activePlayer = players[0];
+        AfterChoosingActivePlayer();
+    }
+    
+    public void ChangeToSquare(InputAction.CallbackContext context)
+    {
+        BeforeChoosingActivePlayer();
+        _activePlayer = players[1];
+        AfterChoosingActivePlayer();
+    }
+    
+    public void ChangeToTriangle(InputAction.CallbackContext context)
+    {
+        BeforeChoosingActivePlayer();
+        _activePlayer = players[2];
+        AfterChoosingActivePlayer();
     }
 
     public void UpdatePlayerScript()
