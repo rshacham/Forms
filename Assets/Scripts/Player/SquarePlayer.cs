@@ -18,7 +18,7 @@ public class SquarePlayer : Player
     
     #region Wall Sliding
     [SerializeField] private float wallSlidingSpeed;
-    [SerializeField] private Transform wallCheck;
+    [SerializeField] private Transform[] wallCheck;
     private bool _isFacingRight = true;
     #endregion
 
@@ -83,7 +83,6 @@ public class SquarePlayer : Player
         else if (context.started)
         {
             _isWallJumping = true;
-            Debug.Log(_wallJumpingDirection*wallJumpingPower.x);
             _playerRigidBody.velocity = new Vector2(_wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
             _wallJumpingCounter = 0;
 

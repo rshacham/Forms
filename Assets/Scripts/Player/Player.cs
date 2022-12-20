@@ -10,6 +10,8 @@ public abstract class Player : MonoBehaviour
 {
     protected LayerMask groundLayer;
     protected LayerMask wallLayer;
+
+    private int counter = 0;
     
     #region Basic Movement
     [SerializeField] private float maxSpeed;
@@ -118,15 +120,26 @@ public abstract class Player : MonoBehaviour
         }
     }
     
-    private bool IsWalled(Transform wallCheck)
+    private bool IsWalled(Transform[] wallCheck)
     {
-        return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
+        foreach (var checker in wallCheck)
+        {
+            if (Physics2D.OverlapCircle(checker.position, 0.2f, wallLayer))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
     
-    protected void WallSlide(Transform wallCheck, float wallSlidingSpeed)
+    protected void WallSlide(Transform[] wallCheck, float wallSlidingSpeed)
     {
+        Debug.Log("wallCheck = " + IsWalled(wallCheck));
+        Debug.Log("isGrounded = " + IsGrounded);
         if (IsWalled(wallCheck) && !IsGrounded)
         {
+            Debug.Log("Slide" + counter++);
             _playerRigidBody.velocity = new Vector2(_playerRigidBody.velocity.x,
                 Mathf.Clamp(_playerRigidBody.velocity.y, -wallSlidingSpeed, float.MaxValue));
             IsWallSliding = true;

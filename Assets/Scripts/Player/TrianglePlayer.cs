@@ -7,12 +7,27 @@ public class TrianglePlayer : Player
 {
     private bool _canDoubleJump = true;
 
+    #region Wall Sliding
+    [SerializeField] private float wallSlidingSpeed;
+    [SerializeField] private Transform[] wallCheck;
+    private bool _isFacingRight = true;
+    #endregion
+
     public new void Update()
     {
         base.Update();
+        WallSlide(wallCheck, wallSlidingSpeed);
         if (IsGrounded)
         {
             _canDoubleJump = true;
+        }
+    }
+
+    public new void FixedUpdate()
+    {
+        if (!IsWallSliding)
+        {
+            base.FixedUpdate();
         }
     }
     
