@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class Lose : MonoBehaviour
 {
-    [SerializeField] private GameManager gameManager;
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("players"))
         {
-            gameManager.Reset();
+            // call the PlayersManager method to change the position
+            PlayersManager.playersManager.HandleLose();
+            // gameManager.Reset();
         }
     }
 }

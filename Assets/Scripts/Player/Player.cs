@@ -135,11 +135,8 @@ public abstract class Player : MonoBehaviour
     
     protected void WallSlide(Transform[] wallCheck, float wallSlidingSpeed)
     {
-        Debug.Log("wallCheck = " + IsWalled(wallCheck));
-        Debug.Log("isGrounded = " + IsGrounded);
         if (IsWalled(wallCheck) && !IsGrounded)
         {
-            Debug.Log("Slide" + counter++);
             _playerRigidBody.velocity = new Vector2(_playerRigidBody.velocity.x,
                 Mathf.Clamp(_playerRigidBody.velocity.y, -wallSlidingSpeed, float.MaxValue));
             IsWallSliding = true;

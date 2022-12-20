@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +7,12 @@ using UnityEngine.InputSystem;
 
 public class PlayersManager : MonoBehaviour
 {
+    public static PlayersManager playersManager;
+    
     [SerializeField] private GameObject[] players;
     private GameObject _activePlayer;
     private Player _activePlayerScript;
     private Transform _activePlayerTransform;
-    
     
     private int _currentPlayer = 0;
 
@@ -28,7 +30,12 @@ public class PlayersManager : MonoBehaviour
         get { return jumped; }
         set { jumped = value; }
     }
-    
+
+    private void Awake()
+    {
+        playersManager = this;
+    }
+
     void Start()
     {
         _activePlayer = players[_currentPlayer];
@@ -79,6 +86,11 @@ public class PlayersManager : MonoBehaviour
     }
     
     
-    // method to change position of the player (according to the coordinates in gameManger
+    // method to change position of the player (according to the coordinates in gameManger) when lose
     // calls the resetMovement (method in Player script)
+    public void HandleLose()
+    {
+        _activePlayer.transform.position = GameManager.Manager.ReturnPoint;
+        _activePlayerScript.ResetMovement();
+    }
 }

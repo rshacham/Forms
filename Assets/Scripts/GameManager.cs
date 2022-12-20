@@ -16,9 +16,9 @@ public class GameManager : MonoBehaviour
     public LayerMask GroundLayer => groundLayer;
     #endregion
 
-    private Vector2 _returnPoint;
+    private Vector3 _returnPoint = new (11.5f, -8.42f, 0.282f);
 
-    public Vector2 ReturnPoint
+    public Vector3 ReturnPoint
     {
         get => _returnPoint;
         set => _returnPoint = value;
@@ -29,12 +29,12 @@ public class GameManager : MonoBehaviour
         Manager = this;
     }
 
-
-    public void Losing()
+    private void Start()
     {
-        // get the player to the returnPoint coordinates from the Player script
+        // check if works
+        ReturnPoint = FindObjectOfType<Player>().transform.position;
     }
-    
+
     public void Reset()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
