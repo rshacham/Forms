@@ -101,7 +101,6 @@ public class CirclePlayer : Player
     {
         yield return new WaitForSeconds(dashingCoolDown);
         _canDash = true;
-        Debug.Log("Can Move Again");
     }
 
     private IEnumerator ResetOneDash()

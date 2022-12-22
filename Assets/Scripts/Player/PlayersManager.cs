@@ -7,33 +7,26 @@ using UnityEngine.InputSystem;
 
 public class PlayersManager : MonoBehaviour
 {
-    public static PlayersManager playersManager;
+    public static PlayersManager Manager;
     
     [SerializeField] private GameObject[] players;
     private GameObject _activePlayer;
-    private Player _activePlayerScript;
+
+    public Player ActivePlayerScript { get; set; }
+    
+    
     private Transform _activePlayerTransform;
-    
-    private int _currentPlayer = 0;
+    private Vector2 _previousVelocity;
 
-    private bool changedShape = false;
+    private int _currentPlayer;
 
-    public bool HasChangedShape
-    {
-        get { return changedShape; }
-        set { changedShape = value; }
-    }
-    
-    private bool jumped = false;
-    
-    public bool HasJumped {
-        get { return jumped; }
-        set { jumped = value; }
-    }
+    public bool HasChangedShape { get; set; } = false;
+    public bool HasJumped { get; set; } = false;
+    public Vector2 PlatformFactor { get; set; }
 
     private void Awake()
     {
-        playersManager = this;
+        Manager = this;
     }
 
     void Start()
@@ -46,6 +39,8 @@ public class PlayersManager : MonoBehaviour
     void Update()
     {
         transform.position = _activePlayerTransform.position;
+        Debug.Log("Parent = " + transform.position);
+        Debug.Log("Son = " + _activePlayerTransform.position);
     }
 
     public void SwitchPlayer(InputAction.CallbackContext context)
@@ -62,10 +57,12 @@ public class PlayersManager : MonoBehaviour
         }
     }
 
-    private void BeforeChoosingActivePlayer()
+    private void BeforeChoosingActivePlayer(int newPlayer)
     {
+        _currentPlayer = newPlayer;
         HasChangedShape = true;
         _activePlayer.SetActive(false);
+        _previousVelocity = ActivePlayerScript.PlayerRigidBody.velocity;
     }
     
     private void AfterChoosingActivePlayer()
@@ -74,27 +71,37 @@ public class PlayersManager : MonoBehaviour
         _activePlayerTransform = _activePlayer.transform;
         UpdatePlayerScript();
         _activePlayer.SetActive(true);
+        ActivePlayerScript.PlayerRigidBody.velocity = _previousVelocity;
     }
 
     public void ChangeToCircle(InputAction.CallbackContext context)
     {
-        BeforeChoosingActivePlayer();
-        _activePlayer = players[0];
-        AfterChoosingActivePlayer();
+        if (context.performed)
+        {
+            BeforeChoosingActivePlayer(0);
+            _activePlayer = players[0];
+            AfterChoosingActivePlayer();
+        }
     }
     
     public void ChangeToSquare(InputAction.CallbackContext context)
     {
-        BeforeChoosingActivePlayer();
-        _activePlayer = players[1];
-        AfterChoosingActivePlayer();
+        if (context.performed)
+        {
+            BeforeChoosingActivePlayer(1);
+            _activePlayer = players[1];
+            AfterChoosingActivePlayer();
+        }
     }
     
     public void ChangeToTriangle(InputAction.CallbackContext context)
     {
-        BeforeChoosingActivePlayer();
-        _activePlayer = players[2];
-        AfterChoosingActivePlayer();
+        if (context.performed)
+        {
+            BeforeChoosingActivePlayer(2);
+            _activePlayer = players[2];
+            AfterChoosingActivePlayer();
+        }
     }
 
     public void UpdatePlayerScript()
@@ -102,26 +109,26 @@ public class PlayersManager : MonoBehaviour
         switch (_currentPlayer % 3)
         {
             case 0:
-                _activePlayerScript = _activePlayer.GetComponent<Player>();
+                ActivePlayerScript = _activePlayer.GetComponent<Player>();
                 break;
             case 1:
-                _activePlayerScript = _activePlayer.GetComponent<SquarePlayer>();
+                ActivePlayerScript = _activePlayer.GetComponent<SquarePlayer>();
                 break;
             case 2:
-                _activePlayerScript = _activePlayer.GetComponent<TrianglePlayer>();
+                ActivePlayerScript = _activePlayer.GetComponent<TrianglePlayer>();
                 break;
         }
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-        _activePlayerScript.Move(context);
+        ActivePlayerScript.Move(context);
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
         HasJumped = true;
-        _activePlayerScript.Jump(context);
+        ActivePlayerScript.Jump(context);
     }
     
     // method to change position of the player (according to the coordinates in gameManger) when lose
@@ -129,7 +136,7 @@ public class PlayersManager : MonoBehaviour
     public void HandleLose()
     {
         _activePlayer.transform.position = GameManager.Manager.ReturnPoint;
-        _activePlayerScript.ResetMovement();
+        ActivePlayerScript.ResetMovement();
     }
     
     

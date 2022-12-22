@@ -11,11 +11,6 @@ public abstract class Player : MonoBehaviour
     protected LayerMask groundLayer;
     protected LayerMask wallLayer;
 
-    private float _timeRememberToJump = 0.2f;
-    private float _timeRememberToJumpTime = 0;
-    
-    private int counter = 0;
-    
     #region Basic Movement
     [SerializeField] private float maxSpeed;
     [SerializeField] protected float acceleration;
@@ -43,17 +38,29 @@ public abstract class Player : MonoBehaviour
     private Collider2D collider;
     private float _speed_t = 0;
     protected Rigidbody2D _playerRigidBody;
+    public bool OnPlatform { get; set; }
+
+    
+    public Rigidbody2D PlayerRigidBody
+    {
+        get => _playerRigidBody;
+        set => _playerRigidBody = value;
+    }
+    
     private Vector2 _desiredVelocity;
     
     #region Wall Sliding
     protected bool IsWallSliding = false;
     #endregion
-    
-    // Start is called before the first frame update
-    protected void Start()
+
+    private void Awake()
     {
         _playerRigidBody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
+    }
+
+    protected void Start()
+    {
         groundLayer = GameManager.Manager.GroundLayer;
         wallLayer = GameManager.Manager.WallLayer;
         InitializeDefaultSettings();
@@ -85,47 +92,22 @@ public abstract class Player : MonoBehaviour
 
     protected void FixedUpdate()
     {
-        // if (!_canMove)
-        // {
-        //     _playerRigidBody.velocity = Vector2.zero;
-        // }
+        var platformFactor = Vector2.zero;
+        
         
         if (_canMove)
         {
             var playerSpeed = Input.GetAxis("Horizontal") * acceleration;
             _playerRigidBody.velocity = new Vector2(playerSpeed, _playerRigidBody.velocity.y);
-            // _playerRigidBody.velocity = _desiredVelocity;
         }
     }
-
     public virtual void Move(InputAction.CallbackContext context)
     {
-        // float movementDirection = context.ReadValue<Vector2>().x;
-        // Vector2 currentVelocity = _playerRigidBody.velocity;
-        // if (_canMove)
-        // {
-        //     var xVelocity = Mathf.Min(currentVelocity.x + acceleration * movementDirection, maxSpeed);
-        //     _desiredVelocity = new Vector2(xVelocity, currentVelocity.y);
-        // }
+        
     }
 
     public virtual void Jump(InputAction.CallbackContext context)
     {
-        // _timeRememberToJump -= Time.deltaTime;
-        // var currentVelocity = _playerRigidBody.velocity;
-        //
-        // if (context.performed)
-        // {
-        //     _timeRememberToJump = _timeRememberToJumpTime;
-        // }
-        //
-        // if (_timeRememberToJump > 0 && IsGrounded)
-        // {
-        //     print("h");
-        //     _timeRememberToJump = 0;
-        //     
-        //     _playerRigidBody.velocity = new Vector2(currentVelocity.x, jumpingPower);
-        // }
         
         
         var currentVelocity = _playerRigidBody.velocity;
@@ -140,7 +122,7 @@ public abstract class Player : MonoBehaviour
         }
     }
     
-    private bool IsWalled(Transform[] wallCheck)
+    private bool IsWalled(IEnumerable<Transform> wallCheck)
     {
         foreach (var checker in wallCheck)
         {
@@ -153,12 +135,13 @@ public abstract class Player : MonoBehaviour
         return false;
     }
     
-    protected void WallSlide(Transform[] wallCheck, float wallSlidingSpeed)
+    protected void WallSlide(IEnumerable<Transform> wallCheck, float wallSlidingSpeed)
     {
         if (IsWalled(wallCheck) && !IsGrounded)
         {
-            _playerRigidBody.velocity = new Vector2(_playerRigidBody.velocity.x,
-                Mathf.Clamp(_playerRigidBody.velocity.y, -wallSlidingSpeed, float.MaxValue));
+            var velocity = _playerRigidBody.velocity;
+            _playerRigidBody.velocity = new Vector2(velocity.x,
+                Mathf.Clamp(velocity.y, -wallSlidingSpeed, float.MaxValue));
             IsWallSliding = true;
         }
 
@@ -181,6 +164,17 @@ public abstract class Player : MonoBehaviour
     public void ResetMovement()
     {
         _playerRigidBody.velocity = Vector2.zero;
+    }
+
+    public void CanRotate(bool canRotate)
+    {
+        if (canRotate)
+        {
+            PlayerRigidBody.constraints = RigidbodyConstraints2D.None;
+            return;
+        }
+        
+        _playerRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     
 }

@@ -10,7 +10,7 @@ public class Lose : MonoBehaviour
         if (other.gameObject.CompareTag("players"))
         {
             // call the PlayersManager method to change the position
-            PlayersManager.playersManager.HandleLose();
+            PlayersManager.Manager.HandleLose();
             // gameManager.Reset();
         }
     }

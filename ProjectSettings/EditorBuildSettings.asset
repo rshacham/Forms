@@ -5,13 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Mechanics/ChangedColors.unity
-    guid: e2f64bf3a0fd9c1438d7ce11d61f7267
-  - enabled: 1
-    path: Assets/Scenes/Mechanics/ChooseColor.unity
-    guid: fee020e368d3bd847bb48f4b86fb522c
+    path: Assets/Scenes/Complex Level.unity
+    guid: db34a2ac5692fe344a723be67ebc6ef0
   m_configObjects: {}
