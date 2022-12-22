@@ -48,7 +48,7 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        other.transform.SetParent(null, true);
+        other.transform.SetParent(PlayersManager.Manager.PlayersParent, true);
         PlayersManager.Manager.ActivePlayerScript.CanRotate(true);
     }
 }

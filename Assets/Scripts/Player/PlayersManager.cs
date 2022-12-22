@@ -14,12 +14,15 @@ public class PlayersManager : MonoBehaviour
 
     public Player ActivePlayerScript { get; set; }
     
-    
     private Transform _activePlayerTransform;
     private Vector2 _previousVelocity;
 
     private int _currentPlayer;
 
+    #region PlayerHolder
+    private Transform _playersParent;
+    public Transform PlayersParent => _playersParent;
+    #endregion
     public bool HasChangedShape { get; set; } = false;
     public bool HasJumped { get; set; } = false;
     public Vector2 PlatformFactor { get; set; }
@@ -29,18 +32,17 @@ public class PlayersManager : MonoBehaviour
         Manager = this;
     }
 
-    void Start()
+    private void Start()
     {
         _activePlayer = players[_currentPlayer];
         _activePlayerTransform = _activePlayer.GetComponent<Transform>();
+        _playersParent = _activePlayerTransform.parent;
         UpdatePlayerScript();
     }
     
-    void Update()
+    private void Update()
     {
-        transform.position = _activePlayerTransform.position;
-        Debug.Log("Parent = " + transform.position);
-        Debug.Log("Son = " + _activePlayerTransform.position);
+        transform.position = _activePlayerTransform.position; 
     }
 
     public void SwitchPlayer(InputAction.CallbackContext context)
@@ -135,7 +137,7 @@ public class PlayersManager : MonoBehaviour
     // calls the resetMovement (method in Player script)
     public void HandleLose()
     {
-        _activePlayer.transform.position = GameManager.Manager.ReturnPoint;
+        _activePlayer.transform.localPosition = GameManager.Manager.ReturnPoint;
         ActivePlayerScript.ResetMovement();
     }
     

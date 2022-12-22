@@ -16,13 +16,7 @@ public class GameManager : MonoBehaviour
     public LayerMask GroundLayer => groundLayer;
     #endregion
 
-    private Vector3 _returnPoint = new (11.5f, -8.42f, 0.282f);
-
-    public Vector3 ReturnPoint
-    {
-        get => _returnPoint;
-        set => _returnPoint = value;
-    }
+    public Vector3 ReturnPoint { get; set; } = new (11.5f, -8.42f, 0.282f);
 
     void Awake()
     {
@@ -32,7 +26,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         // check if works
-        ReturnPoint = FindObjectOfType<Player>().transform.position;
+        ReturnPoint = FindObjectOfType<Player>().transform.localPosition;
     }
 
     public void Reset()
