@@ -108,8 +108,6 @@ public abstract class Player : MonoBehaviour
 
     public virtual void Jump(InputAction.CallbackContext context)
     {
-        
-        
         var currentVelocity = _playerRigidBody.velocity;
         if (context.performed && IsGrounded)
         {

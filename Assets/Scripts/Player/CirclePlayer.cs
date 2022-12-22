@@ -65,8 +65,7 @@ public class CirclePlayer : Player
             StartCoroutine(Dash());
         }
     }
-
-
+    
     private IEnumerator Dash()
     {
         _isDashing = true;

@@ -12,6 +12,7 @@ public class CheckPoint : MonoBehaviour
     {
         if (other.CompareTag("players") && !_reachecCheckpoint)
         {
+            _reachecCheckpoint = true;
             GameManager.Manager.ReturnPoint = checkPoint;
         }
     }

@@ -42,14 +42,12 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        other.transform.SetParent(transform, true);
-        PlayersManager.Manager.ActivePlayerScript.CanRotate(false);
+        // PlayersManager.Manager.ActivePlayerScript.CanRotate(false);
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        other.transform.SetParent(PlayersManager.Manager.PlayersParent, true);
-        PlayersManager.Manager.ActivePlayerScript.CanRotate(true);
+        // PlayersManager.Manager.ActivePlayerScript.CanRotate(true);
     }
 }
 

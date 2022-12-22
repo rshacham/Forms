@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
         ReturnPoint = FindObjectOfType<Player>().transform.localPosition;
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
     public void Reset()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

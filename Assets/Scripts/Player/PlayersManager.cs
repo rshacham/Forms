@@ -64,6 +64,7 @@ public class PlayersManager : MonoBehaviour
         _currentPlayer = newPlayer;
         HasChangedShape = true;
         _activePlayer.SetActive(false);
+        _activePlayer = players[newPlayer];
         _previousVelocity = ActivePlayerScript.PlayerRigidBody.velocity;
     }
     
@@ -81,7 +82,6 @@ public class PlayersManager : MonoBehaviour
         if (context.performed)
         {
             BeforeChoosingActivePlayer(0);
-            _activePlayer = players[0];
             AfterChoosingActivePlayer();
         }
     }
@@ -91,7 +91,6 @@ public class PlayersManager : MonoBehaviour
         if (context.performed)
         {
             BeforeChoosingActivePlayer(1);
-            _activePlayer = players[1];
             AfterChoosingActivePlayer();
         }
     }
@@ -101,17 +100,16 @@ public class PlayersManager : MonoBehaviour
         if (context.performed)
         {
             BeforeChoosingActivePlayer(2);
-            _activePlayer = players[2];
             AfterChoosingActivePlayer();
         }
     }
 
     public void UpdatePlayerScript()
     {
-        switch (_currentPlayer % 3)
+        switch (_currentPlayer)
         {
             case 0:
-                ActivePlayerScript = _activePlayer.GetComponent<Player>();
+                ActivePlayerScript = _activePlayer.GetComponent<CirclePlayer>();
                 break;
             case 1:
                 ActivePlayerScript = _activePlayer.GetComponent<SquarePlayer>();
