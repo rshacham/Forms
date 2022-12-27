@@ -10,6 +10,7 @@ public class PlayersManager : MonoBehaviour
     public static PlayersManager Manager;
     
     [SerializeField] private GameObject[] players;
+    [SerializeField] private GameObject playersHolder;
     private GameObject _activePlayer;
 
     public Player ActivePlayerScript { get; set; }

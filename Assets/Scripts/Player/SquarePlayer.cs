@@ -73,7 +73,6 @@ public class SquarePlayer : Player
         if (IsWallSliding)
         {
             _rb.gravityScale = _gravityScale;
-            return;
         }
     }
     
@@ -119,7 +118,6 @@ public class SquarePlayer : Player
         if (!IsWallSliding)
         {
             base.Jump(context);
-            return;
         }
         
         else if (context.started)
@@ -154,5 +152,4 @@ public class SquarePlayer : Player
         localScale.x *= -1f;
         transform.localScale = localScale;
     }
-    
 }
