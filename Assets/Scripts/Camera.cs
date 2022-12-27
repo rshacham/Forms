@@ -8,32 +8,40 @@ public class Camera : MonoBehaviour
     [SerializeField] private float bottomFollowPlayerHeight;
     [SerializeField] private float upperFollowPlayerHeight;
     
-    [SerializeField] private Vector2 cameraOffsets;
+    [SerializeField] private Vector3 cameraOffsets;
+    
+    [SerializeField] [Range(0.01f, 1f)]
+    private float smoothSpeed;
+    
+    private Vector2 _velocity = Vector2.zero;
 
     public bool FollowPlayerVertical { get; set; } = false;
 
     private Transform _cameraTransform;
-    // Start is called before the first frame update
     void Start()
     {
         _cameraTransform = GetComponent<Transform>();
         FollowPlayerVertical = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
+        Vector2 desiredPosition = playerTransform.position + cameraOffsets;
         var cameraPosition = _cameraTransform.position;
         var playerPosition = playerTransform.position;
-        if ((playerPosition.y > bottomFollowPlayerHeight && playerPosition.y < upperFollowPlayerHeight)
-            || FollowPlayerVertical)
+
+        // if ((playerPosition.y > bottomFollowPlayerHeight && playerPosition.y < upperFollowPlayerHeight)
+        //     || FollowPlayerVertical)
+        // {
+        //     desiredPosition.y = playerPosition.y;
+        // }
+        
+        var newPosition = Vector2.SmoothDamp(transform.position, desiredPosition, ref _velocity, smoothSpeed);
+
+
+        if (playerTransform)
         {
-            cameraPosition.y = playerPosition.y;
+            transform.position = new Vector3(newPosition.x, newPosition.y, cameraPosition.z);
         }
-        if (playerTransform) 
-            _cameraTransform.position = new Vector3(
-            playerTransform.position.x + cameraOffsets.x,
-            cameraPosition.y + cameraOffsets.y,
-            cameraPosition.z);
     }
 }
