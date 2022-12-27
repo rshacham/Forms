@@ -13,7 +13,7 @@ public abstract class Player : MonoBehaviour
     
     # region Basic Components
     protected Rigidbody2D _rb;
-    private float _gravityScale;
+    protected float _gravityScale;
     # endregion
 
     #region Basic Movement
@@ -118,6 +118,7 @@ public abstract class Player : MonoBehaviour
     protected void FixedUpdate()
     {
         var platformFactor = Vector2.zero;
+        _movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         
         if (_canMove)
         {
@@ -130,7 +131,6 @@ public abstract class Player : MonoBehaviour
         }
         
         # region Jump Gravity
-
         if (_rb.velocity.y < 0)
         {
             _rb.gravityScale = _gravityScale * fallGravityMultiplier;
@@ -143,8 +143,6 @@ public abstract class Player : MonoBehaviour
         #endregion
         
         
-
-        
         // if (_canMove)
         // {
         //     _smoothMovementInput = Vector2.SmoothDamp(
@@ -152,10 +150,8 @@ public abstract class Player : MonoBehaviour
         //         _movementInput,
         //         ref _movementInputSmoothVelocity,
         //         smoothSpeed);
-        //     
-        //     Debug.Log("_smoothMovementInput " + _smoothMovementInput);
-        //
-        //     _playerRigidBody.velocity = new Vector2(_smoothMovementInput.x * acceleration, _playerRigidBody.velocity.y);
+        //     //
+        //     _rb.velocity = new Vector2(_smoothMovementInput.x * acceleration, _rb.velocity.y);
         // }
         
         // if (_canMove)
@@ -166,7 +162,7 @@ public abstract class Player : MonoBehaviour
     }
     public virtual void Move(InputAction.CallbackContext context)
     {
-        _movementInput = context.ReadValue<Vector2>();
+        
     }
 
     public virtual void Jump(InputAction.CallbackContext context)
@@ -205,35 +201,9 @@ public abstract class Player : MonoBehaviour
         }
 
     }
-    
-    private bool IsWalled(IEnumerable<Transform> wallCheck)
-    {
-        foreach (var checker in wallCheck)
-        {
-            if (Physics2D.OverlapCircle(checker.position, 0.2f, wallLayer))
-            {
-                return true;
-            }
-        }
 
-        return false;
-    }
     
-    protected void WallSlide(IEnumerable<Transform> wallCheck, float wallSlidingSpeed)
-    {
-        if (IsWalled(wallCheck) && !IsGrounded)
-        {
-            var velocity = _rb.velocity;
-            _rb.velocity = new Vector2(velocity.x,
-                Mathf.Clamp(velocity.y, -wallSlidingSpeed, float.MaxValue));
-            IsWallSliding = true;
-        }
 
-        else
-        {
-            IsWallSliding = false;
-        }
-    }
 
     private bool CheckIfGrounded()
     {
@@ -266,5 +236,5 @@ public abstract class Player : MonoBehaviour
         
         _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
-    
+
 }

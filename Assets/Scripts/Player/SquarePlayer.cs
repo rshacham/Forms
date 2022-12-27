@@ -20,6 +20,7 @@ public class SquarePlayer : Player
     [SerializeField] private float wallSlidingSpeed;
     [SerializeField] private Transform[] wallCheck;
     private bool _isFacingRight = true;
+    private bool _isWalled = false;
     #endregion
 
     private new void Start()
@@ -31,20 +32,48 @@ public class SquarePlayer : Player
     {
         base.Update();
         WallSlide(wallCheck, wallSlidingSpeed);
-        WallJump();
 
         if (!_isWallJumping)
         {
             CheckFlip();
         }
     }
+    
+    private bool IsWalled(IEnumerable<Transform> wallCheck)
+    {
+        foreach (var checker in wallCheck)
+        {
+            if (Physics2D.OverlapCircle(checker.position, 0.2f, wallLayer))
+            {
+                return true;
+            }
+        }
 
+        return false;
+    }
+    protected void WallSlide(IEnumerable<Transform> wallCheck, float wallSlidingSpeed)
+    {
+        if (IsWalled(wallCheck) && !IsGrounded)
+        {
+            IsWallSliding = true;
+        }
+
+        else
+        {
+            IsWallSliding = false;
+        }
+    }
     private new void FixedUpdate()
     {
         if (!IsWallSliding && !_isWallJumping)
         {
             base.FixedUpdate();
+            return;
         }
+        
+        
+        
+        
     }
 
     private void WallJump()
@@ -115,5 +144,11 @@ public class SquarePlayer : Player
         Vector3 localScale = transform.localScale;
         localScale.x *= -1f;
         transform.localScale = localScale;
+    }
+
+    private IEnumerator RestoreGravity()
+    {
+        yield return new WaitForSeconds(3);
+        _rb.gravityScale = _gravityScale;
     }
 }

@@ -43,6 +43,7 @@ public class PlayersManager : MonoBehaviour
     private void Update()
     {
         transform.position = _activePlayerTransform.position; 
+
     }
 
     public void SwitchPlayer(InputAction.CallbackContext context)
@@ -61,11 +62,13 @@ public class PlayersManager : MonoBehaviour
 
     private void BeforeChoosingActivePlayer(int newPlayer)
     {
+        _previousVelocity = ActivePlayerScript.PlayerRigidBody.velocity;
         _currentPlayer = newPlayer;
         HasChangedShape = true;
         _activePlayer.SetActive(false);
         _activePlayer = players[newPlayer];
-        _previousVelocity = ActivePlayerScript.PlayerRigidBody.velocity;
+        Debug.Log(ActivePlayerScript.name);
+        Debug.Log(_previousVelocity);
     }
     
     private void AfterChoosingActivePlayer()
@@ -75,6 +78,8 @@ public class PlayersManager : MonoBehaviour
         UpdatePlayerScript();
         _activePlayer.SetActive(true);
         ActivePlayerScript.PlayerRigidBody.velocity = _previousVelocity;
+        Debug.Log(ActivePlayerScript.name);
+        Debug.Log(ActivePlayerScript.PlayerRigidBody.velocity);
     }
 
     public void ChangeToCircle(InputAction.CallbackContext context)
