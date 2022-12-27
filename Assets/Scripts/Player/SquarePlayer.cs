@@ -83,7 +83,7 @@ public class SquarePlayer : Player
         else if (context.started)
         {
             _isWallJumping = true;
-            _playerRigidBody.velocity = new Vector2(_wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+            _rb.velocity = new Vector2(_wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
             _wallJumpingCounter = 0;
 
             if (Math.Abs(transform.localScale.x - _wallJumpingDirection) > 0.1f) // If player facing direction is not matching the wall jumping direction 
@@ -102,8 +102,8 @@ public class SquarePlayer : Player
 
     private void CheckFlip()
     {
-        if (_isFacingRight && _playerRigidBody.velocity.x < 0 ||
-            !_isFacingRight && _playerRigidBody.velocity.x > 0)
+        if (_isFacingRight && _rb.velocity.x < 0 ||
+            !_isFacingRight && _rb.velocity.x > 0)
         {
             FlipPlayer();
         }

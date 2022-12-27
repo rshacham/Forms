@@ -16,7 +16,6 @@ public class TrianglePlayer : Player
     public new void Update()
     {
         base.Update();
-        WallSlide(wallCheck, wallSlidingSpeed);
         if (IsGrounded)
         {
             _canDoubleJump = true;
@@ -36,7 +35,8 @@ public class TrianglePlayer : Player
         base.Jump(context);
         if (context.performed && !IsGrounded && _canDoubleJump && !IsWallSliding)
         {
-            _playerRigidBody.velocity = new Vector2(_playerRigidBody.velocity.x, jumpingPower);
+            _rb.velocity = new Vector2(_rb.velocity.x, 0);
+            _rb.AddForce(Vector2.up * jumpingPower, ForceMode2D.Impulse);
             _canDoubleJump = false;
         }
     }

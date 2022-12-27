@@ -99,7 +99,7 @@ public class PlayersManager : MonoBehaviour
     {
         if (context.performed)
         {
-            BeforeChoosingActivePlayer(2);
+            BeforeChoosingActivePlayer(0);
             AfterChoosingActivePlayer();
         }
     }
@@ -109,7 +109,7 @@ public class PlayersManager : MonoBehaviour
         switch (_currentPlayer)
         {
             case 0:
-                ActivePlayerScript = _activePlayer.GetComponent<CirclePlayer>();
+                ActivePlayerScript = _activePlayer.GetComponent<TrianglePlayer>();
                 break;
             case 1:
                 ActivePlayerScript = _activePlayer.GetComponent<SquarePlayer>();
