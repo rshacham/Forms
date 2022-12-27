@@ -71,26 +71,26 @@ public class CirclePlayer : Player
         _isDashing = true;
         CanMove = false;
         _canDash = false;
-        var originalGravity = _playerRigidBody.gravityScale;
-        _playerRigidBody.gravityScale = 0;
-        _playerRigidBody.velocity = new Vector2(transform.localScale.x * dashingPower * _dashingDirection, 0);
+        var originalGravity = _rb.gravityScale;
+        _rb.gravityScale = 0;
+        _rb.velocity = new Vector2(transform.localScale.x * dashingPower * _dashingDirection, 0);
         yield return new WaitForSeconds(dashingTime);
 
         StartCoroutine(ResetDashCoolDown());
         _isDashing = false;
         oneDash = false;
-        _playerRigidBody.gravityScale = originalGravity;
+        _rb.gravityScale = originalGravity;
         CanMove = true;
     }
 
     private void ChangeDashingDirection()
     {
-        if (_playerRigidBody.velocity.x > 0)
+        if (_rb.velocity.x > 0)
         {
             _dashingDirection = 1;
         }
 
-        if (_playerRigidBody.velocity.x < 0)
+        if (_rb.velocity.x < 0)
         {
             _dashingDirection = -1;
         }
