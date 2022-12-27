@@ -40,7 +40,7 @@ public abstract class Player : MonoBehaviour
     [SerializeField] private float jumpCoyoteTime;
     [SerializeField] private float jumpBufferTime;
     [SerializeField] private float jumpCutMultipliar;
-    [SerializeField] private float fallGravityMultiplier;
+    [SerializeField] protected float fallGravityMultiplier;
     
     protected bool IsGrounded = false;
     private bool _isJumping = false;
@@ -117,30 +117,13 @@ public abstract class Player : MonoBehaviour
 
     protected void FixedUpdate()
     {
-        var platformFactor = Vector2.zero;
-        _movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        
         if (_canMove)
         {
-            float targetSpeed = _movementInput.x * movementSpeed;
-            float speedDif = targetSpeed - _rb.velocity.x;
-            float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
-            float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
-            
-            _rb.AddForce(movement * Vector2.right);
+            BasicMovement();
         }
         
-        # region Jump Gravity
-        if (_rb.velocity.y < 0)
-        {
-            _rb.gravityScale = _gravityScale * fallGravityMultiplier;
-        }
+        UpdateFallGravity();
 
-        else
-        {
-            _rb.gravityScale = _gravityScale;
-        }
-        #endregion
         
         
         // if (_canMove)
@@ -160,6 +143,32 @@ public abstract class Player : MonoBehaviour
         //     _playerRigidBody.velocity = new Vector2(playerSpeed, _playerRigidBody.velocity.y);
         // }
     }
+
+    protected void UpdateFallGravity()
+    {
+        if (_rb.velocity.y < 0)
+        {
+            _rb.gravityScale = _gravityScale * fallGravityMultiplier;
+        }
+
+        else
+        {
+            _rb.gravityScale = _gravityScale;
+        }
+    }
+
+    protected void BasicMovement()
+    {
+        _movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        float targetSpeed = _movementInput.x * movementSpeed;
+        float speedDif = targetSpeed - _rb.velocity.x;
+        float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
+        float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
+
+        _rb.AddForce(movement * Vector2.right);
+    }
+
     public virtual void Move(InputAction.CallbackContext context)
     {
         

@@ -2562,6 +2562,10 @@ PrefabInstance:
       value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8310770063121565753, guid: daf01d121eea0e5479bbbc4afce1e243, type: 3}
+      propertyPath: wallSlidingSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8310770063121565753, guid: daf01d121eea0e5479bbbc4afce1e243, type: 3}
       propertyPath: jumpCutMultipliar
       value: 0.1
       objectReference: {fileID: 0}
@@ -2570,12 +2574,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8310770063121565753, guid: daf01d121eea0e5479bbbc4afce1e243, type: 3}
+      propertyPath: wallStickDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8310770063121565753, guid: daf01d121eea0e5479bbbc4afce1e243, type: 3}
+      propertyPath: wallJumpingPower.x
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8310770063121565753, guid: daf01d121eea0e5479bbbc4afce1e243, type: 3}
       propertyPath: wallJumpingPower.y
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8310770063121565753, guid: daf01d121eea0e5479bbbc4afce1e243, type: 3}
       propertyPath: fallGravityMultiplier
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8310770063121565753, guid: daf01d121eea0e5479bbbc4afce1e243, type: 3}
+      propertyPath: wallJumpUpForceFactor
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8310770063121565753, guid: daf01d121eea0e5479bbbc4afce1e243, type: 3}
       propertyPath: useDefaultAcceleration

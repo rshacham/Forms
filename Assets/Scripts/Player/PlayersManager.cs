@@ -67,8 +67,6 @@ public class PlayersManager : MonoBehaviour
         HasChangedShape = true;
         _activePlayer.SetActive(false);
         _activePlayer = players[newPlayer];
-        Debug.Log(ActivePlayerScript.name);
-        Debug.Log(_previousVelocity);
     }
     
     private void AfterChoosingActivePlayer()
@@ -78,8 +76,6 @@ public class PlayersManager : MonoBehaviour
         UpdatePlayerScript();
         _activePlayer.SetActive(true);
         ActivePlayerScript.PlayerRigidBody.velocity = _previousVelocity;
-        Debug.Log(ActivePlayerScript.name);
-        Debug.Log(ActivePlayerScript.PlayerRigidBody.velocity);
     }
 
     public void ChangeToCircle(InputAction.CallbackContext context)

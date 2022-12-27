@@ -14,6 +14,7 @@ public class SquarePlayer : Player
     private float _wallJumpingCounter;
     [SerializeField] private float wallJumpingDuration;
     [SerializeField] private Vector2 wallJumpingPower;
+    [SerializeField] private float wallJumpUpForceFactor;
     # endregion
     
     #region Wall Sliding
@@ -21,6 +22,8 @@ public class SquarePlayer : Player
     [SerializeField] private Transform[] wallCheck;
     private bool _isFacingRight = true;
     private bool _isWalled = false;
+    [SerializeField] private float wallStickDuration;
+    private float _onWallTimer;
     #endregion
 
     private new void Start()
@@ -31,7 +34,6 @@ public class SquarePlayer : Player
     private new void Update()
     {
         base.Update();
-        WallSlide(wallCheck, wallSlidingSpeed);
 
         if (!_isWallJumping)
         {
@@ -43,7 +45,7 @@ public class SquarePlayer : Player
     {
         foreach (var checker in wallCheck)
         {
-            if (Physics2D.OverlapCircle(checker.position, 0.2f, wallLayer))
+            if (Physics2D.OverlapCircle(checker.position, 0.3f, wallLayer))
             {
                 return true;
             }
@@ -65,26 +67,37 @@ public class SquarePlayer : Player
     }
     private new void FixedUpdate()
     {
-        if (!IsWallSliding && !_isWallJumping)
+        WallSlide(wallCheck, wallSlidingSpeed);
+        BasicMovement();
+
+        if (IsWallSliding)
         {
-            base.FixedUpdate();
+            _rb.gravityScale = _gravityScale;
             return;
         }
-        
-        
-        
-        
     }
+    
+    private new void UpdateFallGravity()
+    {
+        if (_rb.velocity.y < 0)
+        {
+            _rb.gravityScale = _gravityScale * fallGravityMultiplier;
+        }
+
+        else
+        {
+            _rb.gravityScale = _gravityScale;
+        }
+    }
+
 
     private void WallJump()
     {
         if (IsWallSliding)
         {
-            _isWallJumping = false;
             _wallJumpingDirection = -transform.localScale.x;
-            _wallJumpingCounter = wallJumpingTime;
-            
-            CancelInvoke(nameof(StopWallJumping));
+            var upForce = Mathf.Abs(_rb.velocity.y) * wallJumpUpForceFactor + wallJumpingPower.y;
+            _rb.AddForce(new Vector2(wallJumpingPower.x * _wallJumpingDirection, upForce), ForceMode2D.Impulse);
         }
 
         else
@@ -111,16 +124,12 @@ public class SquarePlayer : Player
         
         else if (context.started)
         {
-            _isWallJumping = true;
-            _rb.velocity = new Vector2(_wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
-            _wallJumpingCounter = 0;
+            WallJump();
 
             if (Math.Abs(transform.localScale.x - _wallJumpingDirection) > 0.1f) // If player facing direction is not matching the wall jumping direction 
             {
                 FlipPlayer();
             }
-        
-            Invoke(nameof(StopWallJumping), wallJumpingDuration);
         }
     }
 
@@ -145,10 +154,5 @@ public class SquarePlayer : Player
         localScale.x *= -1f;
         transform.localScale = localScale;
     }
-
-    private IEnumerator RestoreGravity()
-    {
-        yield return new WaitForSeconds(3);
-        _rb.gravityScale = _gravityScale;
-    }
+    
 }
