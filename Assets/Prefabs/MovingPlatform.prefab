@@ -128,3 +128,4 @@ MonoBehaviour:
   points:
   - 5
   - 30
+  bufferTime: 0.1

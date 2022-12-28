@@ -31,7 +31,6 @@ public abstract class Player : MonoBehaviour
     private Vector2 _movementInput;
     private Vector2 _smoothMovementInput;
     private Vector2 _movementInputSmoothVelocity;
-    [SerializeField] private float smoothSpeed;
     #endregion
     
     #region Jumping
@@ -56,12 +55,10 @@ public abstract class Player : MonoBehaviour
     [SerializeField] protected bool useDefaultAcceleration;
     #endregion
     
-    
     private Collider2D collider;
     private float _speed_t = 0;
 
     public bool OnPlatform { get; set; }
-
     
     public Rigidbody2D PlayerRigidBody
     {
@@ -146,7 +143,7 @@ public abstract class Player : MonoBehaviour
 
     protected void UpdateFallGravity()
     {
-        if (_rb.velocity.y < 0)
+        if (_rb.velocity.y < 0.01f && !IsGrounded)
         {
             _rb.gravityScale = _gravityScale * fallGravityMultiplier;
         }
@@ -165,7 +162,7 @@ public abstract class Player : MonoBehaviour
         float speedDif = targetSpeed - _rb.velocity.x;
         float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
         float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
-
+        
         _rb.AddForce(movement * Vector2.right);
     }
 

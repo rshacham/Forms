@@ -10,7 +10,6 @@ public class PlayersManager : MonoBehaviour
     public static PlayersManager Manager;
     
     [SerializeField] private GameObject[] players;
-    [SerializeField] private GameObject playersHolder;
     private GameObject _activePlayer;
 
     public Player ActivePlayerScript { get; set; }
@@ -19,14 +18,11 @@ public class PlayersManager : MonoBehaviour
     private Vector2 _previousVelocity;
 
     private int _currentPlayer;
-
-    #region PlayerHolder
-    private Transform _playersParent;
-    public Transform PlayersParent => _playersParent;
-    #endregion
     public bool HasChangedShape { get; set; } = false;
     public bool HasJumped { get; set; } = false;
     public Vector2 PlatformFactor { get; set; }
+    
+    
 
     private void Awake()
     {
@@ -37,7 +33,6 @@ public class PlayersManager : MonoBehaviour
     {
         _activePlayer = players[_currentPlayer];
         _activePlayerTransform = _activePlayer.GetComponent<Transform>();
-        _playersParent = _activePlayerTransform.parent;
         UpdatePlayerScript();
     }
     
@@ -140,7 +135,4 @@ public class PlayersManager : MonoBehaviour
         _activePlayer.transform.localPosition = GameManager.Manager.ReturnPoint;
         ActivePlayerScript.ResetMovement();
     }
-    
-    
-
 }
