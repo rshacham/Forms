@@ -38,16 +38,18 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "players" && _afterStick)
+        if (other.gameObject.tag == "players" && !_afterStick)
         {
+            Debug.Log("enter");
             StickPlayer(other);
         }
     }
     
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("players") && _afterStick && other.transform.parent == null)
+        if (other.gameObject.CompareTag("players") && !_afterStick && other.transform.parent == null)
         {
+            Debug.Log("stay");
             StickPlayer(other);
         }
     }
@@ -56,6 +58,7 @@ public class MovingPlatform : MonoBehaviour
     {
         previousInterpolation = PlayersManager.Manager.ActivePlayerScript.PlayerRigidBody.interpolation;
         _afterStick = true;
+        PlayersManager.Manager.ActivePlayerScript.CanRotate(false);
         StartCoroutine(CancelAfterStick());
         PlayersManager.Manager.ActivePlayerScript.PlayerRigidBody.interpolation = RigidbodyInterpolation2D.None;
         other.transform.SetParent(transform, true);
@@ -63,8 +66,10 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("players") && !_afterStick)
+        if (other.gameObject.CompareTag("players"))
         {
+            PlayersManager.Manager.ActivePlayerScript.CanRotate(true);
+            Debug.Log("exit");
             _afterStick = true;
             StartCoroutine(CancelAfterStick());
             PlayersManager.Manager.ActivePlayerScript.PlayerRigidBody.interpolation = previousInterpolation;
