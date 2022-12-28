@@ -87,6 +87,7 @@ public class PlayersManager : MonoBehaviour
     {
         if (context.performed)
         {
+            GameManager.HasChangedToSquare = true;
             BeforeChoosingActivePlayer(1);
             AfterChoosingActivePlayer();
         }
@@ -96,6 +97,7 @@ public class PlayersManager : MonoBehaviour
     {
         if (context.performed)
         {
+            GameManager.HasChangedToTriangle = true;
             BeforeChoosingActivePlayer(0);
             AfterChoosingActivePlayer();
         }

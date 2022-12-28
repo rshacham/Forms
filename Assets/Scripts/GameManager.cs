@@ -7,7 +7,32 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Manager;
+
+    private static bool hasDoubleJumped = false;
+
+    private static bool hasChangedToSquare = false;
     
+    private static bool hasChangedToTriangle = false;
+    
+    public static bool HasDoubleJumped
+    {
+        get => hasDoubleJumped;
+        set => hasDoubleJumped = value;
+    }
+    
+    public static bool HasChangedToSquare
+    {
+        get => hasChangedToSquare;
+        set => hasChangedToSquare = value;
+    }
+
+    public static bool HasChangedToTriangle
+    {
+        get => hasChangedToTriangle;
+        set => hasChangedToTriangle = value;
+    }
+
+
     #region Layers
     [SerializeField] private LayerMask wallLayer;
     public LayerMask WallLayer => wallLayer;
