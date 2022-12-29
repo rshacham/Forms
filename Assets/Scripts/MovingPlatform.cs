@@ -5,20 +5,42 @@ using UnityEngine;
 public class MovingPlatform : MonoBehaviour
 {
     [SerializeField] private float speedOfPlatform;
-    [SerializeField] private float[] points;
+    [SerializeField] private Transform[] points;
+    private List<Vector2> positions;
     private float _lastFrameMovement;
     private Vector2 _lastFramePosition;
     private Vector2 _distanceToNewPosition;
     private int _index = 0;
     private bool _playerOnPlatform = false;
 
+    private Transform _playerTransform;
+
     private RigidbodyInterpolation2D previousInterpolation;
 
-    [SerializeField] private float bufferTime;
-    private bool _afterStick;
+    // [SerializeField] private float bufferTime;
+    // private bool _afterStick;
+    //
+    // # region Timers
+    // private float _currentDelay;
+    // # endregion
+    
+    #region New Solution
+    [SerializeField] private Transform _holder;
+    #endregion
+
+    private void Start()
+    {
+        points[0].position = transform.position;
+        positions = new List<Vector2>();
+        foreach (var point in points)
+        {
+            positions.Add(point.position);
+        }
+    }
+
     private void Update()
     {
-        if (Vector2.Distance(transform.localPosition, new Vector2(points[_index], transform.localPosition.y)) < 0.02f)
+        if (Vector2.Distance(transform.position, positions[_index]) < 0.02f)
         {
             _index++;
             if (_index == points.Length)
@@ -26,60 +48,43 @@ public class MovingPlatform : MonoBehaviour
                 _index = 0;
             }
         }
-        Vector2 newPosition = Vector2.MoveTowards(transform.localPosition,
-            new Vector2(points[_index], transform.localPosition.y),
+        
+        Vector2 newPosition = Vector2.MoveTowards(transform.position,
+            positions[_index],
             speedOfPlatform * Time.deltaTime);
-        transform.localPosition = newPosition;
-        if (_playerOnPlatform)
-        {
-            PlayersManager.Manager.PlatformFactor = newPosition - _lastFramePosition;
-        }
+        _holder.position = newPosition;
+        
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "players" && !_afterStick)
+        Debug.Log("enter");
+        _playerTransform = other.transform;
+        if (other.gameObject.tag == "players")
         {
-            Debug.Log("enter");
-            StickPlayer(other);
+            StickPlayer();
         }
     }
-    
-    private void OnCollisionStay2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("players") && !_afterStick && other.transform.parent == null)
-        {
-            Debug.Log("stay");
-            StickPlayer(other);
-        }
-    }
-    
-    private void StickPlayer(Collision2D other)
+
+    private void StickPlayer()
     {
         previousInterpolation = PlayersManager.Manager.ActivePlayerScript.PlayerRigidBody.interpolation;
-        _afterStick = true;
-        PlayersManager.Manager.ActivePlayerScript.CanRotate(false);
-        StartCoroutine(CancelAfterStick());
         PlayersManager.Manager.ActivePlayerScript.PlayerRigidBody.interpolation = RigidbodyInterpolation2D.None;
-        other.transform.SetParent(transform, true);
+        _playerTransform.SetParent(_holder, true);
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
+        Debug.Log("exit");
         if (other.gameObject.CompareTag("players"))
         {
-            PlayersManager.Manager.ActivePlayerScript.CanRotate(true);
-            Debug.Log("exit");
-            _afterStick = true;
-            StartCoroutine(CancelAfterStick());
-            PlayersManager.Manager.ActivePlayerScript.PlayerRigidBody.interpolation = previousInterpolation;
-            other.transform.SetParent(null, true);
+            UnStick();
         }
     }
 
-    IEnumerator CancelAfterStick()
+    private void UnStick()
     {
-        yield return new WaitForSeconds(bufferTime);
-        _afterStick = false;
+        PlayersManager.Manager.ActivePlayerScript.PlayerRigidBody.interpolation = previousInterpolation;
+        _playerTransform.SetParent(null, true);
     }
 }

@@ -34,18 +34,14 @@ public class SquarePlayer : Player
     private new void Update()
     {
         base.Update();
-
-        if (!_isWallJumping)
-        {
-            CheckFlip();
-        }
+        CheckFlip();
     }
     
     private bool IsWalled(IEnumerable<Transform> wallCheck)
     {
         foreach (var checker in wallCheck)
         {
-            if (Physics2D.OverlapCircle(checker.position, 0.3f, wallLayer))
+            if (Physics2D.OverlapCircle(checker.position, 0.5f, wallLayer))
             {
                 return true;
             }
@@ -94,6 +90,7 @@ public class SquarePlayer : Player
     {
         if (IsWallSliding)
         {
+            _rb.velocity = new Vector2(_rb.velocity.x, 0);
             _wallJumpingDirection = -transform.localScale.x;
             var upForce = Mathf.Abs(_rb.velocity.y) * wallJumpUpForceFactor + wallJumpingPower.y;
             _rb.AddForce(new Vector2(wallJumpingPower.x * _wallJumpingDirection, upForce), ForceMode2D.Impulse);

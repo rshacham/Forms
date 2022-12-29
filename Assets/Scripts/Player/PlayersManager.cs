@@ -21,6 +21,8 @@ public class PlayersManager : MonoBehaviour
     public bool HasChangedShape { get; set; } = false;
     public bool HasJumped { get; set; } = false;
     public Vector2 PlatformFactor { get; set; }
+
+    [SerializeField] private GameObject startingPoint;
     
     
 
@@ -33,6 +35,11 @@ public class PlayersManager : MonoBehaviour
     {
         _activePlayer = players[_currentPlayer];
         _activePlayerTransform = _activePlayer.GetComponent<Transform>();
+        if (startingPoint != null)
+        {
+            _activePlayer.transform.position = startingPoint.transform.position;
+        }
+
         UpdatePlayerScript();
     }
     

@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5465123008442354284, guid: 77a867fcad6d8b54a9bc94e95a58a610, type: 2}
+  - {fileID: 6021580589913193827, guid: 61daf51cbfc4c9746bfb68de36c05c1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,10 +100,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: to change yourself to square press w
+  m_text: Helvetica
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 77a867fcad6d8b54a9bc94e95a58a610, type: 2}
-  m_sharedMaterial: {fileID: 5465123008442354284, guid: 77a867fcad6d8b54a9bc94e95a58a610, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 61daf51cbfc4c9746bfb68de36c05c1d, type: 2}
+  m_sharedMaterial: {fileID: 6021580589913193827, guid: 61daf51cbfc4c9746bfb68de36c05c1d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
