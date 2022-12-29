@@ -90,6 +90,7 @@ public class SquarePlayer : Player
     {
         if (IsWallSliding)
         {
+            GameManager.Manager.HasWallJumped = true;
             _rb.velocity = new Vector2(_rb.velocity.x, 0);
             _wallJumpingDirection = -transform.localScale.x;
             var upForce = Mathf.Abs(_rb.velocity.y) * wallJumpUpForceFactor + wallJumpingPower.y;

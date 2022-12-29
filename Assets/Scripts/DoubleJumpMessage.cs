@@ -6,35 +6,64 @@ using UnityEngine;
 
 public class DoubleJumpMessage : MonoBehaviour
 {
+    private TextMeshProUGUI _textMeshPro;
     [SerializeField] private GameObject doubleJumpMessage;
     [SerializeField] private GameObject changeToSquareMessage;
+    [SerializeField] private GameObject afterSquareChangeMessage;
     [SerializeField] private GameObject changeToTriangleMessage;
-    
+
+    [SerializeField] private string afterSquareChangeText;
+
+    private void Start()
+    {
+        _textMeshPro = GetComponent<TextMeshProUGUI>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!GameManager.HasDoubleJumped)
+        if (!GameManager.Manager.HasDoubleJumped)
         {
-            doubleJumpMessage.SetActive(true);
+            if (doubleJumpMessage != null)
+            {
+                doubleJumpMessage.SetActive(true);
+            }
         }
 
-        if (!GameManager.HasChangedToSquare)
+        if (!GameManager.Manager.HasChangedToSquare)
         {
-            changeToSquareMessage.SetActive(true);
+            if (changeToSquareMessage != null)
+            {
+                changeToSquareMessage.SetActive(true);
+            }
+        }
+
+        if (!GameManager.Manager.HasChangedToTriangle)
+        {
+            if (changeToTriangleMessage != null)
+            {
+                changeToTriangleMessage.SetActive(true);
+            }
         }
     }
 
     private void Update()
     {
-        if (GameManager.HasDoubleJumped)
+        if (GameManager.Manager.HasDoubleJumped && doubleJumpMessage != null)
         {
             doubleJumpMessage.SetActive(false);
         }
-        if (GameManager.HasChangedToSquare)
+        if (GameManager.Manager.HasChangedToSquare && changeToSquareMessage != null && afterSquareChangeMessage != null)
         {
             changeToSquareMessage.SetActive(false);
-            changeToTriangleMessage.SetActive(true);
+            afterSquareChangeMessage.SetActive(true);
         }
-        if (GameManager.HasChangedToTriangle)
+
+        if (GameManager.Manager.HasWallJumped && afterSquareChangeMessage != null)
+        {
+            afterSquareChangeMessage.SetActive(false);
+        }
+
+        if (GameManager.Manager.HasChangedToTriangle && changeToTriangleMessage != null)
         {
             changeToTriangleMessage.SetActive(false);
         }
