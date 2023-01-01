@@ -9,7 +9,14 @@ public class Camera : MonoBehaviour
     [SerializeField] private float upperFollowPlayerHeight;
     
     [SerializeField] private Vector3 cameraOffsets;
-    
+
+    public Vector3 CameraOffsets
+    {
+        get => cameraOffsets;
+        set => cameraOffsets = value;
+    }
+
+
     [SerializeField] [Range(0.01f, 1f)]
     private float smoothSpeed;
     
