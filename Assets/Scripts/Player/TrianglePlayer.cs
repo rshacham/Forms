@@ -39,7 +39,6 @@ public class TrianglePlayer : Player
             if (_canMove)
             {
                 BasicMovement();
-                IsGrounded = CheckIfGrounded();
                 if (Mathf.Abs(_movementInput.x) > 0.1f && CheckIfStuck() && IsGrounded)
                 {
                     StartWalkJump();

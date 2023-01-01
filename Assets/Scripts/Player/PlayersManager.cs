@@ -104,7 +104,6 @@ public class PlayersManager : MonoBehaviour
     {
         if (context.performed)
         {
-            GameManager.Manager.HasChangedToTriangle = true;
             BeforeChoosingActivePlayer(0);
             AfterChoosingActivePlayer();
         }

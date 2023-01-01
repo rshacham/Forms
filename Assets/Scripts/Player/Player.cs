@@ -42,6 +42,7 @@ public abstract class Player : MonoBehaviour
     [SerializeField] protected float fallGravityMultiplier;
     
     protected bool IsGrounded = false;
+    [SerializeField] private float isGroundedRayLength;
     private bool _isJumping = false;
     private float _lastGroundedTime;
     private float _lastJumpTime = 0;
@@ -213,7 +214,7 @@ public abstract class Player : MonoBehaviour
         var colliderBounds = collider.bounds;
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(colliderBounds.center,
             colliderBounds.size, 0,
-            Vector2.down, 0.3f, groundLayer);
+            Vector2.down, isGroundedRayLength, groundLayer);
         // if not touching the ground, return false
         bool isGrounded = (raycastHit2D.collider != null);
         if (isGrounded)

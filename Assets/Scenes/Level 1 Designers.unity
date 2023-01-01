@@ -305,6 +305,7 @@ MonoBehaviour:
   jumpBufferTime: 0
   jumpCutMultipliar: 0
   fallGravityMultiplier: 0
+  isGroundedRayLength: 0
   defaultSettings: {fileID: 11400000, guid: 4d987d534ff81fc4a92432139fc54e33, type: 2}
   useDefaultGravity: 1
   useDefaultJumpingPower: 1
@@ -2812,6 +2813,7 @@ MonoBehaviour:
   jumpBufferTime: 0.1
   jumpCutMultipliar: 0.1
   fallGravityMultiplier: 2
+  isGroundedRayLength: 0.7
   defaultSettings: {fileID: 11400000, guid: 4d987d534ff81fc4a92432139fc54e33, type: 2}
   useDefaultGravity: 0
   useDefaultJumpingPower: 0
@@ -7001,6 +7003,7 @@ MonoBehaviour:
   jumpBufferTime: 0.1
   jumpCutMultipliar: 0.1
   fallGravityMultiplier: 2
+  isGroundedRayLength: 0.3
   defaultSettings: {fileID: 11400000, guid: 4d987d534ff81fc4a92432139fc54e33, type: 2}
   useDefaultGravity: 0
   useDefaultJumpingPower: 0
