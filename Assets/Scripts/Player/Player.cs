@@ -22,13 +22,13 @@ public abstract class Player : MonoBehaviour
     [SerializeField] private float decceleration;
     [SerializeField] private float velPower;
 
-    private bool _canMove = true;
+    protected bool _canMove = true;
     public bool CanMove {
         get { return _canMove; }
         set { _canMove = value; }
     }
 
-    private Vector2 _movementInput;
+    protected Vector2 _movementInput;
     private Vector2 _smoothMovementInput;
     private Vector2 _movementInputSmoothVelocity;
     #endregion
@@ -208,10 +208,7 @@ public abstract class Player : MonoBehaviour
 
     }
 
-    
-
-
-    private bool CheckIfGrounded()
+    protected bool CheckIfGrounded()
     {
         var colliderBounds = collider.bounds;
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(colliderBounds.center,

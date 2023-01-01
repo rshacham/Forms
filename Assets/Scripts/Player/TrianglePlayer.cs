@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,14 @@ using UnityEngine.InputSystem;
 
 public class TrianglePlayer : Player
 {
+    # region Rotation
+    [SerializeField] private float startWalkRotationBoost;
+    [SerializeField] private float walkingRotationSpeed;
+    private bool startedWalking = false;
+    [SerializeField] private float airFactor;
+    private float rotationSpeed;
+    # endregion
+    
     private bool _canDoubleJump = true;
 
     #region Wall Sliding
@@ -16,6 +25,7 @@ public class TrianglePlayer : Player
     public new void Update()
     {
         base.Update();
+        UpdateRotationSpeed();
         if (IsGrounded)
         {
             _canDoubleJump = true;
@@ -26,10 +36,31 @@ public class TrianglePlayer : Player
     {
         if (!IsWallSliding)
         {
-            base.FixedUpdate();
+            if (_canMove)
+            {
+                BasicMovement();
+                IsGrounded = CheckIfGrounded();
+                if (Mathf.Abs(_movementInput.x) > 0.1f && CheckIfStuck() && IsGrounded)
+                {
+                    StartWalkJump();
+                }
+            }
         }
+
+        if (Mathf.Abs(_movementInput.x) < 0.1f)
+        {
+            startedWalking = false;
+        }
+        
+        PlayerRigidBody.AddTorque(rotationSpeed * Time.fixedDeltaTime * Mathf.Sign(_movementInput.x) * -1);
     }
-    
+
+    public bool CheckIfStuck()
+    {
+        return (Math.Abs(transform.eulerAngles.z - 240) < 0.3f
+                || Math.Abs(transform.eulerAngles.z - 120) < 0.3f
+                || Math.Abs(transform.eulerAngles.z - 0) < 0.3f);
+    }
     public override void Jump(InputAction.CallbackContext context)
     {
         base.Jump(context);
@@ -41,6 +72,29 @@ public class TrianglePlayer : Player
             _canDoubleJump = false;
         }
     }
-    
+
+    private void StartWalkJump()
+    {
+        Debug.Log("Start Walking");
+        startedWalking = true;
+        // var force = Vector2.up * startWalkJumpPower;
+        // if (_rb.velocity.magnitude > 5f)
+        // {
+        //     force *= 3;
+        // }
+        // _rb.AddForce(force, ForceMode2D.Impulse);
+        _rb.AddTorque(rotationSpeed * Time.fixedDeltaTime * Mathf.Sign(_movementInput.x) * -1 * startWalkRotationBoost);
+    }
+
+    private void UpdateRotationSpeed()
+    {
+        if (Mathf.Abs(_rb.velocity.y) < 3f)
+        {
+            rotationSpeed = walkingRotationSpeed;
+            return;
+        }
+
+        rotationSpeed = walkingRotationSpeed / airFactor;
+    }
     
 }

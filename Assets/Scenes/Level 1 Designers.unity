@@ -2816,6 +2816,8 @@ MonoBehaviour:
   useDefaultGravity: 0
   useDefaultJumpingPower: 0
   useDefaultAcceleration: 0
+  startWalkJumpPower: 8
+  rotationSpeed: 1100
   wallSlidingSpeed: 12
   wallCheck:
   - {fileID: 943921701}
@@ -3055,7 +3057,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646797857}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.5183255, w: 0.8551834}
   m_LocalPosition: {x: -253.90001, y: -97.2, z: 0}
   m_LocalScale: {x: 2.2034, y: 2.2034, z: 2.2034}
   m_ConstrainProportionsScale: 0
@@ -3065,7 +3067,7 @@ Transform:
   - {fileID: 315367813}
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -62.44}
 --- !u!1001 &656180963
 PrefabInstance:
   m_ObjectHideFlags: 0
