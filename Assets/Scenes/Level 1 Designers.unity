@@ -8064,7 +8064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1227316487122690748, guid: 4e2712c58badf0a4696cf44540d59f5c, type: 3}
       propertyPath: smoothSpeed
-      value: 0.25
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 1227316487122690748, guid: 4e2712c58badf0a4696cf44540d59f5c, type: 3}
       propertyPath: cameraOffsets.x
