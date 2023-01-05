@@ -76,13 +76,9 @@ public class TrianglePlayer : Player
     {
         Debug.Log("Start Walking");
         startedWalking = true;
-        // var force = Vector2.up * startWalkJumpPower;
-        // if (_rb.velocity.magnitude > 5f)
-        // {
-        //     force *= 3;
-        // }
-        // _rb.AddForce(force, ForceMode2D.Impulse);
-        _rb.AddTorque(rotationSpeed * Time.fixedDeltaTime * Mathf.Sign(_movementInput.x) * -1 * startWalkRotationBoost);
+
+        var boost = IsGrounded ? startWalkRotationBoost : 1;
+        _rb.AddTorque(rotationSpeed * Time.fixedDeltaTime * Mathf.Sign(_movementInput.x) * -1 * boost);
     }
 
     private void UpdateRotationSpeed()
