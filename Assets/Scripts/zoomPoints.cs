@@ -6,14 +6,14 @@ using UnityEngine;
 
 public class zoomPoints : MonoBehaviour
 {
-    private UnityEngine.Camera camera;
-    
+    private Camera camera;
+       
     [SerializeField] private float zoom;
     [SerializeField] private Vector2 offset;
 
     private void Awake()
     {
-        camera = UnityEngine.Camera.main;
+        camera = FindObjectOfType<Camera>();
     }
 
 
@@ -21,8 +21,8 @@ public class zoomPoints : MonoBehaviour
     {
         if (other.CompareTag("players"))
         {
-            camera.orthographicSize = zoom;
-            camera.GetComponent<Camera>().CameraOffsets = offset;
+            camera.Zoom = zoom;
+            camera.NewOffsets = offset;
         }
         
     }
