@@ -1,17 +1,29 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 public class zoomPoints : MonoBehaviour
 {
-    [SerializeField] private Camera _camera;
+    private UnityEngine.Camera camera;
     
     [SerializeField] private float zoom;
-    [SerializeField] private float offsetX;
+    [SerializeField] private Vector2 offset;
+
+    private void Awake()
+    {
+        camera = UnityEngine.Camera.main;
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //_camera.CameraOffsets.x = offsetX;
+        if (other.CompareTag("players"))
+        {
+            camera.orthographicSize = zoom;
+            camera.GetComponent<Camera>().CameraOffsets = offset;
+        }
+        
     }
 }
