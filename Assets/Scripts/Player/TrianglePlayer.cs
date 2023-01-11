@@ -91,5 +91,10 @@ public class TrianglePlayer : Player
 
         rotationSpeed = walkingRotationSpeed / airFactor;
     }
+
+    public void SwitchGravity(InputAction.CallbackContext context)
+    {
+        _rb.gravityScale *= -1;
+    }
     
 }

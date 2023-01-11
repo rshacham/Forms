@@ -7,7 +7,8 @@ using UnityEngine;
 public class zoomPoints : MonoBehaviour
 {
     private Camera camera;
-       
+
+    [SerializeField] private bool active;
     [SerializeField] private float zoom;
     [SerializeField] private Vector2 offset;
 
@@ -19,7 +20,7 @@ public class zoomPoints : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("players"))
+        if (other.CompareTag("players") && active)
         {
             camera.Zoom = zoom;
             camera.NewOffsets = offset;
