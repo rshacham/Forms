@@ -107,4 +107,14 @@ public class CirclePlayer : Player
         yield return new WaitForSeconds(oneDashFactor);
         oneDash = false;
     }
+
+    public void ChangeToSquare()
+    {
+        PlayersManager.Manager.ChangeToSquare();
+    }
+
+    public void ChangeToTriangle()
+    {
+        PlayersManager.Manager.ChangeToTriangle();
+    }
 }
