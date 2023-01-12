@@ -27,8 +27,6 @@ public class PlayersManager : MonoBehaviour
     
     [SerializeField] private GameObject startingPoint;
     
-    
-
     private void Awake()
     {
         Manager = this;
@@ -45,6 +43,10 @@ public class PlayersManager : MonoBehaviour
         }
 
         UpdatePlayerScript();
+        if (startingPoint != null)
+        {
+            CanSquare = true;
+        }
     }
     
     private void Update()
