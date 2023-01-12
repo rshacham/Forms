@@ -15,6 +15,8 @@ public class PlayersManager : MonoBehaviour
     public Player ActivePlayerScript { get; set; }
     
     private Transform _activePlayerTransform;
+    private Animator _activeAnimator;
+    
     private Vector2 _previousVelocity;
 
     private int _currentPlayer;
@@ -35,6 +37,7 @@ public class PlayersManager : MonoBehaviour
     {
         _activePlayer = players[_currentPlayer];
         _activePlayerTransform = _activePlayer.GetComponent<Transform>();
+        _activeAnimator = _activePlayer.GetComponent<Animator>();
         if (startingPoint != null)
         {
             _activePlayer.transform.position = startingPoint.transform.position;
@@ -76,37 +79,29 @@ public class PlayersManager : MonoBehaviour
     {
         _activePlayer.transform.position = _activePlayerTransform.position;
         _activePlayerTransform = _activePlayer.transform;
+        _activeAnimator = _activePlayer.GetComponent<Animator>();
         UpdatePlayerScript();
         _activePlayer.SetActive(true);
         ActivePlayerScript.PlayerRigidBody.velocity = _previousVelocity;
     }
 
-    public void ChangeToCircle(InputAction.CallbackContext context)
+    public void ChangeToCircle()
     {
-        if (context.performed)
-        {
-            BeforeChoosingActivePlayer(0);
-            AfterChoosingActivePlayer();
-        }
+        BeforeChoosingActivePlayer(0); 
+        AfterChoosingActivePlayer();
     }
     
-    public void ChangeToSquare(InputAction.CallbackContext context)
+    public void ChangeToSquare()
     {
-        if (context.performed)
-        {
-            GameManager.Manager.HasChangedToSquare = true;
-            BeforeChoosingActivePlayer(1);
-            AfterChoosingActivePlayer();
-        }
+        GameManager.Manager.HasChangedToSquare = true;
+        BeforeChoosingActivePlayer(1);
+        AfterChoosingActivePlayer();
     }
     
-    public void ChangeToTriangle(InputAction.CallbackContext context)
+    public void ChangeToTriangle()
     {
-        if (context.performed)
-        {
-            BeforeChoosingActivePlayer(2);
-            AfterChoosingActivePlayer();
-        }
+        BeforeChoosingActivePlayer(2);
+        AfterChoosingActivePlayer();
     }
 
     public void UpdatePlayerScript()
@@ -143,4 +138,30 @@ public class PlayersManager : MonoBehaviour
         _activePlayer.transform.localPosition = GameManager.Manager.ReturnPoint;
         ActivePlayerScript.ResetMovement();
     }
+    
+    public void ToCircle(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _activeAnimator.SetBool("Circle", true);
+        }
+    }
+    
+    public void ToSquare(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _activeAnimator.SetBool("Square", true);
+        }
+    }
+
+    public void ToTriangle(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _activeAnimator.SetBool("Triangle", true);
+        }
+    }
+    
+
 }

@@ -54,6 +54,11 @@ public class TrianglePlayer : Player
         PlayerRigidBody.AddTorque(rotationSpeed * Time.fixedDeltaTime * Mathf.Sign(_movementInput.x) * -1);
     }
 
+    // private void OnEnable()
+    // {
+    //     transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
+    // }
+
     public bool CheckIfStuck()
     {
         return (Math.Abs(transform.eulerAngles.z - 240) < 0.3f
@@ -96,5 +101,14 @@ public class TrianglePlayer : Player
     {
         _rb.gravityScale *= -1;
     }
+
+    public void ChangeToCircle()
+    {
+        PlayersManager.Manager.ChangeToCircle();
+    }
     
+    public void ChangeToSquare()
+    {
+        PlayersManager.Manager.ChangeToSquare();
+    }
 }

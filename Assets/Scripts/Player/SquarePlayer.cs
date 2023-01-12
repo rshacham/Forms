@@ -150,4 +150,15 @@ public class SquarePlayer : Player
         localScale.x *= -1f;
         transform.localScale = localScale;
     }
+    
+    public void ChangeToCircle()
+    {
+        PlayersManager.Manager.ChangeToCircle();
+    }
+    
+    public void ChangeToTriangle()
+    {
+        PlayersManager.Manager.ChangeToTriangle();
+    }
+
 }
