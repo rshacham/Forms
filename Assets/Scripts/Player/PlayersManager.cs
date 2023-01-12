@@ -22,8 +22,9 @@ public class PlayersManager : MonoBehaviour
     private int _currentPlayer;
     public bool HasChangedShape { get; set; } = false;
     public bool HasJumped { get; set; } = false;
-    public Vector2 PlatformFactor { get; set; }
 
+    public bool CanSquare { get; set; } = false;
+    
     [SerializeField] private GameObject startingPoint;
     
     
@@ -93,7 +94,6 @@ public class PlayersManager : MonoBehaviour
     
     public void ChangeToSquare()
     {
-        GameManager.Manager.HasChangedToSquare = true;
         BeforeChoosingActivePlayer(1);
         AfterChoosingActivePlayer();
     }
@@ -143,14 +143,16 @@ public class PlayersManager : MonoBehaviour
     {
         if (context.performed)
         {
+            GameManager.Manager.HasChangedToCircle = true;
             _activeAnimator.SetBool("Circle", true);
         }
     }
     
     public void ToSquare(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && CanSquare)
         {
+            GameManager.Manager.HasChangedToSquare = true;
             _activeAnimator.SetBool("Square", true);
         }
     }
@@ -159,6 +161,7 @@ public class PlayersManager : MonoBehaviour
     {
         if (context.performed)
         {
+            GameManager.Manager.HasChangedToTriangle = true;
             _activeAnimator.SetBool("Triangle", true);
         }
     }

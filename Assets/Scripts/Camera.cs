@@ -8,13 +8,8 @@ public class Camera : MonoBehaviour
     
     [SerializeField] private Transform playerTransform;
 
-    private Vector3 newOffsets;
+    public Vector3 PreviousOffsets { get; set; }
 
-    public Vector3 NewOffsets
-    {
-        get => newOffsets;
-        set => newOffsets = value;
-    }
     [SerializeField] private Vector3 cameraOffsets;
     
     public Vector3 CameraOffsets
@@ -47,7 +42,7 @@ public class Camera : MonoBehaviour
         _cameraTransform = GetComponent<Transform>();
         FollowPlayerVertical = true;
         Zoom = _camera.orthographicSize;
-        newOffsets = cameraOffsets;
+        PreviousOffsets = cameraOffsets;
     }
 
     void LateUpdate()
@@ -73,12 +68,17 @@ public class Camera : MonoBehaviour
         
         _camera.orthographicSize = newZoom;
 
-        if ((newOffsets - cameraOffsets).magnitude > 0.4f)
+        if ((PreviousOffsets - cameraOffsets).magnitude > 0.4f)
         {
             var newOffset = Vector2.SmoothDamp(
-                cameraOffsets, newOffsets, ref _velocity, offsetSmoothSpeed);
+                PreviousOffsets,cameraOffsets, ref _velocity, offsetSmoothSpeed);
         
             cameraOffsets = newOffset;
+
+            if ((PreviousOffsets - cameraOffsets).magnitude <= 0.4f)
+            {
+                PreviousOffsets = cameraOffsets;
+            }
         }
 
         

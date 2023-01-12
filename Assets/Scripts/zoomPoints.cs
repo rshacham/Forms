@@ -23,7 +23,7 @@ public class zoomPoints : MonoBehaviour
         if (other.CompareTag("players") && active)
         {
             camera.Zoom = zoom;
-            camera.NewOffsets = offset;
+            camera.CameraOffsets = offset;
         }
         
     }

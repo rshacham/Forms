@@ -8,30 +8,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Manager;
 
-    private bool hasDoubleJumped = false;
+    public bool HasDoubleJumped { get; set; } = false;
 
-    private bool hasChangedToSquare = false;
-    
-    private bool hasChangedToTriangle = false;
-    
-    public bool HasDoubleJumped
-    {
-        get => hasDoubleJumped;
-        set => hasDoubleJumped = value;
-    }
-    
-    public bool HasChangedToSquare
-    {
-        get => hasChangedToSquare;
-        set => hasChangedToSquare = value;
-    }
+    public bool HasChangedToSquare { get; set; } = false;
 
-    public bool HasChangedToTriangle
-    {
-        get => hasChangedToTriangle;
-        set => hasChangedToTriangle = value;
-    }
+    public bool HasChangedToTriangle { get; set; } = false;
     
+    public bool HasChangedToCircle { get; set; } = false;
+
     #region Layers
     [SerializeField] private LayerMask wallLayer;
     public LayerMask WallLayer => wallLayer;
