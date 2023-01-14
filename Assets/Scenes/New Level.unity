@@ -44888,6 +44888,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1556492111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1731931697263967893, guid: 99019b8fde83fe54f95c941888a905cd, type: 3}
+  m_PrefabInstance: {fileID: 1384524942}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1560747865
 GameObject:
   m_ObjectHideFlags: 0
@@ -58316,7 +58321,7 @@ PrefabInstance:
     - target: {fileID: 5921862331849980207, guid: 2bd8fcb05788d414cbf26f74a74f50bd, type: 3}
       propertyPath: startingPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1556492111}
     - target: {fileID: 5921862331849980207, guid: 2bd8fcb05788d414cbf26f74a74f50bd, type: 3}
       propertyPath: players.Array.data[0]
       value: 

@@ -134,8 +134,8 @@ public class SquarePlayer : Player
 
     private void CheckFlip()
     {
-        if (_isFacingRight && _rb.velocity.x < 0 ||
-            !_isFacingRight && _rb.velocity.x > 0)
+        if (_isFacingRight && _rb.velocity.x < -0.1 ||
+            !_isFacingRight && _rb.velocity.x > 0.1)
         {
             FlipPlayer();
         }
