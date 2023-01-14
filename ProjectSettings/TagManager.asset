@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - players
+  - Star
   layers:
   - Default
   - TransparentFX
