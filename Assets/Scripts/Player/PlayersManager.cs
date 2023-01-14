@@ -23,10 +23,12 @@ public class PlayersManager : MonoBehaviour
     private Vector2 _previousVelocity;
 
     private int _currentPlayer;
+
+    [SerializeField] private bool canSquare;
+
     public bool HasChangedShape { get; set; } = false;
     public bool HasJumped { get; set; } = false;
-
-    public bool CanSquare { get; set; } = false;
+    public bool CanSquare { get => canSquare; set => canSquare = value;}
     
     [SerializeField] private GameObject startingPoint;
     

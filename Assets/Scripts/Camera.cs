@@ -89,7 +89,7 @@ public class Camera : MonoBehaviour
     {
         var playerPosition = playerTransform.position;
         
-        var horizontal = playerPosition.x;
+        var horizontal = transform.position.x;
         var vertical = transform.position.y;
         var depth = transform.position.z;
 
