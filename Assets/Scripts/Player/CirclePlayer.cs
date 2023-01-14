@@ -23,7 +23,6 @@ public class CirclePlayer : Player
     private new void Start()
     {
         base.Start();
-        name = "Circle";
     }
 
     private new void Update()
