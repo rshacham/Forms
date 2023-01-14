@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Manager;
 
+    [SerializeField] private GameObject[] achievement;
+
     public bool HasDoubleJumped { get; set; }
 
     public bool HasChangedToSquare { get; set; }
@@ -36,6 +38,11 @@ public class GameManager : MonoBehaviour
     {
         // check if works
         ReturnPoint = FindObjectOfType<Player>().transform.localPosition;
+    }
+
+    public void GetAchievement(int shape)
+    {
+        achievement[shape].SetActive(true);
     }
 
     public void Quit()
