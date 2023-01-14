@@ -8,13 +8,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Manager;
 
-    public bool HasDoubleJumped { get; set; } = false;
+    public bool HasDoubleJumped { get; set; }
 
-    public bool HasChangedToSquare { get; set; } = false;
+    public bool HasChangedToSquare { get; set; }
 
-    public bool HasChangedToTriangle { get; set; } = false;
+    public bool HasChangedToTriangle { get; set; }
     
-    public bool HasChangedToCircle { get; set; } = false;
+    public bool HasChangedToCircle { get; set; }
 
     #region Layers
     [SerializeField] private LayerMask wallLayer;
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     public Vector3 ReturnPoint { get; set; } = new (11.5f, -8.42f, 0.282f);
     public bool HasWallJumped { get; set; }
 
-    void Awake()
+    private void Awake()
     {
         Manager = this;
     }

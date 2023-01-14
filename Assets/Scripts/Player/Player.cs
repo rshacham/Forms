@@ -16,6 +16,7 @@ public abstract class Player : MonoBehaviour
     protected float _gravityScale;
     # endregion
 
+    [Header("Basic Movement")]
     #region Basic Movement
     [SerializeField] private float movementSpeed;
     [SerializeField] protected float acceleration;
@@ -33,20 +34,21 @@ public abstract class Player : MonoBehaviour
     private Vector2 _movementInputSmoothVelocity;
     #endregion
     
+    [Header("Jumping")]
     #region Jumping
     [SerializeField] private float afterJumpFallSpeed;
     [SerializeField] protected float jumpingPower;
     [SerializeField] private float jumpCoyoteTime;
     [SerializeField] private float jumpBufferTime;
-    [SerializeField] private float jumpCutMultipliar;
+    [SerializeField] private float jumpCutMultiplier;
     [SerializeField] protected float fallGravityMultiplier;
     
-    protected bool IsGrounded = false;
     [SerializeField] private float isGroundedRayLength;
+    protected bool IsGrounded = false;
     private bool _isJumping = false;
     private float _lastGroundedTime;
     private float _lastJumpTime = 0;
-    private bool _jumpInputReleased = false;
+    private bool _jumpInputReleased;
     #endregion
     
     #region Default Player Settings
@@ -199,12 +201,11 @@ public abstract class Player : MonoBehaviour
         {
             if (_rb.velocity.y > 0 && _isJumping)
             {
-                _rb.AddForce(Vector2.down * _rb.velocity.y * (1 - jumpCutMultipliar), ForceMode2D.Impulse);    
+                _rb.AddForce(Vector2.down * _rb.velocity.y * (1 - jumpCutMultiplier), ForceMode2D.Impulse);    
             }
 
             _jumpInputReleased = true;
             _lastJumpTime = 0;
-
         }
 
     }

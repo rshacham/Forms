@@ -11,6 +11,7 @@ public class CirclePlayer : Player
     private bool _canDash = true;
     private bool _isDashing = false;
 
+    [Header("Circle Movement")] 
     [SerializeField] private float dashingPower;
     [SerializeField] private float dashingCoolDown;
     [SerializeField] private float dashingTime;

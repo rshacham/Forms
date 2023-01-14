@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class SquarePlayer : Player
 {
     # region WallJumping Variables
-
+    [Header("Square Movement")]
     private bool _isWallJumping;
     private float _wallJumpingDirection;
     [SerializeField] private float wallJumpingTime;
@@ -17,6 +17,7 @@ public class SquarePlayer : Player
     [SerializeField] private float wallJumpUpForceFactor;
     # endregion
     
+    [Header("Square Sliding")]
     #region Wall Sliding
     [SerializeField] private float wallSlidingSpeed;
     [SerializeField] private Transform[] wallCheck;
@@ -68,10 +69,15 @@ public class SquarePlayer : Player
 
         if (IsWallSliding)
         {
-            _rb.gravityScale = _gravityScale;
+            SquareWallSlide();
         }
     }
-    
+
+    private void SquareWallSlide()
+    {
+        _rb.gravityScale = _gravityScale;
+    }
+
     private new void UpdateFallGravity()
     {
         if (_rb.velocity.y < 0)
@@ -99,14 +105,6 @@ public class SquarePlayer : Player
 
         else
         {
-            // if (_isWallJumping && !isWallSliding)
-            // {
-                // if (Input.GetAxis("Horizontal") < 0 == _isFacingRight)
-                // {
-                //     var playerSpeed = Input.GetAxis("Horizontal") * acceleration;
-                //     _playerRigidBody.velocity = new Vector2(playerSpeed, _playerRigidBody.velocity.y);
-                // }
-            // }
             _wallJumpingCounter -= Time.deltaTime;
         }
     }

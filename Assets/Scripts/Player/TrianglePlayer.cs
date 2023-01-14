@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class TrianglePlayer : Player
 {
+    [Header("Rotation")]
     # region Rotation
     [SerializeField] private float startWalkRotationBoost;
     [SerializeField] private float walkingRotationSpeed;

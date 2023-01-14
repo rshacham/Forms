@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
+    [SerializeField] private bool editMode;
+    
     private UnityEngine.Camera _camera;
     
     [SerializeField] private Transform playerTransform;
 
     public Vector3 PreviousOffsets { get; set; }
+    
+    public Vector3 TargetOffsets { get; set; }
 
     [SerializeField] private Vector3 cameraOffsets;
+
+    public bool FreezeHorizontal { get; set; }
+    public bool FreezeVertical { get; set; }
     
     public Vector3 CameraOffsets
     {
@@ -31,8 +38,6 @@ public class Camera : MonoBehaviour
 
     private Vector2 _velocity = Vector2.zero;
     private float _otherVelocity = 0f;
-
-
     public bool FollowPlayerVertical { get; set; } = false;
 
     private Transform _cameraTransform;
@@ -42,46 +47,71 @@ public class Camera : MonoBehaviour
         _cameraTransform = GetComponent<Transform>();
         FollowPlayerVertical = true;
         Zoom = _camera.orthographicSize;
-        PreviousOffsets = cameraOffsets;
+        TargetOffsets = cameraOffsets;
     }
 
     void LateUpdate()
     {
-        Vector2 desiredPosition = playerTransform.position + cameraOffsets;
-        var cameraPosition = _cameraTransform.position;
+        FollowPlayer();
 
-        // if ((playerPosition.y > bottomFollowPlayerHeight && playerPosition.y < upperFollowPlayerHeight)
-        //     || FollowPlayerVertical)
-        // {
-        //     desiredPosition.y = playerPosition.y;
-        // }
-
-        
-        var newPosition = Vector2.SmoothDamp(transform.position, desiredPosition, ref _velocity, followSmoothSpeed);
-        
-        if (playerTransform)
+        if (!editMode)
         {
-            transform.position = new Vector3(newPosition.x, newPosition.y, cameraPosition.z);
-        }
-        
-        var newZoom = Mathf.SmoothDamp(_camera.orthographicSize, Zoom, ref _otherVelocity, zoomSmoothSpeed);
-        
-        _camera.orthographicSize = newZoom;
+            SmothZoom();
 
-        if ((PreviousOffsets - cameraOffsets).magnitude > 0.4f)
+            SmoothOffset();
+        }
+    }
+
+    private void SmoothOffset()
+    {
+        if ((cameraOffsets - TargetOffsets).magnitude > 0.1f)
         {
             var newOffset = Vector2.SmoothDamp(
-                PreviousOffsets,cameraOffsets, ref _velocity, offsetSmoothSpeed);
-        
+                cameraOffsets, TargetOffsets, ref _velocity, offsetSmoothSpeed);
+
             cameraOffsets = newOffset;
 
-            if ((PreviousOffsets - cameraOffsets).magnitude <= 0.4f)
+            if ((TargetOffsets - cameraOffsets).magnitude <= 0.1f || editMode)
             {
-                PreviousOffsets = cameraOffsets;
+                TargetOffsets = cameraOffsets;
             }
         }
+    }
 
+    private void SmothZoom()
+    {
+        var newZoom = Mathf.SmoothDamp(_camera.orthographicSize, Zoom, ref _otherVelocity, zoomSmoothSpeed);
+
+        _camera.orthographicSize = newZoom;
+    }
+
+    private void FollowPlayer()
+    {
+        var playerPosition = playerTransform.position;
         
+        var horizontal = playerPosition.x;
+        var vertical = transform.position.y;
+        var depth = transform.position.z;
 
+        Vector3 desiredPosition = playerPosition;
+
+        var offsetFix = desiredPosition + cameraOffsets;
+        
+        if (FreezeHorizontal)
+        {
+            offsetFix.x = horizontal;
+        }
+
+        if (FreezeVertical)
+        {
+            offsetFix.y = vertical;
+        }
+
+        var newPosition = Vector2.SmoothDamp(transform.position, offsetFix, ref _velocity, followSmoothSpeed);
+
+        if (playerTransform)
+        {
+            transform.position = new Vector3(newPosition.x, newPosition.y, depth);
+        }
     }
 }
