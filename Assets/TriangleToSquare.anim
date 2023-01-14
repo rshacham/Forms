@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TriangleToCircle
+  m_Name: TriangleToSquare
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,21 +20,21 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 2ceef802298212c45b8324f72ca8fd07, type: 3}
+      value: {fileID: 21300000, guid: 5dcc6cfb726f2c64b97ee8126922b677, type: 3}
     - time: 0.0625
-      value: {fileID: 21300000, guid: d23fef2024ee8354db22d32a96fed718, type: 3}
+      value: {fileID: 21300000, guid: e6b07a00232c62440b9c71241bb2cc48, type: 3}
     - time: 0.125
-      value: {fileID: 21300000, guid: 9223cdda530f32b4a9dedcb58dcf3bd4, type: 3}
+      value: {fileID: 21300000, guid: 6efb087521db91a41a6ca8698ec636c6, type: 3}
     - time: 0.1875
-      value: {fileID: 21300000, guid: b7168abe9fe21204fb540f9808dc2c5c, type: 3}
+      value: {fileID: 21300000, guid: 8612ea19552e4234e9227ed9126ce8d2, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: 569b439fb1b7852459387bc94ecff4c2, type: 3}
+      value: {fileID: 21300000, guid: 6deef2f37bf5a08449e489e16b1354e0, type: 3}
     - time: 0.3125
-      value: {fileID: 21300000, guid: 56f8135678e122c4d813662e8823b297, type: 3}
+      value: {fileID: 21300000, guid: 1a1b98cfd5c39c54ab24901c8ca3ca79, type: 3}
     - time: 0.375
-      value: {fileID: 21300000, guid: 50640f8d90a07fb42a34727a8ec78be9, type: 3}
+      value: {fileID: 21300000, guid: f996173115f055642bd478751be532a4, type: 3}
     - time: 0.4375
-      value: {fileID: 21300000, guid: 9913c968c5463dc4b8e8e0503b54a145, type: 3}
+      value: {fileID: 21300000, guid: c541da4683db78047812984af0a3a86f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -54,14 +54,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 2ceef802298212c45b8324f72ca8fd07, type: 3}
-    - {fileID: 21300000, guid: d23fef2024ee8354db22d32a96fed718, type: 3}
-    - {fileID: 21300000, guid: 9223cdda530f32b4a9dedcb58dcf3bd4, type: 3}
-    - {fileID: 21300000, guid: b7168abe9fe21204fb540f9808dc2c5c, type: 3}
-    - {fileID: 21300000, guid: 569b439fb1b7852459387bc94ecff4c2, type: 3}
-    - {fileID: 21300000, guid: 56f8135678e122c4d813662e8823b297, type: 3}
-    - {fileID: 21300000, guid: 50640f8d90a07fb42a34727a8ec78be9, type: 3}
-    - {fileID: 21300000, guid: 9913c968c5463dc4b8e8e0503b54a145, type: 3}
+    - {fileID: 21300000, guid: 5dcc6cfb726f2c64b97ee8126922b677, type: 3}
+    - {fileID: 21300000, guid: e6b07a00232c62440b9c71241bb2cc48, type: 3}
+    - {fileID: 21300000, guid: 6efb087521db91a41a6ca8698ec636c6, type: 3}
+    - {fileID: 21300000, guid: 8612ea19552e4234e9227ed9126ce8d2, type: 3}
+    - {fileID: 21300000, guid: 6deef2f37bf5a08449e489e16b1354e0, type: 3}
+    - {fileID: 21300000, guid: 1a1b98cfd5c39c54ab24901c8ca3ca79, type: 3}
+    - {fileID: 21300000, guid: f996173115f055642bd478751be532a4, type: 3}
+    - {fileID: 21300000, guid: c541da4683db78047812984af0a3a86f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -86,11 +86,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.4375
-    functionName: ChangeToCircle
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

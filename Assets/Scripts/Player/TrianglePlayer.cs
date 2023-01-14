@@ -23,6 +23,11 @@ public class TrianglePlayer : Player
     private bool _isFacingRight = true;
     #endregion
 
+    public new void Start()
+    {
+        base.Start();
+    }
+
     public new void Update()
     {
         base.Update();
@@ -101,15 +106,5 @@ public class TrianglePlayer : Player
     public void SwitchGravity(InputAction.CallbackContext context)
     {
         _rb.gravityScale *= -1;
-    }
-
-    public void ChangeToCircle()
-    {
-        PlayersManager.Manager.ChangeToCircle();
-    }
-    
-    public void ChangeToSquare()
-    {
-        PlayersManager.Manager.ChangeToSquare();
     }
 }

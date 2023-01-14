@@ -23,6 +23,7 @@ public class CirclePlayer : Player
     private new void Start()
     {
         base.Start();
+        name = "Circle";
     }
 
     private new void Update()
@@ -107,15 +108,5 @@ public class CirclePlayer : Player
     {
         yield return new WaitForSeconds(oneDashFactor);
         oneDash = false;
-    }
-
-    public void ChangeToSquare()
-    {
-        PlayersManager.Manager.ChangeToSquare();
-    }
-
-    public void ChangeToTriangle()
-    {
-        PlayersManager.Manager.ChangeToTriangle();
     }
 }

@@ -15,7 +15,10 @@ public class PlayersManager : MonoBehaviour
     public Player ActivePlayerScript { get; set; }
     
     private Transform _activePlayerTransform;
+    
     private Animator _activeAnimator;
+    private string previousPlayerName;
+    private string currentPlayerName;
     
     private Vector2 _previousVelocity;
 
@@ -41,6 +44,8 @@ public class PlayersManager : MonoBehaviour
         {
             _activePlayer.transform.position = startingPoint.transform.position;
         }
+
+        currentPlayerName = "Circle";
 
         UpdatePlayerScript();
         if (startingPoint != null)
@@ -85,24 +90,28 @@ public class PlayersManager : MonoBehaviour
         _activeAnimator = _activePlayer.GetComponent<Animator>();
         UpdatePlayerScript();
         _activePlayer.SetActive(true);
+        _activeAnimator.SetTrigger(previousPlayerName);
         ActivePlayerScript.PlayerRigidBody.velocity = _previousVelocity;
     }
 
     public void ChangeToCircle()
     {
-        BeforeChoosingActivePlayer(0); 
+        BeforeChoosingActivePlayer(0);
+        currentPlayerName = "Circle";
         AfterChoosingActivePlayer();
     }
     
     public void ChangeToSquare()
     {
         BeforeChoosingActivePlayer(1);
+        currentPlayerName = "Square";
         AfterChoosingActivePlayer();
     }
     
     public void ChangeToTriangle()
     {
         BeforeChoosingActivePlayer(2);
+        currentPlayerName = "Triangle";
         AfterChoosingActivePlayer();
     }
 
@@ -143,19 +152,25 @@ public class PlayersManager : MonoBehaviour
     
     public void ToCircle(InputAction.CallbackContext context)
     {
+
         if (context.performed)
         {
+            previousPlayerName = currentPlayerName;
+            ChangeToCircle();
             GameManager.Manager.HasChangedToCircle = true;
-            _activeAnimator.SetBool("Circle", true);
+            // _activeAnimator.SetBool("Circle", true);
         }
     }
     
     public void ToSquare(InputAction.CallbackContext context)
     {
+        
         if (context.performed && CanSquare)
         {
+            previousPlayerName = currentPlayerName;
+            ChangeToSquare();
             GameManager.Manager.HasChangedToSquare = true;
-            _activeAnimator.SetBool("Square", true);
+            // _activeAnimator.SetBool("Square", true);
         }
     }
 
@@ -163,8 +178,10 @@ public class PlayersManager : MonoBehaviour
     {
         if (context.performed)
         {
+            previousPlayerName = currentPlayerName;
+            ChangeToTriangle();
             GameManager.Manager.HasChangedToTriangle = true;
-            _activeAnimator.SetBool("Triangle", true);
+            // _activeAnimator.SetBool("Triangle", true);
         }
     }
     
