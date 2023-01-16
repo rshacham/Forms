@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7156715047200292651}
   - component: {fileID: 7156715047200292660}
   - component: {fileID: 687339558448864727}
+  - component: {fileID: 5059775439412765604}
   m_Layer: 9
   m_Name: death4
   m_TagString: Untagged
@@ -1811,3 +1812,23 @@ PolygonCollider2D:
       - {x: -1.5999999, y: 2.35}
       - {x: -1.63, y: 2.35}
       - {x: -1.64, y: 2.33}
+--- !u!95 &5059775439412765604
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7156715047200292661}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ace71916ecc84e9bba219e8032ec931, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
