@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SoundManager : MonoBehaviour
+{
+    public static SoundManager Manager;
+
+    private AudioSource _audioSource;
+    void Start()
+    {
+        Manager = this;
+        _audioSource = GetComponent<AudioSource>();
+    }
+
+    public void PlayRandomSound(AudioClip[] possibleClips)
+    {
+        var randomClipIndex = Random.Range(0, possibleClips.Length);
+        
+        _audioSource.PlayOneShot(possibleClips[randomClipIndex]);
+    }
+
+}

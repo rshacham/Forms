@@ -25,7 +25,13 @@ public class SquarePlayer : Player
     private bool _isWalled = false;
     [SerializeField] private float wallStickDuration;
     private float _onWallTimer;
+    private bool isWallJumping;
     #endregion
+
+    [Header("Square Sounds")]
+    [SerializeField] private AudioClip[] jumpSounds;
+    [SerializeField] private AudioClip[] wallLandingSounds;
+
 
     private new void Start()
     {
@@ -36,6 +42,12 @@ public class SquarePlayer : Player
     {
         base.Update();
         CheckFlip();
+
+        if (IsWalled(wallCheck) && isWallJumping)
+        {
+            isWallJumping = false;
+            SoundManager.Manager.PlayRandomSound(wallLandingSounds);
+        }
     }
     
     private bool IsWalled(IEnumerable<Transform> wallCheck)
@@ -90,30 +102,13 @@ public class SquarePlayer : Player
             _rb.gravityScale = _gravityScale;
         }
     }
-
-
-    private void WallJump()
-    {
-        if (IsWallSliding)
-        {
-            GameManager.Manager.HasWallJumped = true;
-            _rb.velocity = new Vector2(_rb.velocity.x, 0);
-            _wallJumpingDirection = -transform.localScale.x;
-            var upForce = Mathf.Abs(_rb.velocity.y) * wallJumpUpForceFactor + wallJumpingPower.y;
-            _rb.AddForce(new Vector2(wallJumpingPower.x * _wallJumpingDirection, upForce), ForceMode2D.Impulse);
-        }
-
-        else
-        {
-            _wallJumpingCounter -= Time.deltaTime;
-        }
-    }
-
+    
     public override void Jump(InputAction.CallbackContext context)
     {
-        if (!IsWallSliding)
+        if (!IsWallSliding && context.performed)
         {
             base.Jump(context);
+            SoundManager.Manager.PlayRandomSound(jumpSounds);
         }
         
         else if (context.started)
@@ -126,6 +121,27 @@ public class SquarePlayer : Player
             }
         }
     }
+    
+    private void WallJump()
+    {
+        if (IsWallSliding)
+        {
+            GameManager.Manager.HasWallJumped = true;
+            SoundManager.Manager.PlayRandomSound(jumpSounds);
+            isWallJumping = true;
+            _rb.velocity = new Vector2(_rb.velocity.x, 0);
+            _wallJumpingDirection = -transform.localScale.x;
+            var upForce = Mathf.Abs(_rb.velocity.y) * wallJumpUpForceFactor + wallJumpingPower.y;
+            _rb.AddForce(new Vector2(wallJumpingPower.x * _wallJumpingDirection, upForce), ForceMode2D.Impulse);
+        }
+
+        else
+        {
+            _wallJumpingCounter -= Time.deltaTime;
+        }
+    }
+
+
 
     private void StopWallJumping()
     {

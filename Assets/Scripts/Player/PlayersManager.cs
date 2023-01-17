@@ -32,6 +32,10 @@ public class PlayersManager : MonoBehaviour
     
     [SerializeField] private GameObject startingPoint;
     
+    [Header("Sounds")]
+    [SerializeField] private AudioClip[] switchPlayerSounds;
+
+    
     private void Awake()
     {
         Manager = this;
@@ -83,6 +87,7 @@ public class PlayersManager : MonoBehaviour
         HasChangedShape = true;
         _activePlayer.SetActive(false);
         _activePlayer = players[newPlayer];
+        SoundManager.Manager.PlayRandomSound(switchPlayerSounds);
     }
     
     private void AfterChoosingActivePlayer()
@@ -166,7 +171,6 @@ public class PlayersManager : MonoBehaviour
     
     public void ToSquare(InputAction.CallbackContext context)
     {
-        
         if (context.performed && CanSquare)
         {
             previousPlayerName = currentPlayerName;
