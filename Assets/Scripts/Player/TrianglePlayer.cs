@@ -22,6 +22,9 @@ public class TrianglePlayer : Player
     [SerializeField] private Transform[] wallCheck;
     private bool _isFacingRight = true;
     #endregion
+    
+    [Header("Triangle Sounds")]
+    [SerializeField] private AudioClip[] jumpSounds;
 
     public new void Start()
     {
@@ -73,7 +76,12 @@ public class TrianglePlayer : Player
     }
     public override void Jump(InputAction.CallbackContext context)
     {
-        base.Jump(context);
+        if (context.performed)
+        {
+            base.Jump(context);
+            SoundManager.Manager.PlayRandomSound(jumpSounds);    
+        }
+        
         if (context.performed && !IsGrounded && _canDoubleJump && !IsWallSliding)
         {
             GameManager.Manager.HasDoubleJumped = true;

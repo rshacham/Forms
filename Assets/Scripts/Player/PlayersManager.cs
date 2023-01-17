@@ -34,6 +34,7 @@ public class PlayersManager : MonoBehaviour
     
     [Header("Sounds")]
     [SerializeField] private AudioClip[] switchPlayerSounds;
+    [SerializeField] private AudioClip[] deathSounds;
 
     
     private void Awake()
@@ -153,6 +154,7 @@ public class PlayersManager : MonoBehaviour
     // calls the resetMovement (method in Player script)
     public void HandleLose()
     {
+        // SoundManager.Manager.PlayRandomSound(deathSounds);
         _activePlayer.transform.localPosition = GameManager.Manager.ReturnPoint;
         ActivePlayerScript.ResetMovement();
     }
