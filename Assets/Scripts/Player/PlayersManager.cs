@@ -82,6 +82,12 @@ public class PlayersManager : MonoBehaviour
         {
             CanSquare = true;
         }
+        
+        
+        colorOfCurrentPlayer = colorOfCircle;
+        colorOfMovingPlatforms = movingPlatformColorInCircle;
+        colorOfPlatforms = platformColorInCircle;
+        AfterChoosingActivePlayer();
     }
     
     private void Update()
