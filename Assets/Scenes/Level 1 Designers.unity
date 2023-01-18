@@ -58480,15 +58480,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5921862331849980207, guid: 2bd8fcb05788d414cbf26f74a74f50bd, type: 3}
       propertyPath: colorOfCircle.b
-      value: 0
+      value: 0.19607845
       objectReference: {fileID: 0}
     - target: {fileID: 5921862331849980207, guid: 2bd8fcb05788d414cbf26f74a74f50bd, type: 3}
       propertyPath: colorOfCircle.g
-      value: 0.6994329
+      value: 0.454902
       objectReference: {fileID: 0}
     - target: {fileID: 5921862331849980207, guid: 2bd8fcb05788d414cbf26f74a74f50bd, type: 3}
       propertyPath: colorOfCircle.r
-      value: 1
+      value: 0.9333334
       objectReference: {fileID: 0}
     - target: {fileID: 5921862331849980207, guid: 2bd8fcb05788d414cbf26f74a74f50bd, type: 3}
       propertyPath: colorOfSquare.a
