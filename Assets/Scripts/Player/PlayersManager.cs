@@ -40,6 +40,14 @@ public class PlayersManager : MonoBehaviour
     
     private Color colorOfPlatforms;
     
+    [Header("Colors of moving platforms")]
+    [SerializeField] private GameObject[] movingPlatforms;
+    [SerializeField] private Color movingPlatformColorInCircle;
+    [SerializeField] private Color movingPlatformColorInSquare;
+    [SerializeField] private Color movingPlatformColorInTriangle;
+    
+    private Color colorOfMovingPlatforms;
+    
     [Header("Colors for the player")]
     [SerializeField] private Color colorOfCircle;
     [SerializeField] private Color colorOfSquare;
@@ -130,6 +138,16 @@ public class PlayersManager : MonoBehaviour
             }
         }
         
+        // change colors of moving platforms
+        foreach (var platform in movingPlatforms)
+        {
+            platform.GetComponent<SpriteRenderer>().color = colorOfMovingPlatforms;
+            for (int i = 0; i < platform.transform.childCount; i++)
+            {
+                platform.gameObject.transform.GetChild(i).GetComponent<SpriteRenderer>().color = colorOfMovingPlatforms;
+            }
+        }
+        
     }
 
     public void ChangeToCircle()
@@ -139,6 +157,7 @@ public class PlayersManager : MonoBehaviour
 
         colorOfCurrentPlayer = colorOfCircle;
         colorOfPlatforms = platformColorInCircle;
+        colorOfMovingPlatforms = movingPlatformColorInCircle;
         AfterChoosingActivePlayer();
     }
     
@@ -149,6 +168,7 @@ public class PlayersManager : MonoBehaviour
 
         colorOfCurrentPlayer = colorOfSquare;
         colorOfPlatforms = platformColorInSquare;
+        colorOfMovingPlatforms = movingPlatformColorInSquare;
         AfterChoosingActivePlayer();
     }
     
@@ -159,6 +179,7 @@ public class PlayersManager : MonoBehaviour
 
         colorOfCurrentPlayer = colorOfTriangle;
         colorOfPlatforms = platformColorInTriangle;
+        colorOfMovingPlatforms = movingPlatformColorInTriangle;
         AfterChoosingActivePlayer();
     }
 
