@@ -147,10 +147,10 @@ public abstract class Player : MonoBehaviour
     {
         _movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        if (Mathf.Abs(_movementInput.x) < 0.1)
-        {
-            return;
-        }
+        // if (Mathf.Abs(_movementInput.x) < 0.1)
+        // {
+        //     return;
+        // }
         float targetSpeed = _movementInput.x * movementSpeed;
         float speedDif = targetSpeed - _rb.velocity.x;
         float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
