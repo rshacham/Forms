@@ -128,25 +128,6 @@ public abstract class Player : MonoBehaviour
         }
         
         UpdateFallGravity();
-
-        
-        
-        // if (_canMove)
-        // {
-        //     _smoothMovementInput = Vector2.SmoothDamp(
-        //         _smoothMovementInput,
-        //         _movementInput,
-        //         ref _movementInputSmoothVelocity,
-        //         smoothSpeed);
-        //     //
-        //     _rb.velocity = new Vector2(_smoothMovementInput.x * acceleration, _rb.velocity.y);
-        // }
-        
-        // if (_canMove)
-        // {
-        //     var playerSpeed = Input.GetAxis("Horizontal") * acceleration;
-        //     _playerRigidBody.velocity = new Vector2(playerSpeed, _playerRigidBody.velocity.y);
-        // }
     }
 
     protected void UpdateFallGravity()
@@ -166,6 +147,10 @@ public abstract class Player : MonoBehaviour
     {
         _movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
+        if (Mathf.Abs(_movementInput.x) < 0.1)
+        {
+            return;
+        }
         float targetSpeed = _movementInput.x * movementSpeed;
         float speedDif = targetSpeed - _rb.velocity.x;
         float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
@@ -181,16 +166,6 @@ public abstract class Player : MonoBehaviour
 
     public virtual void Jump(InputAction.CallbackContext context)
     {
-        var currentVelocity = _rb.velocity;
-        // if (context.performed && IsGrounded)
-        // {
-        //     _rb.velocity = new Vector2(currentVelocity.x, jumpingPower);
-        // }
-        //
-        // if (context.canceled && currentVelocity.y > 0)
-        // {
-        //     _rb.velocity = new Vector2(currentVelocity.x, currentVelocity.y / afterJumpFallSpeed);
-        // }
         _lastJumpTime = jumpBufferTime;
         
         if (context.performed && IsGrounded && _lastGroundedTime > 0 && _lastJumpTime > 0)
