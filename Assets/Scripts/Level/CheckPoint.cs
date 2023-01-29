@@ -36,7 +36,11 @@ public class CheckPoint : MonoBehaviour
     {
         if (other.CompareTag("players") && !_reachecCheckpoint && checkPointActive)
         {
-            _animator.SetBool("got", true);
+            if (_animator != null)
+            {
+                _animator.SetBool("got", true);    
+            }
+            
             _reachecCheckpoint = true;
             GameManager.Manager.ReturnPoint = checkPoint;
         }

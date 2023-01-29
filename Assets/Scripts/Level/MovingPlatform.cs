@@ -40,6 +40,11 @@ public class MovingPlatform : MonoBehaviour
 
     private void Update()
     {
+        if (_holder == null)
+        {
+            return;
+        }
+        
         if (Vector2.Distance(transform.position, positions[_index]) < 0.02f)
         {
             _index++;
