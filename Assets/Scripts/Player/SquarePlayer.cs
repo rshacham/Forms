@@ -50,30 +50,6 @@ public class SquarePlayer : Player
         }
     }
     
-    private bool IsWalled(IEnumerable<Transform> wallCheck)
-    {
-        foreach (var checker in wallCheck)
-        {
-            if (Physics2D.OverlapCircle(checker.position, 0.5f, wallLayer))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-    protected void WallSlide(IEnumerable<Transform> wallCheck, float wallSlidingSpeed)
-    {
-        if (IsWalled(wallCheck) && !IsGrounded)
-        {
-            IsWallSliding = true;
-        }
-
-        else
-        {
-            IsWallSliding = false;
-        }
-    }
     private new void FixedUpdate()
     {
         WallSlide(wallCheck, wallSlidingSpeed);

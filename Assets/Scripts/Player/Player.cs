@@ -221,5 +221,30 @@ public abstract class Player : MonoBehaviour
         
         _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
+    
+    protected bool IsWalled(IEnumerable<Transform> wallCheck)
+    {
+        foreach (var checker in wallCheck)
+        {
+            if (Physics2D.OverlapCircle(checker.position, 0.5f, wallLayer))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+    protected void WallSlide(IEnumerable<Transform> wallCheck, float wallSlidingSpeed)
+    {
+        if (IsWalled(wallCheck) && !IsGrounded)
+        {
+            IsWallSliding = true;
+        }
+
+        else
+        {
+            IsWallSliding = false;
+        }
+    }
 
 }
