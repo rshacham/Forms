@@ -189,6 +189,17 @@
                 },
                 {
                     "name": "",
+                    "id": "97b5d647-90d9-43fa-9978-54147314756f",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "24a6df1f-de89-44bf-983a-3f609ed609a6",
                     "path": "<Keyboard>/ctrl",
                     "interactions": "",
@@ -244,6 +255,17 @@
                 },
                 {
                     "name": "",
+                    "id": "e1b2464f-0d6a-4b5e-9cc8-ef05c0433cd4",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeToCircle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1d305b5b-b938-4b77-8218-02540eafd92c",
                     "path": "<Keyboard>/w",
                     "interactions": "",
@@ -255,8 +277,30 @@
                 },
                 {
                     "name": "",
+                    "id": "0e8ec9ca-c126-4a68-babf-340f6c208f0d",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeToSquare",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b8044405-460c-4681-bef3-1ec0f35cb012",
                     "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeToTriangle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "82899979-e2e0-48a1-bc2e-141f9b7799e0",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
