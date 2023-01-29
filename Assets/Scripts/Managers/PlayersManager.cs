@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
@@ -8,6 +9,8 @@ using UnityEngine.InputSystem;
 public class PlayersManager : MonoBehaviour
 {
     public static PlayersManager Manager;
+
+    private ColorsManager _colorsManager;
     
     [SerializeField] private GameObject[] players;
     private GameObject _activePlayer;
@@ -32,30 +35,6 @@ public class PlayersManager : MonoBehaviour
     
     [SerializeField] private GameObject startingPoint;
 
-    [Header("Colors of not moving platforms")]
-    [SerializeField] private GameObject[] platforms;
-    [SerializeField] private Color platformColorInCircle;
-    [SerializeField] private Color platformColorInSquare;
-    [SerializeField] private Color platformColorInTriangle;
-    
-    private Color colorOfPlatforms;
-    
-    [Header("Colors of moving platforms")]
-    [SerializeField] private GameObject[] movingPlatforms;
-    [SerializeField] private Color movingPlatformColorInCircle;
-    [SerializeField] private Color movingPlatformColorInSquare;
-    [SerializeField] private Color movingPlatformColorInTriangle;
-    
-    private Color colorOfMovingPlatforms;
-    
-    [Header("Colors for the player")]
-    [SerializeField] private Color colorOfCircle;
-    [SerializeField] private Color colorOfSquare;
-    [SerializeField] private Color colorOfTriangle;
-    
-    private Color colorOfCurrentPlayer;
-
-   
     [Header("Sounds")]
     [SerializeField] private AudioClip[] switchPlayerSounds;
     [SerializeField] private AudioClip[] deathSounds;
@@ -82,18 +61,15 @@ public class PlayersManager : MonoBehaviour
         {
             CanSquare = true;
         }
-        
-        
-        colorOfCurrentPlayer = colorOfCircle;
-        colorOfMovingPlatforms = movingPlatformColorInCircle;
-        colorOfPlatforms = platformColorInCircle;
         AfterChoosingActivePlayer();
+
+        _colorsManager = GetComponentInChildren<ColorsManager>();
+        _colorsManager.ActivePlayer = _activePlayer;
     }
     
     private void Update()
     {
-        transform.position = _activePlayerTransform.position; 
-
+        transform.position = _activePlayerTransform.position;
     }
 
     public void SwitchPlayer(InputAction.CallbackContext context)
@@ -118,6 +94,7 @@ public class PlayersManager : MonoBehaviour
         _activePlayer.SetActive(false);
         _activePlayer = players[newPlayer];
         SoundManager.Manager.PlayRandomSound(switchPlayerSounds);
+        _colorsManager.ActivePlayer = _activePlayer;
     }
     
     private void AfterChoosingActivePlayer()
@@ -129,64 +106,30 @@ public class PlayersManager : MonoBehaviour
         _activePlayer.SetActive(true);
         _activeAnimator.SetTrigger(previousPlayerName);
         ActivePlayerScript.PlayerRigidBody.velocity = _previousVelocity;
-
-        // change color of current player
-        _activePlayer.GetComponent<SpriteRenderer>().color = colorOfCurrentPlayer;
-        
-        // change colors of not moving platforms
-        foreach (var platform in platforms)
-        {
-            platform.GetComponent<SpriteRenderer>().color = colorOfPlatforms;
-            for (int i = 0; i < platform.transform.childCount; i++)
-            {
-                //platform.gameObject.transform.GetChild(i).GetComponent<Renderer>().material.color = colorOfPlatforms;
-                platform.gameObject.transform.GetChild(i).GetComponent<SpriteRenderer>().color = colorOfPlatforms;
-            }
-        }
-        
-        // change colors of moving platforms
-        foreach (var platform in movingPlatforms)
-        {
-            platform.GetComponent<SpriteRenderer>().color = colorOfMovingPlatforms;
-            for (int i = 0; i < platform.transform.childCount; i++)
-            {
-                platform.gameObject.transform.GetChild(i).GetComponent<SpriteRenderer>().color = colorOfMovingPlatforms;
-            }
-        }
-        
     }
 
     public void ChangeToCircle()
     {
         BeforeChoosingActivePlayer(0);
         currentPlayerName = "Circle";
-
-        colorOfCurrentPlayer = colorOfCircle;
-        colorOfPlatforms = platformColorInCircle;
-        colorOfMovingPlatforms = movingPlatformColorInCircle;
         AfterChoosingActivePlayer();
+        _colorsManager.ChangeCircleColor();
     }
     
     public void ChangeToSquare()
     {
         BeforeChoosingActivePlayer(1);
         currentPlayerName = "Square";
-
-        colorOfCurrentPlayer = colorOfSquare;
-        colorOfPlatforms = platformColorInSquare;
-        colorOfMovingPlatforms = movingPlatformColorInSquare;
         AfterChoosingActivePlayer();
+        _colorsManager.ChangeSquareColor();
     }
     
     public void ChangeToTriangle()
     {
         BeforeChoosingActivePlayer(2);
         currentPlayerName = "Triangle";
-
-        colorOfCurrentPlayer = colorOfTriangle;
-        colorOfPlatforms = platformColorInTriangle;
-        colorOfMovingPlatforms = movingPlatformColorInTriangle;
         AfterChoosingActivePlayer();
+        _colorsManager.ChangeTriangleColor();
     }
 
     public void UpdatePlayerScript()
