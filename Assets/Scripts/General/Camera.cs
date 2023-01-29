@@ -16,6 +16,8 @@ public class Camera : MonoBehaviour
 
     [SerializeField] private Vector3 cameraOffsets;
 
+    [SerializeField] private bool staticCamera;
+
     public bool FreezeHorizontal { get; set; }
     public bool FreezeVertical { get; set; }
     
@@ -48,6 +50,12 @@ public class Camera : MonoBehaviour
         FollowPlayerVertical = true;
         Zoom = _camera.orthographicSize;
         TargetOffsets = cameraOffsets;
+
+        if (staticCamera)
+        {
+            FreezeHorizontal = true;
+            FreezeVertical = true;
+        }
     }
 
     void LateUpdate()
@@ -87,6 +95,11 @@ public class Camera : MonoBehaviour
 
     private void FollowPlayer()
     {
+        if (FreezeHorizontal && FreezeVertical)
+        {
+            return;
+        }
+        
         var playerPosition = playerTransform.position;
         
         var horizontal = transform.position.x;
