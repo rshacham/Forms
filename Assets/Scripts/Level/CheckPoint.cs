@@ -12,6 +12,8 @@ public class CheckPoint : MonoBehaviour
     
     private Camera camera;
 
+    private Animator _animator;
+
     private bool followVertical;
 
     private bool followHorizontal;
@@ -25,6 +27,8 @@ public class CheckPoint : MonoBehaviour
     {
         camera = FindObjectOfType<Camera>();
         checkPoint = checkPoint.magnitude < 1 ? transform.position : checkPoint;
+
+        _animator = gameObject.GetComponent<Animator>();
     }
 
 
@@ -32,6 +36,7 @@ public class CheckPoint : MonoBehaviour
     {
         if (other.CompareTag("players") && !_reachecCheckpoint && checkPointActive)
         {
+            _animator.SetBool("got", true);
             _reachecCheckpoint = true;
             GameManager.Manager.ReturnPoint = checkPoint;
         }

@@ -39,22 +39,21 @@ public class TrianglePlayer : Player
         {
             _canDoubleJump = true;
         }
+
+        IsWallSliding = IsWalled(wallCheck);
     }
 
     public new void FixedUpdate()
     {
-        if (!IsWallSliding)
+        if (_canMove)
         {
-            if (_canMove)
+            BasicMovement();
+            if (Mathf.Abs(_movementInput.x) > 0.1f && CheckIfStuck() && IsGrounded)
             {
-                BasicMovement();
-                if (Mathf.Abs(_movementInput.x) > 0.1f && CheckIfStuck() && IsGrounded)
-                {
-                    StartWalkJump();
-                }
+                StartWalkJump();
             }
         }
-
+        
         if (Mathf.Abs(_movementInput.x) < 0.1f)
         {
             startedWalking = false;
