@@ -65,6 +65,7 @@ public class PlayersManager : MonoBehaviour
 
         _colorsManager = GetComponentInChildren<ColorsManager>();
         _colorsManager.ActivePlayer = _activePlayer;
+        _colorsManager.ChangeCircleColor();
     }
     
     private void Update()
