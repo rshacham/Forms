@@ -27032,6 +27032,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: checkPoint (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1731931697263967893, guid: 99019b8fde83fe54f95c941888a905cd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99019b8fde83fe54f95c941888a905cd, type: 3}
 --- !u!1001 &941559810
@@ -50053,7 +50057,7 @@ SpriteRenderer:
   m_Size: {x: 5.05, y: 3.61}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1789740565
