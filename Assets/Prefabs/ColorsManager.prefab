@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4398959613273880563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4398959613273880572}
+  - component: {fileID: 4398959613273880573}
+  m_Layer: 0
+  m_Name: ColorsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4398959613273880572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4398959613273880563}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4398959613273880573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4398959613273880563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c324fc3a67f499a9af9529601833132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platforms:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  platformColorInCircle: {r: 0.745283, g: 0.425876, b: 0.425876, a: 1}
+  platformColorInSquare: {r: 0.39931598, g: 0.8207547, b: 0.80785644, a: 1}
+  platformColorInTriangle: {r: 0.4802777, g: 0.6037736, b: 0.39058128, a: 1}
+  movingPlatforms:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  movingPlatformColorInCircle: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 1}
+  movingPlatformColorInSquare: {r: 0.4784314, g: 0.6039216, b: 0.3921569, a: 1}
+  movingPlatformColorInTriangle: {r: 0.40000004, g: 0.8196079, b: 0.8078432, a: 1}
+  colorOfCircle: {r: 1, g: 0.033692718, b: 0.033692718, a: 1}
+  colorOfSquare: {r: 0.056649804, g: 1, b: 0, a: 1}
+  colorOfTriangle: {r: 0, g: 0.8163457, b: 1, a: 1}

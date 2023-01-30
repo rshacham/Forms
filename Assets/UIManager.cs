@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GuideManager : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] pcSprites;
     [SerializeField] private GameObject[] joystickSprites;
@@ -13,7 +13,7 @@ public class GuideManager : MonoBehaviour
     [SerializeField] private Sprite[] inactivePlayerSprites;
     
 
-    public static GuideManager Manager;
+    public static UIManager Manager;
     void Start()
     {
         Manager = this;

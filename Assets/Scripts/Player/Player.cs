@@ -14,6 +14,7 @@ public abstract class Player : MonoBehaviour
     # region Basic Components
     protected Rigidbody2D _rb;
     protected float _gravityScale;
+    
     # endregion
 
     [Header("Basic Movement")]
