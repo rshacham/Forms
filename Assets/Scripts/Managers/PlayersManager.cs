@@ -100,6 +100,7 @@ public class PlayersManager : MonoBehaviour
     
     private void AfterChoosingActivePlayer()
     {
+        GuideManager.Manager.ChangeActivePlayerUI(currentPlayerName);
         _activePlayer.transform.position = _activePlayerTransform.position;
         _activePlayerTransform = _activePlayer.transform;
         _activeAnimator = _activePlayer.GetComponent<Animator>();

@@ -56,7 +56,10 @@ namespace Managers
                 var allRenderers = platform.GetComponentsInChildren<SpriteRenderer>();
                 foreach (var sprite in allRenderers)
                 {
-                    sprite.color = colorOfPlatforms;
+                    if (sprite.color.a != 0)
+                    {
+                        sprite.color = colorOfPlatforms;
+                    }
                 }
             }
         
@@ -72,7 +75,10 @@ namespace Managers
                 var allRenderers = platform.GetComponentsInChildren<SpriteRenderer>();
                 foreach (var sprite in allRenderers)
                 {
-                    sprite.color = colorOfMovingPlatforms;
+                    if (sprite.color.a != 0)
+                    {
+                        sprite.color = colorOfMovingPlatforms;
+                    }
                 }
             }
         }
