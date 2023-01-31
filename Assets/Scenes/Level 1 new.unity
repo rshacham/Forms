@@ -69286,6 +69286,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2175054682982338124, guid: cde8dfb7178cc8b46a913a3d3837286c, type: 3}
+      propertyPath: platforms.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175054682982338124, guid: cde8dfb7178cc8b46a913a3d3837286c, type: 3}
+      propertyPath: platforms.Array.data[0]
+      value: 
+      objectReference: {fileID: 2109363059}
+    - target: {fileID: 2175054682982338124, guid: cde8dfb7178cc8b46a913a3d3837286c, type: 3}
+      propertyPath: movingPlatforms.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175054682982338124, guid: cde8dfb7178cc8b46a913a3d3837286c, type: 3}
+      propertyPath: movingPlatforms.Array.data[0]
+      value: 
+      objectReference: {fileID: 1212683083}
     - target: {fileID: 9096053355253190580, guid: cde8dfb7178cc8b46a913a3d3837286c, type: 3}
       propertyPath: m_Name
       value: PlayerManager
