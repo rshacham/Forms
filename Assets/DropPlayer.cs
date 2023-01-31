@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -23,7 +24,7 @@ public class DropPlayer : MonoBehaviour
 
     [SerializeField] private AudioClip buzzSound;
 
-    [SerializeField] private Color circleColor;
+    private Color circleColor;
     private float startingHeight;
     [SerializeField] private float endingHeight;
 
@@ -34,6 +35,7 @@ public class DropPlayer : MonoBehaviour
         _playerRenderer = _player.GetComponent<SpriteRenderer>();
         _player.GetComponent<CirclePlayer>().CanMove = false;
         startingHeight = _playerTransform.position.y;
+        circleColor = ColorsManager.Manager.colorCircle;
     }
 
     private void Update()
