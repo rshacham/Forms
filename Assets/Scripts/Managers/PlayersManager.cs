@@ -100,7 +100,6 @@ public class PlayersManager : MonoBehaviour
     
     private void AfterChoosingActivePlayer()
     {
-        UIManager.Manager.ChangeActivePlayerUI(currentPlayerName);
         _activePlayer.transform.position = _activePlayerTransform.position;
         _activePlayerTransform = _activePlayer.transform;
         _activeAnimator = _activePlayer.GetComponent<Animator>();
@@ -108,6 +107,7 @@ public class PlayersManager : MonoBehaviour
         _activePlayer.SetActive(true);
         _activeAnimator.SetTrigger(previousPlayerName);
         ActivePlayerScript.PlayerRigidBody.velocity = _previousVelocity;
+        UIManager.Manager.ChangeActivePlayerUI(currentPlayerName);
     }
 
     public void ChangeToCircle()
