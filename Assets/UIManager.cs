@@ -15,15 +15,17 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject[] inactivePlayersNew;
 
     [SerializeField] private Color colorInactive;
-
-    private ColorsManager colorsManager;
     
     public static UIManager Manager;
-    void Start()
+
+    private void Awake()
     {
         Manager = this;
+    }
+
+    void Start()
+    {
         JoystickHandler();
-        colorsManager = FindObjectOfType<ColorsManager>();
         colorsActivePlayers();
         for (var i = 0; i < 3; i++)
         {
@@ -64,9 +66,9 @@ public class UIManager : MonoBehaviour
     
     private void colorsActivePlayers()
     {
-        activePlayersNew[0].GetComponent<Image>().color = colorsManager.colorCircle;
-        activePlayersNew[1].GetComponent<Image>().color = colorsManager.colorSquare;
-        activePlayersNew[2].GetComponent<Image>().color = colorsManager.colorTriangle;
+        activePlayersNew[0].GetComponent<Image>().color = ColorsManager.Manager.colorCircle;
+        activePlayersNew[1].GetComponent<Image>().color = ColorsManager.Manager.colorSquare;
+        activePlayersNew[2].GetComponent<Image>().color = ColorsManager.Manager.colorTriangle;
     }
 
     public void ChangeActivePlayerUI(string activePlayerName)
