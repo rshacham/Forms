@@ -36418,12 +36418,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5077949834695511668, guid: 541e15e2260e9b94a8577bfb7d623a7e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077949834695511668, guid: 541e15e2260e9b94a8577bfb7d623a7e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 38.32425
+      value: 38.4
       objectReference: {fileID: 0}
     - target: {fileID: 5077949834695511668, guid: 541e15e2260e9b94a8577bfb7d623a7e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.9050064
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 5077949834695511668, guid: 541e15e2260e9b94a8577bfb7d623a7e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -64669,6 +64673,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1157026632956867273, guid: cf989cb07be815144ace5c8a77416598, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157026632956867273, guid: cf989cb07be815144ace5c8a77416598, type: 3}
       propertyPath: m_LocalPosition.x
       value: 111.70499
       objectReference: {fileID: 0}
@@ -69195,6 +69203,18 @@ PrefabInstance:
     - target: {fileID: 5683115166590833165, guid: 714cd35381396884097c6585f764e25b, type: 3}
       propertyPath: cameraTransitionActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683115166590833166, guid: 714cd35381396884097c6585f764e25b, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683115166590833166, guid: 714cd35381396884097c6585f764e25b, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683115166590833166, guid: 714cd35381396884097c6585f764e25b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5683115166590833167, guid: 714cd35381396884097c6585f764e25b, type: 3}
       propertyPath: m_RootOrder
