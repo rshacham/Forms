@@ -17,14 +17,14 @@ public class CheckPoint : MonoBehaviour
     private bool followVertical;
 
     private bool followHorizontal;
-    
-    [Header("Camera Transition")]
-    [SerializeField] private float zoom;
-    [SerializeField] private Vector2 offset;
-
 
     private void Start()
     {
+        if (checkPoint.magnitude < 0.1)
+        {
+            checkPoint = transform.position;
+        }
+        
         camera = FindObjectOfType<Camera>();
         checkPoint = checkPoint.magnitude < 1 ? transform.position : checkPoint;
 

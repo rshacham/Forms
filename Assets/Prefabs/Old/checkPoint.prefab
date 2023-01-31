@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1ca0598cc4c4d40708b3b50444744aa9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7e068bf9e7d943d59f306b2bf81a1f7, type: 3}
   m_Color: {r: 0.321259, g: 0.8584906, b: 0.41653344, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,8 +118,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkPointActive: 1
   checkPoint: {x: -211, y: -97.2, z: 0}
-  zoom: 0
-  offset: {x: 0, y: 0}
 --- !u!114 &5345302270797622636
 MonoBehaviour:
   m_ObjectHideFlags: 0

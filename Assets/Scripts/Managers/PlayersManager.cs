@@ -208,6 +208,7 @@ public class PlayersManager : MonoBehaviour
             previousPlayerName = currentPlayerName;
             ChangeToSquare();
             GameManager.Manager.HasChangedToSquare = true;
+            UIManager.Manager.ColorsActiveSinglePlayer(1);
         }
     }
 
@@ -222,7 +223,9 @@ public class PlayersManager : MonoBehaviour
             
             previousPlayerName = currentPlayerName;
             ChangeToTriangle();
+            
             GameManager.Manager.HasChangedToTriangle = true;
+            UIManager.Manager.ColorsActiveSinglePlayer(2);
         }
     }
 }
