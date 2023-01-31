@@ -17,13 +17,6 @@ public class MovingPlatform : MonoBehaviour
 
     private RigidbodyInterpolation2D previousInterpolation;
 
-    // [SerializeField] private float bufferTime;
-    // private bool _afterStick;
-    //
-    // # region Timers
-    // private float _currentDelay;
-    // # endregion
-    
     #region New Solution
     [SerializeField] private Transform _holder;
     #endregion
@@ -63,7 +56,6 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("enter");
         _playerTransform = other.transform;
         if (other.gameObject.tag == "players")
         {
@@ -80,7 +72,6 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        Debug.Log("exit");
         if (other.gameObject.CompareTag("players"))
         {
             UnStick();

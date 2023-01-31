@@ -6,6 +6,7 @@ namespace Managers
 {
     public class ColorsManager : MonoBehaviour
     {
+        public static ColorsManager Manager;
         public GameObject ActivePlayer { get; set; }
 
         [Header("Colors of not moving platforms")]
@@ -44,6 +45,11 @@ namespace Managers
         public Color colorTriangle
         {
             get => colorOfTriangle;
+        }
+
+        private void Awake()
+        {
+            Manager = this;
         }
 
         private void Start()
