@@ -87,7 +87,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!50 &1899175381583589351
 Rigidbody2D:
@@ -247,6 +247,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 4ee84ddc-1f7d-46b5-bcf9-8e179b9f72d6
     m_ActionName: Player/Gravity[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 05aae2a4-4f7b-4c45-b22e-ca5a42af3ffb
+    m_ActionName: Player/ButtonPressed[/Keyboard/anyKey]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player

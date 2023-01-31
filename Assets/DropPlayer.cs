@@ -38,12 +38,13 @@ public class DropPlayer : MonoBehaviour
 
     private void Update()
     {
+        if (!playerDropped)
+        {
+            _playerRenderer.color = new Color(1, 1, 1, 0);
+        }
+        
         if (playerDropped)
         {
-            print(startingHeight);
-            print(endingHeight);
-            print(_playerTransform.position.y);
-
             var colorValue = Mathf.InverseLerp(startingHeight, endingHeight, _playerTransform.position.y);
             var colorForPlayer = Color.Lerp(Color.white, circleColor, colorValue);
             _playerRenderer.color = colorForPlayer;
@@ -55,7 +56,7 @@ public class DropPlayer : MonoBehaviour
             Drop();
         }
 
-        if (Input.GetJoystickNames().Length > 0)
+        if (Input.GetJoystickNames().Length > 0 && !buttonPressed)
         {
             var gamepadButtonPressed = Gamepad.current.allControls.Any(x => x is ButtonControl button && x.IsPressed() && !x.synthetic);
             buttonPressed = gamepadButtonPressed;
