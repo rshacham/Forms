@@ -29,6 +29,14 @@ public class GameManager : MonoBehaviour
     public Vector3 ReturnPoint { get; set; } = new (11.5f, -8.42f, 0.282f);
     public bool HasWallJumped { get; set; }
 
+    private Fade fade;
+
+    public Fade Fade
+    {
+        get => fade;
+        set => fade = value;
+    }
+
     private void Awake()
     {
         Manager = this;
@@ -38,6 +46,12 @@ public class GameManager : MonoBehaviour
     {
         // check if works
         ReturnPoint = FindObjectOfType<Player>().transform.localPosition;
+        Fade = GetComponentInChildren<Fade>();
+
+        if (Fade.FadeOutAtStart)
+        {
+            Fade.StartCoroutine(Fade.StartFade(false));
+        }
     }
 
     public void GetAchievement(int shape)
@@ -54,4 +68,16 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void LoadNewScene(string sceneString, int sceneNum)
+    {
+        if (sceneString != "")
+        {
+            SceneManager.LoadScene(sceneString);
+            return;
+        }
+
+        SceneManager.LoadScene(sceneNum);
+    }
+
 }
