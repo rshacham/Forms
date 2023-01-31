@@ -43,12 +43,12 @@ public class Fade : MonoBehaviour
             fadeImage.color = new Color(0, 0, 0, currentValue);
             yield return new WaitForSeconds(0.02f);
         }
-        
-        
 
         if (sceneString != "" || sceneNum != -1)
         {
             GameManager.Manager.LoadNewScene(sceneString, sceneNum);
         }
+
+        currentFadeTime = 0;
     }
 }

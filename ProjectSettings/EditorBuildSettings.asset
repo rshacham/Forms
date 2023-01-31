@@ -5,13 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/opening.unity
     guid: e398791d285038d488a41f622ed0d0bd
   - enabled: 1
     path: Assets/Scenes/Level Base.unity
     guid: 5532b871dadf0634a849ed6be4230cdb
+  - enabled: 1
+    path: Assets/Scenes/Kandinsky 1.unity
+    guid: d1ea8f09963367140a56673d9c51b7de
+  - enabled: 1
+    path: Assets/Scenes/Black & White.unity
+    guid: 0dfeca711c10748de8554c7ad49c29ac
+  - enabled: 1
+    path: Assets/Scenes/Level Base After Kandinsky.unity
+    guid: 24df62b5da9496c4cb809e372a3d94f2
+  - enabled: 1
+    path: Assets/Scenes/Level Base After Black&White.unity
+    guid: a62cc1809c3103f4b9603c4050507587
   m_configObjects: {}
