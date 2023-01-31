@@ -166,7 +166,7 @@ public class PlayersManager : MonoBehaviour
     public void HandleLose()
     {
         // SoundManager.Manager.PlayRandomSound(deathSounds);
-        _activePlayer.transform.localPosition = GameManager.Manager.ReturnPoint;
+        _activePlayer.transform.position = GameManager.Manager.ReturnPoint;
         ActivePlayerScript.ResetMovement();
     }
     
