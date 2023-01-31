@@ -13,6 +13,11 @@ public class SoundManager : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
     }
 
+    public void PlaySound(AudioClip sound)
+    {
+        _audioSource.PlayOneShot(sound);
+    }
+
     public void PlayRandomSound(AudioClip[] possibleClips)
     {
         var randomClipIndex = Random.Range(0, possibleClips.Length);
