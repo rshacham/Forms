@@ -242,6 +242,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 4ee84ddc-1f7d-46b5-bcf9-8e179b9f72d6
     m_ActionName: Player/Gravity[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: a9d7bb7ccb8310a449e6b6dbf7a97108, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 05aae2a4-4f7b-4c45-b22e-ca5a42af3ffb
+    m_ActionName: Player/ButtonPressed[/Keyboard/anyKey]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

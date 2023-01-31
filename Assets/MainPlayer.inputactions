@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ButtonPressed",
+                    "type": "Button",
+                    "id": "05aae2a4-4f7b-4c45-b22e-ca5a42af3ffb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -327,6 +336,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Gravity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8759ff56-ed52-4104-8666-b4c24a398919",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonPressed",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
