@@ -25,8 +25,13 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+        if (activePlayersNew.Length == 0)
+        {
+            return;
+        }
+        
         JoystickHandler();
-        colorsActivePlayers();
+        ColorsActivePlayers();
         for (var i = 0; i < 3; i++)
         {
             inactivePlayersNew[i].gameObject.SetActive(true);
@@ -64,15 +69,26 @@ public class UIManager : MonoBehaviour
         }
     }
     
-    private void colorsActivePlayers()
+    public void ColorsActivePlayers()
     {
-        activePlayersNew[0].GetComponent<Image>().color = ColorsManager.Manager.colorCircle;
-        activePlayersNew[1].GetComponent<Image>().color = ColorsManager.Manager.colorSquare;
-        activePlayersNew[2].GetComponent<Image>().color = ColorsManager.Manager.colorTriangle;
+        for (var i = 0; i < 3; i++)
+        {
+            ColorsActiveSinglePlayer(i);
+        }
+    }
+
+    public void ColorsActiveSinglePlayer(int index)
+    {
+        activePlayersNew[index].GetComponent<Image>().color = ColorsManager.Manager.colorCircle;
     }
 
     public void ChangeActivePlayerUI(string activePlayerName)
     {
+        if (activePlayersNew.Length == 0)
+        {
+            return;
+        }
+        
         ResetActivePlayerUI();
         switch (activePlayerName)
         {
@@ -80,10 +96,12 @@ public class UIManager : MonoBehaviour
                 activePlayersNew[0].SetActive(true);
                 inactivePlayersNew[0].SetActive(false);
                 break;
+            
             case "Square":
                 activePlayersNew[1].SetActive(true);
                 inactivePlayersNew[1].SetActive(false);
                 break;
+            
             case "Triangle":
                 activePlayersNew[2].SetActive(true);
                 inactivePlayersNew[2].SetActive(false);
@@ -93,11 +111,44 @@ public class UIManager : MonoBehaviour
 
     public void ResetActivePlayerUI()
     {
-        for (var i = 0; i < 3; i++)
+        for (var i = 0; i < activePlayersNew.Length; i++)
         {
+            if (i == 1 && !GameManager.Manager.HasChangedToSquare)
+            {
+                continue;
+            }
+
+            if (i == 2 && !GameManager.Manager.HasChangedToTriangle)
+            {
+                continue;
+            }
+            
             activePlayersNew[i].SetActive(false);
             inactivePlayersNew[i].gameObject.SetActive(true);
             inactivePlayersNew[i].GetComponent<Image>().color = colorInactive;
+        }
+    }
+
+    public void MakeTransparentUI(string playerName, int opacity)
+    {
+        var color = new Color(1, 1, 1, 0);
+        
+        switch (playerName)
+        {
+            case "Circle":
+                activePlayersNew[0].GetComponent<Image>().color = new Color(1, 1, 1, 0);
+                inactivePlayersNew[0].GetComponent<Image>().color = new Color(1, 1, 1, 0);
+                break;
+            
+            case "Square":
+                activePlayersNew[1].GetComponent<Image>().color = new Color(1, 1, 1, 0);
+                inactivePlayersNew[1].GetComponent<Image>().color = new Color(1, 1, 1, 0);
+                break;
+            
+            case "Triangle":
+                activePlayersNew[2].GetComponent<Image>().color = new Color(1, 1, 1, 0);
+                inactivePlayersNew[2].GetComponent<Image>().color = new Color(1, 1, 1, 0);
+                break;
         }
     }
 }
