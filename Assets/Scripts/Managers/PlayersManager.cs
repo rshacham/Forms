@@ -10,6 +10,8 @@ public class PlayersManager : MonoBehaviour
 {
     public static PlayersManager Manager;
 
+    public bool CanChangeShape { get; set; } = true;
+
     private ColorsManager _colorsManager;
     
     [SerializeField] private GameObject[] players;
@@ -107,7 +109,11 @@ public class PlayersManager : MonoBehaviour
         _activePlayer.SetActive(true);
         _activeAnimator.SetTrigger(previousPlayerName);
         ActivePlayerScript.PlayerRigidBody.velocity = _previousVelocity;
-        UIManager.Manager.ChangeActivePlayerUI(currentPlayerName);
+        if (UIManager.Manager != null)
+        {
+            UIManager.Manager.ChangeActivePlayerUI(currentPlayerName);    
+        }
+        
     }
 
     public void ChangeToCircle()
@@ -172,15 +178,21 @@ public class PlayersManager : MonoBehaviour
     
     public void ToCircle(InputAction.CallbackContext context)
     {
+        if (!CanChangeShape)
+        {
+            return;
+        }
 
         if (context.performed)
         {
+            if (!CanChangeShape)
+            {
+                return;
+            }
+            
             previousPlayerName = currentPlayerName;
             ChangeToCircle();
             GameManager.Manager.HasChangedToCircle = true;
-            // _activeAnimator.SetBool("Circle", true);
-            
-            // optional change colors here
         }
     }
     
@@ -188,10 +200,14 @@ public class PlayersManager : MonoBehaviour
     {
         if (context.performed && CanSquare)
         {
+            if (!CanChangeShape)
+            {
+                return;
+            }
+            
             previousPlayerName = currentPlayerName;
             ChangeToSquare();
             GameManager.Manager.HasChangedToSquare = true;
-            // _activeAnimator.SetBool("Square", true);
         }
     }
 
@@ -199,12 +215,14 @@ public class PlayersManager : MonoBehaviour
     {
         if (context.performed)
         {
+            if (!CanChangeShape)
+            {
+                return;
+            }
+            
             previousPlayerName = currentPlayerName;
             ChangeToTriangle();
             GameManager.Manager.HasChangedToTriangle = true;
-            // _activeAnimator.SetBool("Triangle", true);
         }
     }
-    
-
 }

@@ -4925,6 +4925,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7715572586365209235, guid: 09d5b585700da184da1407839b9bcd45, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7715572586365209236, guid: 09d5b585700da184da1407839b9bcd45, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -4935,7 +4939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7715572586365209238, guid: 09d5b585700da184da1407839b9bcd45, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09d5b585700da184da1407839b9bcd45, type: 3}
