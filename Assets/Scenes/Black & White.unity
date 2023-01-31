@@ -2432,6 +2432,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1117552287}
     m_Modifications:
+    - target: {fileID: 5345302270797622636, guid: 714cd35381396884097c6585f764e25b, type: 3}
+      propertyPath: freezeVertical
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345302270797622636, guid: 714cd35381396884097c6585f764e25b, type: 3}
+      propertyPath: freezeHorizontal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5683115166590833161, guid: 714cd35381396884097c6585f764e25b, type: 3}
       propertyPath: m_Name
       value: checkPoint (2)
@@ -4652,6 +4660,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1117552287}
     m_Modifications:
+    - target: {fileID: 5345302270797622636, guid: 714cd35381396884097c6585f764e25b, type: 3}
+      propertyPath: freezeVertical
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345302270797622636, guid: 714cd35381396884097c6585f764e25b, type: 3}
+      propertyPath: freezeHorizontal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5683115166590833161, guid: 714cd35381396884097c6585f764e25b, type: 3}
       propertyPath: m_Name
       value: checkPoint (3)
@@ -5026,8 +5042,8 @@ Transform:
   m_Children:
   - {fileID: 1300024051}
   - {fileID: 841620186}
-  - {fileID: 1058319968}
   - {fileID: 1962199660}
+  - {fileID: 1058319968}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7692,6 +7708,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1117552287}
     m_Modifications:
+    - target: {fileID: 5345302270797622636, guid: 714cd35381396884097c6585f764e25b, type: 3}
+      propertyPath: freezeVertical
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345302270797622636, guid: 714cd35381396884097c6585f764e25b, type: 3}
+      propertyPath: freezeHorizontal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5683115166590833161, guid: 714cd35381396884097c6585f764e25b, type: 3}
       propertyPath: m_Name
       value: checkPoint (4)
