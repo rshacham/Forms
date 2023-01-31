@@ -31,6 +31,21 @@ namespace Managers
     
         private Color colorOfCurrentPlayer;
 
+        public Color colorCircle
+        {
+            get => colorOfCircle;
+        }
+        
+        public Color colorSquare
+        {
+            get => colorOfSquare;
+        }
+        
+        public Color colorTriangle
+        {
+            get => colorOfTriangle;
+        }
+
         private void Start()
         {
             colorOfCurrentPlayer = colorOfCircle;
