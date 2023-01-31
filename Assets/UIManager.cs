@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using Managers;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    
     [SerializeField] private GameObject[] joystickInactivePlayersNew;
     [SerializeField] private GameObject[] joystickActivePlayersNew;
     [SerializeField] private GameObject[] activePlayersNew;
@@ -79,7 +79,18 @@ public class UIManager : MonoBehaviour
 
     public void ColorsActiveSinglePlayer(int index)
     {
-        activePlayersNew[index].GetComponent<Image>().color = ColorsManager.Manager.colorCircle;
+        switch (index)
+        {
+            case 0:
+                activePlayersNew[index].GetComponent<Image>().color = ColorsManager.Manager.colorCircle;
+                break;
+            case 1:
+                activePlayersNew[index].GetComponent<Image>().color = ColorsManager.Manager.colorSquare;
+                break;
+            case 2:
+                activePlayersNew[index].GetComponent<Image>().color = ColorsManager.Manager.colorTriangle;
+                break;
+        }
     }
 
     public void ChangeActivePlayerUI(string activePlayerName)
@@ -111,14 +122,15 @@ public class UIManager : MonoBehaviour
 
     public void ResetActivePlayerUI()
     {
+        var firstScene = FindObjectOfType<MainLevelManager>() != null;
         for (var i = 0; i < activePlayersNew.Length; i++)
         {
-            if (i == 1 && !GameManager.Manager.HasChangedToSquare)
+            if (i == 1 && !GameManager.Manager.HasChangedToSquare && firstScene)
             {
                 continue;
             }
 
-            if (i == 2 && !GameManager.Manager.HasChangedToTriangle)
+            if (i == 2 && !GameManager.Manager.HasChangedToTriangle && firstScene)
             {
                 continue;
             }
