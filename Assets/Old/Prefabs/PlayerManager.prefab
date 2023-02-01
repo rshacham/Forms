@@ -49,6 +49,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  canSquare: 0
+  startingPoint: {fileID: 0}
+  switchPlayerSounds: []
+  deathSounds: []
 --- !u!114 &5921862331849980192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +127,19 @@ MonoBehaviour:
     m_ActionId: abf39ebc-1c92-428a-9e20-ffe7fa159a14
     m_ActionName: Player/PlayerChange[/Keyboard/ctrl,/Keyboard/alt,/Keyboard/z]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7715572585031720049, guid: 09d5b585700da184da1407839b9bcd45, type: 3}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 9fe6bd87-0965-4e6e-9f79-463d069997a8
     m_ActionName: Player/Reset[/Keyboard/r]
   - m_PersistentCalls:
@@ -166,6 +182,30 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e452c4b5-7a01-413f-838f-85bcb5927188
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 06e380e7-3548-485a-a6e6-8c629e8216f1
+    m_ActionName: Player/ChangeToCircle[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f52bcc2d-fdd4-41bb-859b-cf27f09970a2
+    m_ActionName: Player/ChangeToSquare[/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 998ac4ed-4142-433e-9185-6c4e98a9927a
+    m_ActionName: Player/ChangeToTriangle[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 42b5497f-71e4-44dc-a509-5a2fedc65c88
+    m_ActionName: Player/Quit[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4ee84ddc-1f7d-46b5-bcf9-8e179b9f72d6
+    m_ActionName: Player/Gravity[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 05aae2a4-4f7b-4c45-b22e-ca5a42af3ffb
+    m_ActionName: Player/ButtonPressed[/Keyboard/anyKey]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

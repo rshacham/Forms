@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     public void Reset()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(0);
     }
 
     public void LoadNewScene(string sceneString, int sceneNum)
