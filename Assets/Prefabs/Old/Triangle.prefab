@@ -321,6 +321,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 4ee84ddc-1f7d-46b5-bcf9-8e179b9f72d6
     m_ActionName: Player/Gravity[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 05aae2a4-4f7b-4c45-b22e-ca5a42af3ffb
+    m_ActionName: Player/ButtonPressed[/Keyboard/anyKey]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -374,13 +378,22 @@ MonoBehaviour:
   jumpingPower: 26
   jumpCoyoteTime: 0.15
   jumpBufferTime: 0.1
-  jumpCutMultipliar: 0.1
+  jumpCutMultiplier: 0
   fallGravityMultiplier: 2
   isGroundedRayLength: 0.7
   defaultSettings: {fileID: 11400000, guid: 4d987d534ff81fc4a92432139fc54e33, type: 2}
   useDefaultGravity: 0
   useDefaultJumpingPower: 0
   useDefaultAcceleration: 0
+  deathSounds:
+  - {fileID: 8300000, guid: 01b27ac5600b3db4c8e14464ef87f796, type: 3}
+  - {fileID: 8300000, guid: 8d2839b704d96ed4a92dc7696b38255f, type: 3}
+  - {fileID: 8300000, guid: 4e3c61a125f19f941afb2d6e1c55dd56, type: 3}
+  - {fileID: 8300000, guid: 2248d375cbe7d0547a949a501083f6a9, type: 3}
+  - {fileID: 8300000, guid: 3de6d3f784135d4488109a02e7957652, type: 3}
+  - {fileID: 8300000, guid: 6a8916e93509e1c499e7384613dcdde3, type: 3}
+  - {fileID: 8300000, guid: 52842153d4b478042abc7bd5bb86d2e9, type: 3}
+  checkpointSounds: []
   startWalkRotationBoost: 30
   walkingRotationSpeed: 1100
   airFactor: 50
@@ -389,6 +402,16 @@ MonoBehaviour:
   - {fileID: 1748613824522006614}
   - {fileID: 1748613825161679203}
   - {fileID: 1748613825151077366}
+  jumpSounds:
+  - {fileID: 8300000, guid: 9b5abbabefa46cb41b87bbf160580226, type: 3}
+  - {fileID: 8300000, guid: 4ef59508cb54fd24ab3e215a149fdd69, type: 3}
+  - {fileID: 8300000, guid: c716a8d5b15b6854ea8dc239611d60ca, type: 3}
+  - {fileID: 8300000, guid: ffa99a682c525544a97181a1bdbcade2, type: 3}
+  - {fileID: 8300000, guid: f7ea983dc03b42d42b598295f9964b90, type: 3}
+  - {fileID: 8300000, guid: 07c137c799d40c142b144c0582ae74aa, type: 3}
+  - {fileID: 8300000, guid: 7114b33ac1c1310498921c3edef8a300, type: 3}
+  - {fileID: 8300000, guid: 538b667f91fb6c049b2020ddb4f489e4, type: 3}
+  - {fileID: 8300000, guid: 3595b271b4f0ccd4dafe03be8a339407, type: 3}
 --- !u!1 &1748613825151077367
 GameObject:
   m_ObjectHideFlags: 0

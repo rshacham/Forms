@@ -77,7 +77,7 @@ public class TrianglePlayer : Player
     {
         if (context.performed)
         {
-            base.Jump(context, sounds);
+            base.Jump(context, jumpSounds);
             // SoundManager.Manager.PlayRandomSound(jumpSounds);    
         }
         

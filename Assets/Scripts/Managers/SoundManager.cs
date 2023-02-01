@@ -21,6 +21,7 @@ public class SoundManager : MonoBehaviour
     public void PlayRandomSound(AudioClip[] possibleClips)
     {
         var randomClipIndex = Random.Range(0, possibleClips.Length);
+        print(randomClipIndex);
         
         _audioSource.PlayOneShot(possibleClips[randomClipIndex]);
     }

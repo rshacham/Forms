@@ -297,7 +297,11 @@ MonoBehaviour:
   useDefaultGravity: 0
   useDefaultJumpingPower: 0
   useDefaultAcceleration: 0
-  deathSounds: []
+  deathSounds:
+  - {fileID: 8300000, guid: 9cb024eb6c9f2664eabfc6aa23a6891a, type: 3}
+  - {fileID: 8300000, guid: 9497cca57c7978b49bd41ef7d29df57c, type: 3}
+  - {fileID: 8300000, guid: 13fcb29e8f4ddd5459b2a12bfd711b8d, type: 3}
+  - {fileID: 8300000, guid: 3166230c1b5574b4883ca1e77395164f, type: 3}
   checkpointSounds:
   - {fileID: 8300000, guid: 657041964307241488df274929776d9f, type: 3}
   - {fileID: 8300000, guid: 51ff365af7b8eaf4caecc6dd6b589ef8, type: 3}
