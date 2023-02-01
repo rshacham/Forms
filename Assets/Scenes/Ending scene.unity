@@ -3242,7 +3242,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 928075598}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8af26576fb8f5a3448fca936caba701a, type: 3}
   m_Name: 
@@ -6138,8 +6138,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4398959613273880573, guid: e78dfe7c7d99296408be6830bef15475, type: 3}
+      propertyPath: platforms.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398959613273880573, guid: e78dfe7c7d99296408be6830bef15475, type: 3}
       propertyPath: platforms.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398959613273880573, guid: e78dfe7c7d99296408be6830bef15475, type: 3}
+      propertyPath: movingPlatforms.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4398959613273880573, guid: e78dfe7c7d99296408be6830bef15475, type: 3}
       propertyPath: movingPlatforms.Array.data[0]
