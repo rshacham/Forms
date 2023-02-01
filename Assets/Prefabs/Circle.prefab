@@ -283,10 +283,28 @@ MonoBehaviour:
   useDefaultGravity: 0
   useDefaultJumpingPower: 0
   useDefaultAcceleration: 0
+  deathSounds:
+  - {fileID: 8300000, guid: 0076a799d581a1c429dc6d47ce7070ad, type: 3}
+  - {fileID: 8300000, guid: 79db9d1e2d8e34d46ac222004e5171d0, type: 3}
+  - {fileID: 8300000, guid: d9146aa069a1b63459ba552d403bf294, type: 3}
+  - {fileID: 8300000, guid: b75b8d97007df0645b4c3841ae261c60, type: 3}
+  - {fileID: 8300000, guid: bfd6e29ba3183414fad0cbd4d063ffcc, type: 3}
+  - {fileID: 8300000, guid: 63ed7389519806847a039279c058b456, type: 3}
+  checkpointSounds:
+  - {fileID: 8300000, guid: 31ad0f7c83bc44145baa4c990d0fa228, type: 3}
+  - {fileID: 8300000, guid: b89d87f7b0e63a94bb4ca3bb745b17df, type: 3}
+  - {fileID: 8300000, guid: e6d66a2252c78054a988688119fa71ff, type: 3}
+  - {fileID: 8300000, guid: 58bbbff73e8dd47438f1bd331797a83f, type: 3}
   dashingPower: 28
   dashingCoolDown: 1
   dashingTime: 0.2
   oneDashFactor: 0.25
+  jumpSounds:
+  - {fileID: 8300000, guid: c56c94c0623e87f4a86eb54f97c3a688, type: 3}
+  - {fileID: 8300000, guid: e436a4acac9acd0499970065e0b362b6, type: 3}
+  - {fileID: 8300000, guid: 3be52bb684d7f8a498f7b4e6901a6bdf, type: 3}
+  - {fileID: 8300000, guid: 73331a6c2c099c548bbf034076464fc6, type: 3}
+  - {fileID: 8300000, guid: decf015211407cc40ab695b1cf2f610b, type: 3}
 --- !u!58 &1899175381583589355
 CircleCollider2D:
   m_ObjectHideFlags: 0

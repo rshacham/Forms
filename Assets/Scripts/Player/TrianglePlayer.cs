@@ -69,20 +69,21 @@ public class TrianglePlayer : Player
 
     public bool CheckIfStuck()
     {
-        return (Math.Abs(transform.eulerAngles.z - 240) < 0.3f
+        return Math.Abs(transform.eulerAngles.z - 240) < 0.3f
                 || Math.Abs(transform.eulerAngles.z - 120) < 0.3f
-                || Math.Abs(transform.eulerAngles.z - 0) < 0.3f);
+                || Math.Abs(transform.eulerAngles.z - 0) < 0.3f;
     }
-    public override void Jump(InputAction.CallbackContext context)
+    public override void Jump(InputAction.CallbackContext context, AudioClip[] sounds = null)
     {
         if (context.performed)
         {
-            base.Jump(context);
-            SoundManager.Manager.PlayRandomSound(jumpSounds);    
+            base.Jump(context, sounds);
+            // SoundManager.Manager.PlayRandomSound(jumpSounds);    
         }
         
         if (context.performed && !IsGrounded && _canDoubleJump && !IsWallSliding)
         {
+            SoundManager.Manager.PlayRandomSound(jumpSounds);
             GameManager.Manager.HasDoubleJumped = true;
             _rb.velocity = new Vector2(_rb.velocity.x, 0);
             _rb.AddForce(Vector2.up * jumpingPower, ForceMode2D.Impulse);

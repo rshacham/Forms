@@ -59,6 +59,10 @@ public abstract class Player : MonoBehaviour
     [SerializeField] protected bool useDefaultAcceleration;
     #endregion
     
+    [SerializeField] private AudioClip[] deathSounds;
+    [SerializeField] private AudioClip[] checkpointSounds;
+
+    
     private Collider2D collider;
     private float _speed_t = 0;
 
@@ -165,7 +169,7 @@ public abstract class Player : MonoBehaviour
         
     }
 
-    public virtual void Jump(InputAction.CallbackContext context)
+    public virtual void Jump(InputAction.CallbackContext context, AudioClip[] sounds = null)
     {
         _lastJumpTime = jumpBufferTime;
         
@@ -176,6 +180,10 @@ public abstract class Player : MonoBehaviour
             _lastJumpTime = 0;
             _isJumping = true;
             _jumpInputReleased = false;
+            if (sounds != null)
+            {
+                SoundManager.Manager.PlayRandomSound(sounds);
+            }
         }
 
         if (context.canceled)
@@ -248,4 +256,19 @@ public abstract class Player : MonoBehaviour
         }
     }
 
+    public void PlayCheckpointSound()
+    {
+        if (checkpointSounds.Length > 0)
+        {
+            SoundManager.Manager.PlayRandomSound(checkpointSounds);
+        }
+    }
+
+    public void PlayDeathSound()
+    {
+        if (deathSounds.Length > 0)
+        {
+            SoundManager.Manager.PlayRandomSound(deathSounds);
+        }
+    }
 }

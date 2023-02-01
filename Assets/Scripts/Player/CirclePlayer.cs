@@ -20,10 +20,19 @@ public class CirclePlayer : Player
     private bool oneDash = false;
     #endregion
     
+    [Header("Triangle Sounds")]
+    [SerializeField] private AudioClip[] jumpSounds;
+
     private new void Start()
     {
         base.Start();
     }
+
+    public override void Jump(InputAction.CallbackContext context, AudioClip[] sounds = null)
+    {
+        base.Jump(context, jumpSounds);
+    }
+
 
     private new void Update()
     {

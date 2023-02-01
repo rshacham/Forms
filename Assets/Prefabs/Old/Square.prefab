@@ -235,6 +235,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 4ee84ddc-1f7d-46b5-bcf9-8e179b9f72d6
     m_ActionName: Player/Gravity[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 05aae2a4-4f7b-4c45-b22e-ca5a42af3ffb
+    m_ActionName: Player/ButtonPressed[/Keyboard/anyKey]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -286,13 +290,19 @@ MonoBehaviour:
   jumpingPower: 26
   jumpCoyoteTime: 0.15
   jumpBufferTime: 0.1
-  jumpCutMultipliar: 0.1
+  jumpCutMultiplier: 0
   fallGravityMultiplier: 2
   isGroundedRayLength: 0.3
   defaultSettings: {fileID: 11400000, guid: 4d987d534ff81fc4a92432139fc54e33, type: 2}
   useDefaultGravity: 0
   useDefaultJumpingPower: 0
   useDefaultAcceleration: 0
+  deathSounds: []
+  checkpointSounds:
+  - {fileID: 8300000, guid: 657041964307241488df274929776d9f, type: 3}
+  - {fileID: 8300000, guid: 51ff365af7b8eaf4caecc6dd6b589ef8, type: 3}
+  - {fileID: 8300000, guid: 633ddf4b76aa1fb4e9ff6d3c32bfe846, type: 3}
+  - {fileID: 8300000, guid: a81da3f55b09c1b4a99c81826e7d0542, type: 3}
   wallJumpingTime: 0.2
   wallJumpingDuration: 0.2
   wallJumpingPower: {x: 18, y: 30}
@@ -301,6 +311,16 @@ MonoBehaviour:
   wallCheck:
   - {fileID: 6028694196981754349}
   wallStickDuration: 1
+  jumpSounds:
+  - {fileID: 8300000, guid: 46a730f6285de4548b1ccafed428d4e2, type: 3}
+  - {fileID: 8300000, guid: 3b9a2984e38635f4488b1909324209c5, type: 3}
+  - {fileID: 8300000, guid: 346e33e83402fea43b0f6b169a080861, type: 3}
+  - {fileID: 8300000, guid: e227c5f368c76d04a9462a0d7143d5a8, type: 3}
+  wallLandingSounds:
+  - {fileID: 8300000, guid: 80df249e8e72760479b98fcfd4ee4058, type: 3}
+  - {fileID: 8300000, guid: ecb72f55fc84d1e4aaa44a06aa6e8abe, type: 3}
+  - {fileID: 8300000, guid: 12cf0d6eea16cfb41b21b9190f7a5d0f, type: 3}
+  - {fileID: 8300000, guid: 59be347a99bdc5c43afbccedc82dcf39, type: 3}
 --- !u!1 &6028694196981754348
 GameObject:
   m_ObjectHideFlags: 0

@@ -174,6 +174,7 @@ public class PlayersManager : MonoBehaviour
         // SoundManager.Manager.PlayRandomSound(deathSounds);
         _activePlayer.transform.position = GameManager.Manager.ReturnPoint;
         ActivePlayerScript.ResetMovement();
+        ActivePlayerScript.PlayDeathSound();
     }
     
     public void ToCircle(InputAction.CallbackContext context)

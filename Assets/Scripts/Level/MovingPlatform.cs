@@ -18,7 +18,6 @@ public class MovingPlatform : MonoBehaviour
     private RigidbodyInterpolation2D previousInterpolation;
     
     [SerializeField] private bool oneTime;
-    [SerializeField] private bool differentPointA;
     private bool _reachedEnd = false;
 
     #region New Solution
@@ -27,11 +26,6 @@ public class MovingPlatform : MonoBehaviour
 
     private void Start()
     {
-        if (!differentPointA)
-        {
-            points[0].position = transform.position;
-        }
-        
         positions = new List<Vector2>();
         foreach (var point in points)
         {
