@@ -14,6 +14,7 @@ public class DropPlayer : MonoBehaviour
     private SpriteRenderer _playerRenderer;
     
     [SerializeField] private GameObject plaftorm;
+    [SerializeField] private GameObject pressAnyKeyText;
 
     [SerializeField] private int gotToCircleTarget;
     private int _gotToCircleCounter = 0;
@@ -62,6 +63,10 @@ public class DropPlayer : MonoBehaviour
         {
             var gamepadButtonPressed = Gamepad.current.allControls.Any(x => x is ButtonControl button && x.IsPressed() && !x.synthetic);
             buttonPressed = gamepadButtonPressed;
+            if (buttonPressed)
+            {
+                pressAnyKeyText.SetActive(false);
+            }
         }
     }
 
@@ -76,6 +81,7 @@ public class DropPlayer : MonoBehaviour
     public void ButtonPressed()
     {
         buttonPressed = true;
+        pressAnyKeyText.SetActive(false);
     }
 
     public void PlayDropSound()

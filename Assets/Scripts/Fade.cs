@@ -32,6 +32,10 @@ public class Fade : MonoBehaviour
         {
             startValue = 0;
             endValue = fadeTime;
+            UIManager.Manager.MakeTransparentUI("Circle", 0);
+            UIManager.Manager.MakeTransparentUI("Square", 0);
+            UIManager.Manager.MakeTransparentUI("Triangle", 0);
+
         }
 
         float currentValue = startValue;

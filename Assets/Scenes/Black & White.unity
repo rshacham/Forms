@@ -980,6 +980,17 @@ Transform:
   m_Father: {fileID: 1722138343}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &188364471 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7715572585031720049, guid: 09d5b585700da184da1407839b9bcd45, type: 3}
+  m_PrefabInstance: {fileID: 1101488949}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f6cb8c7b4c4a944b828a181025523e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &199122030 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1324111464035199954, guid: d60f53aa39c685a468774fb7604c6383, type: 3}
@@ -2249,6 +2260,7 @@ MonoBehaviour:
   points:
   - {fileID: 0}
   - {fileID: 0}
+  oneTime: 0
   _holder: {fileID: 0}
 --- !u!4 &450438671 stripped
 Transform:
@@ -3400,7 +3412,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7195365353582279369, guid: 15bf0d78c00065b438898db6c48e2590, type: 3}
       propertyPath: scene
-      value: Level Base After Black&White
+      value: After Kandinsky 2
       objectReference: {fileID: 0}
     - target: {fileID: 7195365353582279370, guid: 15bf0d78c00065b438898db6c48e2590, type: 3}
       propertyPath: m_Name
@@ -5611,7 +5623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5683115166590833165, guid: 714cd35381396884097c6585f764e25b, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5683115166590833165, guid: 714cd35381396884097c6585f764e25b, type: 3}
       propertyPath: checkPoint.x
@@ -5669,7 +5681,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5683115166590833165, guid: 714cd35381396884097c6585f764e25b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 714cd35381396884097c6585f764e25b, type: 3}
 --- !u!1 &1236995564
 GameObject:
@@ -9613,6 +9626,7 @@ MonoBehaviour:
   points:
   - {fileID: 0}
   - {fileID: 0}
+  oneTime: 0
   _holder: {fileID: 0}
 --- !u!61 &3598353203684931113
 BoxCollider2D:
@@ -9706,7 +9720,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5921862331849980192, guid: 2bd8fcb05788d414cbf26f74a74f50bd, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5921862331849980192, guid: 2bd8fcb05788d414cbf26f74a74f50bd, type: 3}
       propertyPath: m_ActionEvents.Array.data[14].m_ActionId
@@ -9807,7 +9821,7 @@ PrefabInstance:
     - target: {fileID: 5921862331849980192, guid: 2bd8fcb05788d414cbf26f74a74f50bd, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 188364471}
     - target: {fileID: 5921862331849980192, guid: 2bd8fcb05788d414cbf26f74a74f50bd, type: 3}
       propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
