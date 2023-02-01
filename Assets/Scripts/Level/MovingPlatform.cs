@@ -16,6 +16,9 @@ public class MovingPlatform : MonoBehaviour
     private Transform _playerTransform;
 
     private RigidbodyInterpolation2D previousInterpolation;
+    
+    [SerializeField] private bool oneTime;
+    private bool _reachedEnd = false;
 
     #region New Solution
     [SerializeField] private Transform _holder;
@@ -33,7 +36,12 @@ public class MovingPlatform : MonoBehaviour
 
     private void Update()
     {
-        if (_holder == null)
+        if (_holder == null || _reachedEnd)
+        {
+            return;
+        }
+
+        if (oneTime && _index >= points.Length)
         {
             return;
         }
@@ -43,10 +51,19 @@ public class MovingPlatform : MonoBehaviour
             _index++;
             if (_index == points.Length)
             {
-                _index = 0;
+                if (!oneTime)
+                {
+                    _index = 0;    
+                }
             }
         }
         
+        if (_index >= points.Length)
+        {
+            _reachedEnd = true;
+            return;
+        }
+
         Vector2 newPosition = Vector2.MoveTowards(transform.position,
             positions[_index],
             speedOfPlatform * Time.deltaTime);
