@@ -15113,6 +15113,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 722159583832979785, guid: 15bf0d78c00065b438898db6c48e2590, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1921074872409816983, guid: 15bf0d78c00065b438898db6c48e2590, type: 3}
       propertyPath: m_Points.Array.data[2].x
       value: 0.97086525
@@ -22413,7 +22417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7195365354483303430, guid: 15bf0d78c00065b438898db6c48e2590, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.2213
+      value: -2.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195365354483303430, guid: 15bf0d78c00065b438898db6c48e2590, type: 3}
       propertyPath: m_LocalPosition.y
