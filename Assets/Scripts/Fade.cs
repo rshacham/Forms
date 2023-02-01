@@ -23,7 +23,7 @@ public class Fade : MonoBehaviour
         fadeImage = GetComponent<SpriteRenderer>();
     }
 
-    public IEnumerator StartFade(bool fadeIn, int sceneNum = -1, string sceneString = "")
+    public IEnumerator StartFade(bool fadeIn, int sceneNum = -1, string sceneString = "", DropPlayer dropPlayer = null)
     {
         float startValue = fadeTime;
         float endValue = 0;
@@ -32,9 +32,13 @@ public class Fade : MonoBehaviour
         {
             startValue = 0;
             endValue = fadeTime;
-            UIManager.Manager.MakeTransparentUI("Circle", 0);
-            UIManager.Manager.MakeTransparentUI("Square", 0);
-            UIManager.Manager.MakeTransparentUI("Triangle", 0);
+            if (dropPlayer == null)
+            {
+                UIManager.Manager.MakeTransparentUI("Circle", 0);
+                UIManager.Manager.MakeTransparentUI("Square", 0);
+                UIManager.Manager.MakeTransparentUI("Triangle", 0);                
+            }
+
 
         }
 

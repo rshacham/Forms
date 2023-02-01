@@ -143,7 +143,6 @@ public class UIManager : MonoBehaviour
 
     public void MakeTransparentUI(string playerName, int opacity)
     {
-        print("yo");
         var color = new Color(1, 1, 1, 0);
         
         switch (playerName)
