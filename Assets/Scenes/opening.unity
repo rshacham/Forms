@@ -2288,6 +2288,14 @@ PrefabInstance:
       propertyPath: fadeOutAtStart
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7715572586365209237, guid: 09d5b585700da184da1407839b9bcd45, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 80.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715572586365209237, guid: 09d5b585700da184da1407839b9bcd45, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.84
+      objectReference: {fileID: 0}
     - target: {fileID: 7715572586365209238, guid: 09d5b585700da184da1407839b9bcd45, type: 3}
       propertyPath: m_IsActive
       value: 1
