@@ -15,6 +15,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject[] inactivePlayersNew;
 
     [SerializeField] private Color colorInactive;
+
+    [SerializeField] private GameObject joystickMessages;
+    [SerializeField] private GameObject keyboardMessages;
     
     public static UIManager Manager;
 
@@ -57,6 +60,11 @@ public class UIManager : MonoBehaviour
             {
                 SwitchToJoystickUI();
             }
+            else
+            {
+                joystickMessages.SetActive(false);
+                keyboardMessages.SetActive(true);
+            }
         }
     }
     
@@ -66,6 +74,9 @@ public class UIManager : MonoBehaviour
         {
             inactivePlayersNew[i] = joystickInactivePlayersNew[i];
             activePlayersNew[i] = joystickActivePlayersNew[i];
+            
+            joystickMessages.SetActive(true);
+            keyboardMessages.SetActive(false);
         }
     }
     
