@@ -69,9 +69,9 @@ public class TrianglePlayer : Player
 
     public bool CheckIfStuck()
     {
-        return (Math.Abs(transform.eulerAngles.z - 240) < 0.3f
+        return Math.Abs(transform.eulerAngles.z - 240) < 0.3f
                 || Math.Abs(transform.eulerAngles.z - 120) < 0.3f
-                || Math.Abs(transform.eulerAngles.z - 0) < 0.3f);
+                || Math.Abs(transform.eulerAngles.z - 0) < 0.3f;
     }
     public override void Jump(InputAction.CallbackContext context)
     {
