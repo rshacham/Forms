@@ -11,7 +11,6 @@ public class MainLevelManager : MonoBehaviour
     {
         UIManager.Manager.MakeTransparentUI("Triangle", 1);
         UIManager.Manager.MakeTransparentUI("Square", 1);
-
     }
 
     void Update()
