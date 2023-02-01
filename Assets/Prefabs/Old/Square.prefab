@@ -297,13 +297,12 @@ MonoBehaviour:
   useDefaultGravity: 0
   useDefaultJumpingPower: 0
   useDefaultAcceleration: 0
-  deathSounds:
-  - {fileID: 8300000, guid: 550961fd9a835ba439fb3cc6157057a9, type: 3}
-  - {fileID: 8300000, guid: 783febad17e5f0d4fb53be54de668981, type: 3}
-  - {fileID: 8300000, guid: c3f3831ef9acb3d419facf492e73fc2d, type: 3}
-  - {fileID: 8300000, guid: f5504a112843c674ebe8e0e5f1289677, type: 3}
-  - {fileID: 8300000, guid: 20586e04cf37a1e4ab28de3bc4d1eeab, type: 3}
-  checkpointSounds: []
+  deathSounds: []
+  checkpointSounds:
+  - {fileID: 8300000, guid: 657041964307241488df274929776d9f, type: 3}
+  - {fileID: 8300000, guid: 51ff365af7b8eaf4caecc6dd6b589ef8, type: 3}
+  - {fileID: 8300000, guid: 633ddf4b76aa1fb4e9ff6d3c32bfe846, type: 3}
+  - {fileID: 8300000, guid: a81da3f55b09c1b4a99c81826e7d0542, type: 3}
   wallJumpingTime: 0.2
   wallJumpingDuration: 0.2
   wallJumpingPower: {x: 18, y: 30}
