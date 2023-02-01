@@ -118,6 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkPointActive: 1
   checkPoint: {x: -211, y: -97.2, z: 0}
+  checkPointSound: {fileID: 8300000, guid: 2215a34c7061b5a4cb6ff628ed2e2558, type: 3}
 --- !u!114 &5345302270797622636
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25903,6 +25903,10 @@ PrefabInstance:
       value: checkPoint (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5683115166590833165, guid: 714cd35381396884097c6585f764e25b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683115166590833165, guid: 714cd35381396884097c6585f764e25b, type: 3}
       propertyPath: checkPointActive
       value: 0
       objectReference: {fileID: 0}

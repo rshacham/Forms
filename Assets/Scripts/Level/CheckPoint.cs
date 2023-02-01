@@ -18,6 +18,8 @@ public class CheckPoint : MonoBehaviour
 
     private bool followHorizontal;
 
+    [SerializeField] private AudioClip checkPointSound;
+
     private void Start()
     {
         if (checkPoint.magnitude < 0.1)
@@ -44,5 +46,7 @@ public class CheckPoint : MonoBehaviour
             _reachecCheckpoint = true;
             GameManager.Manager.ReturnPoint = checkPoint;
         }
+        
+        SoundManager.Manager.PlaySound(checkPointSound);
     }
 }
