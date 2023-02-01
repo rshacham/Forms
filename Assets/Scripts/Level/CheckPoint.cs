@@ -45,8 +45,8 @@ public class CheckPoint : MonoBehaviour
             
             _reachecCheckpoint = true;
             GameManager.Manager.ReturnPoint = checkPoint;
+            SoundManager.Manager.PlaySound(checkPointSound);
         }
         
-        SoundManager.Manager.PlaySound(checkPointSound);
     }
 }
