@@ -271,4 +271,10 @@ public abstract class Player : MonoBehaviour
             SoundManager.Manager.PlayRandomSound(deathSounds);
         }
     }
+
+    public void RemoveMoveables()
+    {
+        _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        collider.enabled = false;
+    }
 }
