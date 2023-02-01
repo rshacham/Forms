@@ -43,6 +43,9 @@ TagManager:
   - name: Background
     uniqueID: 4273005667
     locked: 0
+  - name: EndPlatforms
+    uniqueID: 4289382005
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
