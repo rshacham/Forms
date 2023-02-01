@@ -3412,7 +3412,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7195365353582279369, guid: 15bf0d78c00065b438898db6c48e2590, type: 3}
       propertyPath: scene
-      value: Level Base After Black&White
+      value: After Kandinsky 2
       objectReference: {fileID: 0}
     - target: {fileID: 7195365353582279370, guid: 15bf0d78c00065b438898db6c48e2590, type: 3}
       propertyPath: m_Name
