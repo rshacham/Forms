@@ -28,6 +28,12 @@ public class CirclePlayer : Player
         base.Start();
     }
 
+    public override void Jump(InputAction.CallbackContext context, AudioClip[] sounds = null)
+    {
+        base.Jump(context, jumpSounds);
+    }
+
+
     private new void Update()
     {
         base.Update();
