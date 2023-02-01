@@ -169,7 +169,7 @@ public abstract class Player : MonoBehaviour
         
     }
 
-    public virtual void Jump(InputAction.CallbackContext context)
+    public virtual void Jump(InputAction.CallbackContext context, AudioClip[] sounds = null)
     {
         _lastJumpTime = jumpBufferTime;
         
@@ -180,6 +180,10 @@ public abstract class Player : MonoBehaviour
             _lastJumpTime = 0;
             _isJumping = true;
             _jumpInputReleased = false;
+            if (sounds != null)
+            {
+                SoundManager.Manager.PlayRandomSound(sounds);
+            }
         }
 
         if (context.canceled)

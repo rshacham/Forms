@@ -79,12 +79,12 @@ public class SquarePlayer : Player
         }
     }
     
-    public override void Jump(InputAction.CallbackContext context)
+    public override void Jump(InputAction.CallbackContext context, AudioClip[] sounds = null)
     {
         if (!IsWallSliding && context.performed)
         {
-            base.Jump(context);
-            SoundManager.Manager.PlayRandomSound(jumpSounds);
+            base.Jump(context, jumpSounds);
+            // SoundManager.Manager.PlayRandomSound(jumpSounds);
         }
         
         else if (context.started)
