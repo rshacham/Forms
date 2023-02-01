@@ -47,6 +47,5 @@ public class CheckPoint : MonoBehaviour
             GameManager.Manager.ReturnPoint = checkPoint;
             SoundManager.Manager.PlaySound(checkPointSound);
         }
-        
     }
 }
