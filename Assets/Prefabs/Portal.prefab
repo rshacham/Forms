@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7195365353582279369}
   - component: {fileID: 7195365353582279373}
   - component: {fileID: 7195365353582279372}
+  - component: {fileID: 1921074872409816983}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -148,6 +149,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!68 &1921074872409816983
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7195365353582279370}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.2338593, y: 1.9697627}
+  - {x: -0.11979075, y: 2.553397}
+  - {x: 1.2338593, y: 1.8238553}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &7195365354483303431
 GameObject:
   m_ObjectHideFlags: 0
