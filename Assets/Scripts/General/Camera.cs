@@ -89,7 +89,7 @@ public class Camera : MonoBehaviour
     private void SmothZoom()
     {
         var newZoom = Mathf.SmoothDamp(_camera.orthographicSize, Zoom, ref _otherVelocity, zoomSmoothSpeed);
-
+        
         _camera.orthographicSize = newZoom;
     }
 
