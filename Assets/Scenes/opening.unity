@@ -151,6 +151,18 @@ PrefabInstance:
       propertyPath: oneDashFactor
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1899175381583589346, guid: 162b4092274064541abd845cc0d95623, type: 3}
+      propertyPath: jumpSounds.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899175381583589346, guid: 162b4092274064541abd845cc0d95623, type: 3}
+      propertyPath: deathSounds.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899175381583589346, guid: 162b4092274064541abd845cc0d95623, type: 3}
+      propertyPath: checkpointSounds.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1899175381583589347, guid: 162b4092274064541abd845cc0d95623, type: 3}
       propertyPath: m_Name
       value: Circle
@@ -318,7 +330,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -21961629
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a37e10eb670d11f43981a453513cc267, type: 3}
   m_Color: {r: 0.9339623, g: 0.9017335, b: 0.8508875, a: 1}
@@ -746,6 +758,18 @@ PrefabInstance:
     - target: {fileID: 9096053355253190581, guid: cde8dfb7178cc8b46a913a3d3837286c, type: 3}
       propertyPath: m_ActionEvents.Array.data[19].m_ActionName
       value: Player/ButtonPressed[/Keyboard/anyKey]
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096053355253190581, guid: cde8dfb7178cc8b46a913a3d3837286c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096053355253190581, guid: cde8dfb7178cc8b46a913a3d3837286c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096053355253190581, guid: cde8dfb7178cc8b46a913a3d3837286c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9096053355253190581, guid: cde8dfb7178cc8b46a913a3d3837286c, type: 3}
       propertyPath: m_ActionEvents.Array.data[19].m_PersistentCalls.m_Calls.Array.size
