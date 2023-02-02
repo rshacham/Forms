@@ -60,6 +60,7 @@ public class End : MonoBehaviour
     {
         yield return new WaitForSeconds(resetAppearTime);
         resetText.SetActive(true);
+        GameManager.Manager.IsGameOver = true;
     }
     
     

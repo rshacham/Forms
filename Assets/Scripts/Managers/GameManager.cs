@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -30,6 +33,10 @@ public class GameManager : MonoBehaviour
     public bool HasWallJumped { get; set; }
 
     private Fade fade;
+    
+    public bool IsGameOver { get; set; }
+    private bool buttonPressed;
+    private bool isJoystick;
 
     public Fade Fade
     {
@@ -40,6 +47,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Manager = this;
+        int joystickLen = Input.GetJoystickNames().Length;
+        isJoystick = gameObject.AddComponent<JoystickUtils>().IsConnected(joystickLen);
     }
 
     private void Start()
@@ -51,6 +60,28 @@ public class GameManager : MonoBehaviour
         if (Fade.FadeOutAtStart)
         {
             Fade.StartCoroutine(Fade.StartFade(false));
+        }
+    }
+
+    private void Update()
+    {
+        if (IsGameOver && isJoystick)
+        {
+            var gamepadButtonPressed = Gamepad.current.allControls.Any(x => x is ButtonControl button && x.IsPressed() && !x.synthetic);
+            buttonPressed = gamepadButtonPressed;
+            if (buttonPressed)
+            {
+                Reset();
+            }
+        }
+    }
+    
+    public void ButtonPressed()
+    {
+        if (IsGameOver)
+        {
+            buttonPressed = true;
+            Reset();
         }
     }
 
