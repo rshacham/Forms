@@ -385,7 +385,12 @@ MonoBehaviour:
   useDefaultGravity: 0
   useDefaultJumpingPower: 0
   useDefaultAcceleration: 0
-  deathSounds: []
+  deathSounds:
+  - {fileID: 8300000, guid: ac8bc18002d5fc043ba6d5c31ba43605, type: 3}
+  - {fileID: 8300000, guid: 4babe47c14a94dc42910e8c300f22d08, type: 3}
+  - {fileID: 8300000, guid: e7252726c7f76e340ab250b7cd2e5f5e, type: 3}
+  - {fileID: 8300000, guid: 0805861e2b7fb32498f3ab1c6c867c61, type: 3}
+  - {fileID: 8300000, guid: 82b4f847e779f1f45a48d2c2024c39b8, type: 3}
   checkpointSounds:
   - {fileID: 8300000, guid: 2215a34c7061b5a4cb6ff628ed2e2558, type: 3}
   startWalkRotationBoost: 30
