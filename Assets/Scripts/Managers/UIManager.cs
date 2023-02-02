@@ -57,7 +57,7 @@ public class UIManager : MonoBehaviour
             //         break;
             //     }
             // }
-            if (keyboardMessages.AddComponent<JoystickUtils>().IsConnected(lenJoystick))
+            if (gameObject.AddComponent<JoystickUtils>().IsConnected(lenJoystick))
             {
                 SwitchToJoystickUI();
             }
@@ -156,7 +156,7 @@ public class UIManager : MonoBehaviour
             
             activePlayersNew[i].SetActive(false);
             inactivePlayersNew[i].gameObject.SetActive(true);
-            inactivePlayersNew[i].GetComponent<Image>().color = colorInactive;
+            // inactivePlayersNew[i].GetComponent<Image>().color = colorInactive;
         }
     }
 
