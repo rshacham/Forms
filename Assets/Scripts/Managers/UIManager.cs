@@ -80,11 +80,11 @@ public class UIManager : MonoBehaviour
             inactivePlayersNew[i] = joystickInactivePlayersNew[i];
             activePlayersNew[i] = joystickActivePlayersNew[i];
             
-            if (joystickMessages != null)
-            {
-                joystickMessages.SetActive(false);
-                keyboardMessages.SetActive(true);
-            }
+            // if (joystickMessages != null)
+            // {
+            //     joystickMessages.SetActive(false);
+            //     keyboardMessages.SetActive(true);
+            // }
         }
     }
     
