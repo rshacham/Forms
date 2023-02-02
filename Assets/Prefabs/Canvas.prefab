@@ -508,7 +508,7 @@ MonoBehaviour:
   - {fileID: 1688865586053529536}
   colorInactive: {r: 0, g: 0, b: 0, a: 1}
   joystickMessages: {fileID: 0}
-  keyboardMessages: {fileID: 0}
+  keyboardMessages: {fileID: 1688865585148708714}
 --- !u!1 &1688865586053529536
 GameObject:
   m_ObjectHideFlags: 0
