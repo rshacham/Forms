@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Level base.unity
     guid: 5532b871dadf0634a849ed6be4230cdb
   - enabled: 1
-    path: Assets/Scenes/Kandinsky 1.unity
+    path: Assets/Scenes/Old Scenes/Kandinsky old.unity
     guid: d1ea8f09963367140a56673d9c51b7de
   - enabled: 1
     path: Assets/Scenes/Black & White.unity
