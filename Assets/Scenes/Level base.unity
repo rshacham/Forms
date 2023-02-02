@@ -8168,7 +8168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7195365354483303430, guid: 15bf0d78c00065b438898db6c48e2590, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.91
+      value: -3.03
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7195365353582279369, guid: 15bf0d78c00065b438898db6c48e2590, type: 3}
@@ -13179,11 +13179,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 910101757062339717, guid: 56a116f5e97d4344b922d4d95ce1ecc4, type: 3}
   m_PrefabInstance: {fileID: 4667706963526323253}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1169418835 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5683115166590833161, guid: 714cd35381396884097c6585f764e25b, type: 3}
-  m_PrefabInstance: {fileID: 4667706964074663930}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1169418836 stripped
 Transform:
@@ -21166,6 +21161,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1157026632956867273, guid: cf989cb07be815144ace5c8a77416598, type: 3}
   m_PrefabInstance: {fileID: 4667706963153140059}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1892782207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1731931697263967893, guid: 99019b8fde83fe54f95c941888a905cd, type: 3}
+  m_PrefabInstance: {fileID: 1645989174}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1893544500 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3816108338001320632, guid: c31c8672412721746a45d853dd0d4862, type: 3}
@@ -23246,7 +23246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7195365354483303430, guid: 15bf0d78c00065b438898db6c48e2590, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.75
+      value: -2.81
       objectReference: {fileID: 0}
     - target: {fileID: 7195365354483303430, guid: 15bf0d78c00065b438898db6c48e2590, type: 3}
       propertyPath: m_LocalPosition.y
@@ -39641,7 +39641,7 @@ PrefabInstance:
     - target: {fileID: 5921862331849980207, guid: 2bd8fcb05788d414cbf26f74a74f50bd, type: 3}
       propertyPath: startingPoint
       value: 
-      objectReference: {fileID: 1169418835}
+      objectReference: {fileID: 1892782207}
     - target: {fileID: 5921862331849980207, guid: 2bd8fcb05788d414cbf26f74a74f50bd, type: 3}
       propertyPath: colorInCircle.a
       value: 1
