@@ -10091,11 +10091,6 @@ Transform:
   m_Father: {fileID: 329127628}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 177.312}
---- !u!1 &312346576 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5683115166590833161, guid: 714cd35381396884097c6585f764e25b, type: 3}
-  m_PrefabInstance: {fileID: 1139775926}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &313391448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33683,7 +33678,7 @@ PrefabInstance:
     - target: {fileID: 5921862331849980207, guid: 2bd8fcb05788d414cbf26f74a74f50bd, type: 3}
       propertyPath: startingPoint
       value: 
-      objectReference: {fileID: 312346576}
+      objectReference: {fileID: 0}
     - target: {fileID: 5921862331849980207, guid: 2bd8fcb05788d414cbf26f74a74f50bd, type: 3}
       propertyPath: colorOfCircle.a
       value: 1
