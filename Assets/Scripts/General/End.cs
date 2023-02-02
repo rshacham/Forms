@@ -7,9 +7,13 @@ public class End : MonoBehaviour
 {
     [SerializeField] private GameObject logo;
     [SerializeField] private float logoAppearTime;
+    
+    [SerializeField] private GameObject resetText;
+    [SerializeField] private float resetAppearTime;
 
     [SerializeField] private AudioClip endingTheme;
     [SerializeField] private AudioSource themeMusicSource;
+
     
     [SerializeField] private GameObject end;
 
@@ -34,6 +38,7 @@ public class End : MonoBehaviour
         
         end.SetActive(true);
         StartCoroutine(ActiveLogo());
+        StartCoroutine(ActiveReset());
         EndSound();
     }
 
@@ -49,6 +54,12 @@ public class End : MonoBehaviour
     {
         yield return new WaitForSeconds(logoAppearTime);
         logo.SetActive(true);
+    }
+
+    private IEnumerator ActiveReset()
+    {
+        yield return new WaitForSeconds(resetAppearTime);
+        resetText.SetActive(true);
     }
     
     

@@ -26,7 +26,6 @@ public class SoundManager : MonoBehaviour
         }
         
         var randomClipIndex = Random.Range(0, possibleClips.Length);
-        print(randomClipIndex);
         
         _audioSource.PlayOneShot(possibleClips[randomClipIndex]);
     }
