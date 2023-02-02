@@ -102,6 +102,12 @@ public class Camera : MonoBehaviour
         
         var playerPosition = playerTransform.position;
         
+        // if ((transform.position + cameraOffsets - playerPosition).magnitude < 0.3f)
+        // {
+        //     return;
+        // }
+
+        
         var horizontal = transform.position.x;
         var vertical = transform.position.y;
         var depth = transform.position.z;
@@ -119,8 +125,10 @@ public class Camera : MonoBehaviour
         {
             offsetFix.y = vertical;
         }
-
-        var newPosition = Vector2.SmoothDamp(transform.position, offsetFix, ref _velocity, followSmoothSpeed);
+        
+        var newPosition = Vector2.SmoothDamp
+            (transform.position,
+                offsetFix, ref _velocity, followSmoothSpeed);
 
         if (playerTransform)
         {

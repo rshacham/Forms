@@ -18,7 +18,7 @@ public class Fade : MonoBehaviour
         set => fadeOutAtStart = value;
     }
 
-    private void Start()
+    private void Awake()
     {
         fadeImage = GetComponent<SpriteRenderer>();
     }
