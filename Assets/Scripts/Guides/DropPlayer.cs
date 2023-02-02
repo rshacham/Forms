@@ -59,7 +59,8 @@ public class DropPlayer : MonoBehaviour
             Drop();
         }
 
-        if (Input.GetJoystickNames().Length > 0 && !buttonPressed)
+        int joystickLen = Input.GetJoystickNames().Length;
+        if (pressAnyKeyText.AddComponent<JoystickUtils>().IsConnected(joystickLen) && !buttonPressed)
         {
             var gamepadButtonPressed = Gamepad.current.allControls.Any(x => x is ButtonControl button && x.IsPressed() && !x.synthetic);
             buttonPressed = gamepadButtonPressed;

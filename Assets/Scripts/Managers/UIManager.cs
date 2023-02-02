@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] joystickInactivePlayersNew;
@@ -45,25 +46,29 @@ public class UIManager : MonoBehaviour
     {
         String[] joysticks = Input.GetJoystickNames();
         int lenJoystick = joysticks.Length;
-        bool isJoystick = false; 
+        // bool isJoystick = false; 
         if (lenJoystick > 0)
         {
-            for (int i = 0; i < lenJoystick; i++)
-            {
-                if (!joysticks[i].Equals(""))
-                {
-                    isJoystick = true;
-                    break;
-                }
-            }
-            if (isJoystick)
+            // for (int i = 0; i < lenJoystick; i++)
+            // {
+            //     if (!joysticks[i].Equals(""))
+            //     {
+            //         isJoystick = true;
+            //         break;
+            //     }
+            // }
+            if (keyboardMessages.AddComponent<JoystickUtils>().IsConnected(lenJoystick))
             {
                 SwitchToJoystickUI();
             }
+            
             else
             {
-                joystickMessages.SetActive(false);
-                keyboardMessages.SetActive(true);
+                if (joystickMessages != null)
+                {
+                    joystickMessages.SetActive(false);
+                    keyboardMessages.SetActive(true);
+                }
             }
         }
     }
@@ -75,8 +80,11 @@ public class UIManager : MonoBehaviour
             inactivePlayersNew[i] = joystickInactivePlayersNew[i];
             activePlayersNew[i] = joystickActivePlayersNew[i];
             
-            joystickMessages.SetActive(true);
-            keyboardMessages.SetActive(false);
+            // if (joystickMessages != null)
+            // {
+            //     joystickMessages.SetActive(false);
+            //     keyboardMessages.SetActive(true);
+            // }
         }
     }
     

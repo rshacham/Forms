@@ -249,12 +249,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -490,20 +490,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49fce89140bec646b10da7066f8b75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pcSprites: []
-  joystickSpritesOld: []
-  activePlayers:
-  - {fileID: 1688865586122587831}
-  - {fileID: 1688865585205803078}
-  - {fileID: 1688865586053529536}
-  activePlayersSprites:
-  - {fileID: 21300000, guid: 8dbd1101f44f7e640bf4975d0fa2bd03, type: 3}
-  - {fileID: 21300000, guid: 8022728aeae597847b28608e626e6f1a, type: 3}
-  - {fileID: 21300000, guid: 1aab992b2c898b84aaf62f1eb931efc4, type: 3}
-  inactivePlayerSprites:
-  - {fileID: 21300000, guid: 5ce223f502dd64679b686ddc62be683a, type: 3}
-  - {fileID: 21300000, guid: ea7ea12a54f184f0db0fa0a74005bf66, type: 3}
-  - {fileID: 21300000, guid: 8bea007f7ff2145d999ce1715df9e34c, type: 3}
   joystickInactivePlayersNew:
   - {fileID: 6829195759490115073}
   - {fileID: 4681055519148393268}
@@ -521,6 +507,8 @@ MonoBehaviour:
   - {fileID: 1688865585205803078}
   - {fileID: 1688865586053529536}
   colorInactive: {r: 0, g: 0, b: 0, a: 1}
+  joystickMessages: {fileID: 0}
+  keyboardMessages: {fileID: 1688865585148708714}
 --- !u!1 &1688865586053529536
 GameObject:
   m_ObjectHideFlags: 0

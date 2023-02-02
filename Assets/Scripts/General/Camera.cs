@@ -89,7 +89,7 @@ public class Camera : MonoBehaviour
     private void SmothZoom()
     {
         var newZoom = Mathf.SmoothDamp(_camera.orthographicSize, Zoom, ref _otherVelocity, zoomSmoothSpeed);
-
+        
         _camera.orthographicSize = newZoom;
     }
 
@@ -101,6 +101,12 @@ public class Camera : MonoBehaviour
         }
         
         var playerPosition = playerTransform.position;
+        
+        // if ((transform.position + cameraOffsets - playerPosition).magnitude < 0.3f)
+        // {
+        //     return;
+        // }
+
         
         var horizontal = transform.position.x;
         var vertical = transform.position.y;
@@ -119,8 +125,10 @@ public class Camera : MonoBehaviour
         {
             offsetFix.y = vertical;
         }
-
-        var newPosition = Vector2.SmoothDamp(transform.position, offsetFix, ref _velocity, followSmoothSpeed);
+        
+        var newPosition = Vector2.SmoothDamp
+            (transform.position,
+                offsetFix, ref _velocity, followSmoothSpeed);
 
         if (playerTransform)
         {

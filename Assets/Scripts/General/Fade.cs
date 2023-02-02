@@ -18,7 +18,7 @@ public class Fade : MonoBehaviour
         set => fadeOutAtStart = value;
     }
 
-    private void Start()
+    private void Awake()
     {
         fadeImage = GetComponent<SpriteRenderer>();
     }
@@ -38,8 +38,6 @@ public class Fade : MonoBehaviour
                 UIManager.Manager.MakeTransparentUI("Square", 0);
                 UIManager.Manager.MakeTransparentUI("Triangle", 0);                
             }
-
-
         }
 
         float currentValue = startValue;
