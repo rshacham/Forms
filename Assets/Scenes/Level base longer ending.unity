@@ -13941,6 +13941,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e38874451fa75fe42af9cf45241e7eee, type: 3}
+--- !u!1 &879651186 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5683115166590833161, guid: 714cd35381396884097c6585f764e25b, type: 3}
+  m_PrefabInstance: {fileID: 1010329926}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &880315029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28618,11 +28623,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6799996805404707818, guid: c513f23333e81e34f9d6d4988c6f74b7, type: 3}
   m_PrefabInstance: {fileID: 1097785595}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1838834896 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5683115166590833161, guid: 714cd35381396884097c6585f764e25b, type: 3}
-  m_PrefabInstance: {fileID: 1288792771}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1838834897 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5683115166590833167, guid: 714cd35381396884097c6585f764e25b, type: 3}
@@ -29362,6 +29362,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logo: {fileID: 421006505}
   logoAppearTime: 10
+  resetText: {fileID: 0}
+  resetAppearTime: 0
   endingTheme: {fileID: 8300000, guid: 04edba14aa4e15743b7daaf1f178a2f0, type: 3}
   themeMusicSource: {fileID: 779638379}
   end: {fileID: 915211513}
@@ -35172,7 +35174,7 @@ PrefabInstance:
     - target: {fileID: 5921862331849980207, guid: 2bd8fcb05788d414cbf26f74a74f50bd, type: 3}
       propertyPath: startingPoint
       value: 
-      objectReference: {fileID: 1838834896}
+      objectReference: {fileID: 879651186}
     - target: {fileID: 5921862331849980207, guid: 2bd8fcb05788d414cbf26f74a74f50bd, type: 3}
       propertyPath: colorInCircle.a
       value: 1

@@ -12,15 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Level base.unity
     guid: 5532b871dadf0634a849ed6be4230cdb
   - enabled: 1
-    path: Assets/Scenes/Old Scenes/Kandinsky old.unity
-    guid: d1ea8f09963367140a56673d9c51b7de
-  - enabled: 1
     path: Assets/Scenes/Black & White.unity
     guid: 0dfeca711c10748de8554c7ad49c29ac
   - enabled: 1
-    path: Assets/Scenes/After Kandinsky 1.unity
-    guid: 44263fa3d425dfe4098c1919f3ae370b
+    path: Assets/Scenes/Kandinsky 1.unity
+    guid: d582fd25a1d9144269de2bcfda66347b
   - enabled: 1
     path: Assets/Scenes/After Kandinsky 2.unity
-    guid: c751558d00cbca44a916e252bd9e0d50
+    guid: 27482421db90ffa4bb5147014ab51b14
+  - enabled: 1
+    path: Assets/Scenes/After Kandinsky 1.unity
+    guid: c17c2d647bf9f1e47ba9b9d06ca9eaec
   m_configObjects: {}
