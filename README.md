@@ -1,5 +1,6 @@
+<p align="center">
 <img src="https://img.itch.zone/aW1nLzExMjc4ODAwLmdpZg==/original/TODBzP.gif" alt="Forms Logo" width="200">
-
+</p>
 
 # 🎨 Forms
 
